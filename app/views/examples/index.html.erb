@@ -1,0 +1,34 @@
+<div class="container m-t-1 m-b-1">
+  <%= link_to new_example_path, class: 'btn btn-primary pull-xs-right m-x-auto' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Example
+  <% end %>
+  <h2>examples</h2>
+</div>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Bool</th>
+            <th></th>
+        
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @examples) do |example| %>
+            <td><%= example.name %></td>
+            <td><%= example.description %></td>
+            <td><%= example.bool %></td>
+            <td>
+            <%= link_to 'Show', example, class: "btn btn-outline-primary btn-sm" %>
+            <%= link_to 'Edit', edit_example_path(example), class: "btn btn-primary btn-sm" %>
+            <%= link_to 'Destroy', example, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+        </td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

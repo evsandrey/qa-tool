@@ -5,33 +5,75 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="turbolinks-root" content="/" >
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
   </head>
 
   <body>
-    <nav class="navbar navbar-dark bg-inverse">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <nav class="navbar navbar-dark bg-inverse navbar-fixed-top header">
+    <a class="navbar-brand" href="#">Test</a>
     <ul class="nav navbar-nav">
       <li class="nav-item active">
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
+      <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+      Dropdown
+      </a>
+        <div class="dropdown-menu" aria-labelledby="Preview">
+        <a class="dropdown-item" href="#">Dropdown Link 1</a>
+        <a class="dropdown-item" href="#">Dropdown Link 2</a>
+        <%= link_to "Logs", logs_path, :class => "dropdown-item" %>
+        </div>
+      </li>
     </ul>
     <% if current_user %>
-      <%= link_to "Edit profile", edit_user_registration_path, :class => "btn btn-outline-info pull-xs-right" %>
+      <%= link_to raw("<i class=\"fa fa-user\"></i>"), edit_user_registration_path, :title => "Account Settings" , :class => "btn btn-circle btn-outline-info pull-xs-right" %>
+      <a class="chat-btn btn-danger" onclick="toggleChat()" title="Global chat" ><i class="fa fa-comments"></i></a>
     <% else %> 
       <%= link_to "Login", new_user_session_path, :class => "btn btn-outline-info pull-xs-right" %>
     <% end %>
     </nav>
-    <div class="container m-t-1"><%= flash_messages %></div>
-    <div class="container col-xs-0 col-md-1 col-lg-2"></div>
-    <div class="container col-xs-12 col-md-10 col-lg-8">
-      <%= yield %>
+    <div class="fluid main-content">
+      <div class="container m-t-1"><%= flash_messages %></div>
+      <div class="container col-xs-0 col-md-1 col-lg-2"></div>
+      <div class="container col-xs-12 col-md-10 col-lg-8">
+        <%= yield %>
+      </div>
+      <div class="container col-xs-0 col-md-1 col-lg-2"></div>
     </div>
-    <div class="container col-xs-0 col-md-1 col-lg-2"></div>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--GLOBAL ELEMENTS PART-->
+      <!--// Global collaboration chat HTML-->
+      <div class="chat <%= "invisible" if cookies["chat"] == "false" %>" >
+        <div class="chat-title">
+          <h1>Global notifications</h1>
+          <h2>Supah</h2>
+          <figure class="avatar">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAA1BMVEX+AAAYIGMAAAAAGUlEQVRIie3BAQ0AAADCoPdPbQ8HFAAA/wYJ9gABtUW7+gAAAABJRU5ErkJggg==" /></figure>
+        </div>
+        <div class="messages">
+          <div class="messages-content"></div>
+        </div>
+        <%= form_for @global_message, remote: true, authenticity_token: true, :html => { :class => "message-box" } do |f|%>
+         <%= f.text_area :body, class: "message-input", data: {textarea: "message"}%>
+         <%= f.submit "send", class: "message-submit", data: {send: "message"} %>
+        <%end%>
+      </div>
+      <!--END OF Global collaboration chat HTML-->
+      <!--Global slider HTML-->
+        <div id="slider" class="slider">
+          <div id="slider-content" class="slider-content"></div>
+          <a href="javascript:void(0)" class="closebtn" onclick="closeSlider()">&times;</a>
+        </div>
+        <div id="slider-changer" class="slider-changer" onclick="openSlider()"></div>
+        
+      
+      <!--END OF Global slider HTML-->
+      
+    <!--END OF GLOBAL ELEMENTS PART-->
+    
   </body>
 </html>
-
-
-

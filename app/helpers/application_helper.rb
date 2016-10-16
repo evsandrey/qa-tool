@@ -15,13 +15,24 @@ module ApplicationHelper
   
   def flash_messages(opts = {})
     flash.each do |msg_type, message|
-	   concat(content_tag(:div, message, class: "alert #{bootstrap_class_for(msg_type)} fade in") do 
-              concat content_tag(:button, 'x', class: "close", data: { dismiss: 'alert' })
-              concat message 
-            end)
+       concat(content_tag(:div, message, class: "alert #{bootstrap_class_for(msg_type)} fade in") do 
+        concat content_tag(:button, 'x', class: "close", data: { dismiss: 'alert' })
+        concat message 
+       end)
     end
     nil
   end
+  
+  def log_warning(module_name, message)
+    log = Log.new()
+    log.module_name = module_name
+    log.message = message
+    log.save
+  end
+  
+  def in_user_timezone(time)
+      time.in_time_zone(current_user.time_zone)
+  end 
 
 
 end

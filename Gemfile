@@ -27,14 +27,20 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'mongoid', '~> 6.0.0'
 gem 'devise'
+gem 'cancancan', '~> 1.10'
 gem 'record_tag_helper', '~> 1.0'
 gem 'bootstrap', '~> 4.0.0.alpha4'
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
 end
 
+#Attachments
 gem "paperclip"
 gem "mongoid-paperclip"
+
+#Search and pagination
+gem 'ransack', github: 'activerecord-hackery/ransack'
+gem 'kaminari'
 
 
 # Use Capistrano for deployment

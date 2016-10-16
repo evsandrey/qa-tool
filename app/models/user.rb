@@ -3,6 +3,12 @@ class User
   include Mongoid::Paperclip
 
   has_mongoid_attached_file :avatar
+  has_many :global_messages
+  
+  field :time_zone,         type: String, default: "UTC"
+  
+  
+  
   validates_attachment_content_type :avatar, 
                                     :content_type => /^image\/(png|gif|jpeg)/,
                                     :message => 'only (png/gif/jpeg) images'

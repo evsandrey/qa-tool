@@ -9,68 +9,73 @@
                 <img data-src="holder.js/200x200" class="img-rounded m-x-auto d-block " alt="200x200" style="width: 200px; height: 200px;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22200%22%20height%3D%22200%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_157a457c487%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A10pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_157a457c487%22%3E%3Crect%20width%3D%22200%22%20height%3D%22200%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2275.5%22%20y%3D%22104.5%22%3E200x200%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true">
               <% else %>
                 <img src="<%= f.object.avatar.url %>" class="img-circle" >
-              <% end%>
+              <% end %>
               <%= f.file_field :avatar, :class => 'm-x-auto d-block' %>
             </div>
             <div class="col-md-8">
               <ul class="nav nav-tabs" role="tablist">
                 <li class="nav-item">
-                  <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Home</a>
+                  <a class="nav-link active" data-toggle="tab" href="#main" role="tab">Main</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" data-toggle="tab" href="#profile" role="tab">Profile</a>
+                  <a class="nav-link" data-toggle="tab" href="#password" role="tab">Password</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" data-toggle="tab" href="#messages" role="tab">Messages</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" data-toggle="tab" href="#settings" role="tab">Settings</a>
+                  <a class="nav-link" data-toggle="tab" href="#tobe" role="tab">To be</a>
                 </li>
               </ul>
 
               <!-- Tab panes -->
               <div class="tab-content">
-                <div class="tab-pane active" id="home" role="tabpanel">.wqe..</div>
-                <div class="tab-pane" id="profile" role="tabpanel">.asd..</div>
-                <div class="tab-pane" id="messages" role="tabpanel">..asd.</div>
-                <div class="tab-pane" id="settings" role="tabpanel">...</div>
-              </div>
-              <div class="form-group row">
-                <label for="example-text-input" class="col-xs-4 col-form-label">Email</label>
-                <div class="col-xs-8">
-                  <%= f.email_field :email, autofocus: true , :class => "form-control"%>
+                <div class="tab-pane active p-t-1 profile-tab" id="main" role="tabpanel">
+                  <div class="form-group row">
+                    <label for="example-text-input" class="col-xs-4 col-form-label">Email</label>
+                    <div class="col-xs-8">
+                      <%= f.email_field :email, autofocus: true , :class => "form-control"%>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="example-text-input" class="col-xs-4 col-form-label">Name</label>
+                    <div class="col-xs-8">
+                      <%= f.text_field :first_name, autofocus: true , :class => "form-control"%>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="example-text-input" class="col-xs-4 col-form-label">Surname</label>
+                    <div class="col-xs-8">
+                      <%= f.text_field :last_name, autofocus: true , :class => "form-control"%>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane p-t-1 profile-tab" id="password" role="tabpanel">
+                  <div class="form-group row">
+                    <label for="example-search-input" class="col-xs-4 col-form-label">New password</label>
+                    <div class="col-xs-8">
+                       <%= f.password_field :password, autocomplete: "off", :class => "form-control"%>
+                        <% if @minimum_password_length %>
+                          <br />
+                          <em><%= @minimum_password_length %> characters minimum</em>
+                        <% end %>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="example-email-input" class="col-xs-4 col-form-label">Confirm new</label>
+                    <div class="col-xs-8">
+                      <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control" %>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane p-t-1 profile-tab" id="tobe" role="tabpanel">
+                  <div class="form-group row">
+                    <label for="example-email-input" class="col-xs-4 col-form-label">Time zone</label>
+                    <div class="col-xs-8">
+                      <%= f.time_zone_select :time_zone, nil, {}, {:class => 'form-control'} %>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="form-group row">
-                <label for="example-text-input" class="col-xs-4 col-form-label">Name</label>
-                <div class="col-xs-8">
-                  <%= f.text_field :first_name, autofocus: true , :class => "form-control"%>
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="example-text-input" class="col-xs-4 col-form-label">Surname</label>
-                <div class="col-xs-8">
-                  <%= f.text_field :last_name, autofocus: true , :class => "form-control"%>
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="example-search-input" class="col-xs-4 col-form-label">New password</label>
-                <div class="col-xs-8">
-                   <%= f.password_field :password, autocomplete: "off", :class => "form-control"%>
-                    <% if @minimum_password_length %>
-                      <br />
-                      <em><%= @minimum_password_length %> characters minimum</em>
-                    <% end %>
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="example-email-input" class="col-xs-4 col-form-label">Confirm new</label>
-                <div class="col-xs-8">
-                  <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control" %>
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="example-url-input" class="col-xs-4 col-form-label">Current pass</label>
+                <label for="example-url-input" class="col-xs-4 col-form-label"><b>Current pass</b></label>
                 <div class="col-xs-8">
                   <%= f.password_field :current_password, autocomplete: "off", :class => "form-control" %>
                 </div>

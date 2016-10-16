@@ -1,0 +1,9 @@
+    <div class="message new">
+        <figure class="avatar">
+            <img src="<%= message.user.avatar.url %>" />
+        </figure>
+        <span class="limitator"><%= message.body %></span>
+        <div class="timestamp">
+            <%= in_user_timezone(message.created_at).strftime("%H:%M") %>
+        </div>
+    </div>

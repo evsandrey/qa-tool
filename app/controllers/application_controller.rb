@@ -2,6 +2,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_filter :chat_init, :set_timezone
   
+  
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to main_app.root_url, :alert => exception.message
+  end
+  
+  
   def chat_init
     # For new messages
     @global_message = GlobalMessage.new

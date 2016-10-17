@@ -22,7 +22,7 @@
             <td><%= user.role %></td>
             <td>
                 <%= link_to 'Show', profile_path(user) , class: "btn btn-outline-primary btn-sm" %>
-                <%= link_to 'Edit', edit_profile_path(user), class: "btn btn-primary btn-sm" %>
+                <%= link_to 'Edit', edit_profile_path(user), class: "btn btn-primary btn-sm" if can? :update, user %>
             </td>
       <% end %>
     </tbody>

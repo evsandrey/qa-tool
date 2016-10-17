@@ -3,7 +3,6 @@
 $(document).on('turbolinks:load', function() {
   console.log("Chat.js exec")
   $('.messages-content').mCustomScrollbar();
-  console.log("Scroll init");
   initChat();
   registerEvents();
 });
@@ -22,7 +21,8 @@ function initChat() {
       updateScrollbar();
     })
     .fail(function() {
-      alert( "error in chat init" );
+      $(".chat-btn").addClass("hidden");
+      console.log( "error in chat init" );
     })
     .always(function() {
       
@@ -81,9 +81,7 @@ function registerEvents() {
           }
           else
           {
-            console.log("no shift");
             $("#new_global_message").trigger('submit.rails');
-            console.log("Submit message")
             $("#global_message_body").val("");
           }
           return false;

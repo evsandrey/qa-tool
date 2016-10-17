@@ -1,6 +1,8 @@
 class ExamplesController < ApplicationController
   before_action :set_example, only: [:show, :edit, :update, :destroy]
-
+  
+  load_and_authorize_resource
+  
   # GET /examples
   # GET /examples.json
   def index

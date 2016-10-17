@@ -51,6 +51,11 @@ class User
   # field :unlock_token,    type: String # Only if unlock strategy is :email or :both
   # field :locked_at,       type: Time
   
+  def admin?
+    return true if role == "Admin"
+    false
+  end
+  
   def full_name
     first_name+" "+last_name
   end  

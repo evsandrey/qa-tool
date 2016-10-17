@@ -3,4 +3,5 @@ class Example
   field :name, type: String
   field :description, type: String
   field :bool, type: Mongoid::Boolean
+  
 end

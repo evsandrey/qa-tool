@@ -10,8 +10,8 @@
       <% end %>-->
   <h2>logs</h2>
 </div>
+<div class="container row">
 <%= search_form_for @q ,:html => { :class => "form-inline" } do |f| %>
-
   <div class="form-group col-sm-3">
     <%= f.label "Module" %>
     <%= f.search_field :module_name_cont, :class => "form-control" %>
@@ -28,12 +28,31 @@
     <%= f.submit "Search", :class => "btn btn-primary" %>
   </div>
 <% end %>
-
-<pre>
-  <code class="accesslog">
+</div>
+<div class="container row m-t-1">
+  <table class="table table-sm">
+  <thead>
+    <tr class="bg-info">
+      <th>Time</th>
+      <th>IP</th>
+      <th>Module</th>
+      <th>Level</th>
+      <th>Message</th>
+      <th>User</th>
+    </tr>
+  </thead>
+  <tbody>
     <% @logs.each do |log| %>
-      [<%= in_user_timezone(log.created_at) %>]  <%= log.module_name %> <%= log.level %> <%= log.message %>
+      <tr class="<%= log.get_color %>">
+        <td><%= in_user_timezone(log.created_at) %></td>
+        <td><%= log.ip_address %></td>
+        <td><%= log.module_name %></td>
+        <td><%= log.level %></td>
+        <td><%= log.message %></td>
+        <td><%= log.user.full_name %></td>
+      </tr>
     <% end %>
-  </code>
-</pre>
+  </tbody>
+  </table
+</div>
 <%= paginate @logs %>

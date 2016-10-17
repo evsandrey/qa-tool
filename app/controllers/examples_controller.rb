@@ -6,6 +6,7 @@ class ExamplesController < ApplicationController
   # GET /examples
   # GET /examples.json
   def index
+    log_access("example","index")
     @examples = Example.all
   end
 
@@ -16,6 +17,7 @@ class ExamplesController < ApplicationController
 
   # GET /examples/new
   def new
+    log_warning("example","Warning on new")
     @example = Example.new
   end
 
@@ -27,7 +29,7 @@ class ExamplesController < ApplicationController
   # POST /examples.json
   def create
     @example = Example.new(example_params)
-
+    log_error("example","error on create")
     respond_to do |format|
       if @example.save
         format.html { redirect_to @example, notice: 'Example was successfully created.' }

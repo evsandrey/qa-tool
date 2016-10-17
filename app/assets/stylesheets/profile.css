@@ -1,3 +1,17 @@
+
+label.fsLabel input[type="file"] {
+    position: fixed;
+    top: -1000px;
+}
+
+.tab-pane {
+    border-bottom: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-right : 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
 .user-row {
     margin-bottom: 14px;
 }
@@ -34,5 +48,4 @@
 
 .profile-tab {
     min-height:250px;
-    
 }

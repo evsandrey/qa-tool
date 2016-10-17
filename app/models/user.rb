@@ -1,7 +1,9 @@
 class User
   include Mongoid::Document
   include Mongoid::Paperclip
-
+  
+  ROLES = ["Admin", "Manager", "Regular"]
+  
   has_mongoid_attached_file :avatar
   has_many :global_messages
   
@@ -21,8 +23,7 @@ class User
   field :email,              type: String, default: ""
   field :first_name,         type: String, default: ""
   field :last_name,          type: String, default: ""
-  field :email,              type: String, default: ""
-
+  field :role,               type: String, default: "Regular"
   field :encrypted_password, type: String, default: ""
 
   ## Recoverable
@@ -49,4 +50,8 @@ class User
   # field :failed_attempts, type: Integer, default: 0 # Only if lock strategy is :failed_attempts
   # field :unlock_token,    type: String # Only if unlock strategy is :email or :both
   # field :locked_at,       type: Time
+  
+  def full_name
+    first_name+" "+last_name
+  end  
 end

@@ -6,16 +6,41 @@ before_action :configure_account_update_params, only: [:update]
   # def new
   #   super
   # end
-
+   
   # POST /resource
   # def create
   #   super
   # end
 
+  
+   def show
+     @user = User.find(params['id'])
+   end
+  
+  def admin_edit_profile
+     @user = User.find(params['id'])
+  end
+  
+  def admin_update_profile
+     @user = User.find(params['id'])
+     @user.role = params['user']['role']
+     respond_to do |format|
+      if @user.save
+        format.html { render :show, notice: 'User was successfully updated' }
+        format.json { render :show, status: :created, location: profile_path(@user) }
+      else
+        format.html { render edit_profile_path(@user) }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  
   # GET /resource/edit
   # def edit
   #   super
   # end
+
+
 
   # PUT /resource
   # def update
@@ -40,7 +65,7 @@ before_action :configure_account_update_params, only: [:update]
 
   # If you have extra params to permit, append them to the sanitizer.
    def configure_sign_up_params
-     devise_parameter_sanitizer.permit(:sign_up, keys: [:avatar])
+     devise_parameter_sanitizer.permit(:sign_up, keys: [:avatar,:first_name,:last_name])
    end
 
   # If you have extra params to permit, append them to the sanitizer.

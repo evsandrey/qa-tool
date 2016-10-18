@@ -15,6 +15,7 @@
 //= require bootstrap
 //= require jquery_ujs
 //= require turbolinks
+//= require loader
 //= mCustomScrollbar
 //= require cookie
 //= require_tree .
@@ -23,20 +24,6 @@
 $(document).on('turbolinks:load', function() {
     console.log("App.js exec")
 });
-
-function closeSlider() {
-    document.getElementById("slider").style.width = "0";
-}
-
-function openSlider() {
-    document.getElementById("slider").style.width = "100%";
-}
-
-
-function LoadSliderWith(url,data){
-        
-}
-// END OF Global slider 
 
 function SwitchCookie(name) {
   if ($.cookie(name) == "true") {

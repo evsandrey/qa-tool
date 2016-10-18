@@ -35,7 +35,7 @@ function initChat() {
 function toggleChat() {
   $(".chat").toggleClass("invisible");
   SwitchCookie("chat")
-  $.cookie("lastRead",new Date());
+  updateLastRead();
   $(".chat-btn").removeClass("blinking");
   unread_count =0;
   updateUnreadCounter();
@@ -57,11 +57,21 @@ function insertNewMessage(msg) {
     $(".chat-btn").addClass("blinking");
     updateUnreadCounter();
   }
+  updateLastRead();
   updateScrollbar();
 }
 
+function updateLastRead() {
+  if ($.cookie("chat") == "true") {
+    $.cookie("lastRead",new Date());
+  }
+}
+
+
+
 function insertMessage(msg) {
   $(msg).appendTo($('.mCSB_container')).addClass('new');
+  updateLastRead();
 }
 
 function updateScrollbar() {

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'static/profiles'
   
   resources :global_messages
+  get 'global_chat' => 'global_messages#global_chat', as: 'global_chat_log'
   
   devise_for :users, controllers: {
         sessions: 'users/sessions',
@@ -24,6 +25,9 @@ Rails.application.routes.draw do
     get 'profile/:id/admin_edit' => 'users/registrations#admin_edit_profile', as: 'edit_profile'
     post 'profile/:id/admin_update' => 'users/registrations#admin_update_profile', as: 'update_profile'
   end
+  
+  
+  
   
   resources :examples
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

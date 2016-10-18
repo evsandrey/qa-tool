@@ -13,6 +13,12 @@ class GlobalMessagesController < ApplicationController
     end
   end
   
+  def global_chat
+    @q = GlobalMessage.ransack(params[:q])
+    @q.sorts = 'created_at asc' if @q.sorts.empty?
+    @messages = @q.result.page params[:page]
+  end
+  
   def map_for_init(selection)
     a = []
     selection.each.with_index do |message,index|

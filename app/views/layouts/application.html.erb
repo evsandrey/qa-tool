@@ -15,7 +15,7 @@
 
   <body>
     <nav class="navbar navbar-dark bg-inverse navbar-fixed-top header">
-    <a class="navbar-brand" href="#">Test</a>
+    <a class="navbar-brand" href="/">Test</a>
     <ul class="nav navbar-nav">
       <li class="nav-item active">
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
@@ -26,8 +26,8 @@
       </a>
         <div class="dropdown-menu" aria-labelledby="Admin">
         <a class="dropdown-item" href="#">Admin</a>
-        <%= link_to "Logs", logs_path, :class => "dropdown-item" %>
-        <%= link_to "Users", static_profiles_path, :class => "dropdown-item" %>
+          <%= link_to "Logs", logs_path, :class => "dropdown-item" %>
+          <%= link_to "Users", static_profiles_path, :class => "dropdown-item" %>
         </div>
       </li>
     </ul>
@@ -77,10 +77,13 @@
       <!--END OF Global collaboration chat HTML-->
       <!--Global slider HTML-->
         <div id="slider" class="slider">
+          <div class="slider-loader">
+            <img  class="m-x-a" src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/nursing-homes/img/loader-white.gif" />
+          </div>
           <div id="slider-content" class="slider-content"></div>
-          <a href="javascript:void(0)" class="closebtn" onclick="closeSlider()">&times;</a>
+          <div class="closebtn" onclick="closeSlider()"><i class="fa fa-arrow-circle-o-right facentered arrow"></i></div>
         </div>
-        <div id="slider-changer" class="slider-changer" onclick="openSlider()"></div>
+        <div class="openbtn" onclick="openSlider()"><i class="fa fa-arrow-circle-o-left facentered arrow m-l-1"></i></div>
         
       
       <!--END OF Global slider HTML-->

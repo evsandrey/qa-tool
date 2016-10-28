@@ -82,8 +82,8 @@ class ReportsController < ApplicationController
 
   def report_end
     @report =  Report.new()
-    @report.version = Version.find_by(name: params["version"])
-    @report.product = Product.find_by(name: params["product"])
+    #@report.version = Version.find_by(name: params["version"])
+    #@report.product = Product.find_by(name: params["product"])
     @report.build = Build.find_by(name: params["build"])
     @report.suite = Suite.find_by(name: params["suite"])
     @report.result  = (params["result"] == 'passed')

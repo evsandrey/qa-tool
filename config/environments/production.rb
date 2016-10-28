@@ -8,6 +8,8 @@ Rails.application.configure do
     config.logger = ActiveSupport::TaggedLogging.new(logger)
   end
 
+  config.web_socket_server_url = "wss://terepo.herokuapp.com/cable" 
+  config.action_cable.allowed_request_origins = ['https://terepo.herokuapp.com', 'http://terepo.herokuapp.com']
   # Code is not reloaded between requests.
   config.cache_classes = true
 

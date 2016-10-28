@@ -92,10 +92,12 @@ class ReportsController < ApplicationController
     p @report.to_json
     if @report.save 
         format.json { render :show, status: :created, location: @report }
-        format.html
+        format.html { redirect_to @report, notice: 'Report was successfully created.' }
+        format.js
       else
         format.json { render json: @report.errors, status: :unprocessable_entity }
-        format.html
+        format.html {render :edit }
+        format.js
       end
   end
 

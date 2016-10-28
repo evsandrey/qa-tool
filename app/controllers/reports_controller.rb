@@ -88,7 +88,7 @@ class ReportsController < ApplicationController
     @report.suite = Suite.find_by(name: params["suite"])
     @report.result  = (params["result"] == 'passed')
     @report.error = params["error"]
-    @report.custom_params = params["custom_params"]
+    @report.custom_params = params["custom_params"].to_json
     p @report.to_json
     if @report.save 
         format.json { render :show, status: :created, location: @report }

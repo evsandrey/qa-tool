@@ -14,7 +14,18 @@ development:
         # Change the default write concern. (default = { w: 1 })
         # write:
         #   w: 1
-
+<% if ENV['MONGOLAB_URI'] %>
+  <% uri = URI.parse(ENV['MONGOLAB_URI']) %>
+production:
+  clients:
+    default:
+      database: <%= uri.path.sub('/','') %>
+      hosts:
+        - <%= uri.host %>:<%= uri.port %>
+      options:
+        user: <%= uri.user %>
+        password: <%= uri.password %>
+<% end %>
         # Change the default read preference. Valid options for mode are: :secondary,
         # :secondary_preferred, :primary, :primary_preferred, :nearest
         # (default: primary)

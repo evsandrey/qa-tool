@@ -82,11 +82,13 @@ class ReportsController < ApplicationController
 
   def report_end
     @report =  Report.new()
-    log_warning("dsad","asdasdasd")
-    p "end redirect_to"
-    p params.to_json
+    @report.suite = Suite.find_by(name: params["suite"])
+    @report.result  = (params["result"] == 'passed')
+    @report.error = params["error"]
+    @report.custom_params = params["custom_params"]
+    
     if @report.save 
-      format.json { render :show, status: :created, location: @report }
+        format.json { render :show, status: :created, location: @report }
       else
         format.json { render json: @report.errors, status: :unprocessable_entity }
       end

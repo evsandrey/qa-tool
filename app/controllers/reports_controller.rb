@@ -90,7 +90,8 @@ class ReportsController < ApplicationController
     @report.error = params["error"]
     @report.custom_params = params["custom_params"].to_json
     p @report.to_json
-    if @report.save 
+    respond_to do |format|
+      if @report.save 
         format.json { render :show, status: :created, location: @report }
         format.html { redirect_to @report, notice: 'Report was successfully created.' }
         format.js
@@ -99,6 +100,7 @@ class ReportsController < ApplicationController
         format.html {render :edit }
         format.js
       end
+    end
   end
 
   private

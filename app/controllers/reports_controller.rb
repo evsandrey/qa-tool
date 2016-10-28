@@ -92,8 +92,10 @@ class ReportsController < ApplicationController
     p @report.to_json
     if @report.save 
         format.json { render :show, status: :created, location: @report }
+        format.html
       else
         format.json { render json: @report.errors, status: :unprocessable_entity }
+        format.html
       end
   end
 

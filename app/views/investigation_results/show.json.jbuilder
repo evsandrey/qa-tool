@@ -1,0 +1,1 @@
+json.partial! "investigation_results/investigation_result", investigation_result: @investigation_result

@@ -1,0 +1,34 @@
+<div class="container m-t-1 m-b-1">
+  <%= link_to new_product_version_suite_path(@product,@version), class: 'btn btn-primary pull-xs-right m-x-auto' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Suite
+  <% end %>
+  <h2>suites</h2>
+</div>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Custom params</th>
+            <th></th>
+        
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @suites) do |suite| %>
+            <td><%= suite.name %></td>
+            <td><%= suite.description %></td>
+            <td><%= suite.custom_params %></td>
+            <td>
+            <%= link_to 'Show', product_version_suite_path(@product,@version,suite), class: "btn btn-outline-primary btn-sm" %>
+            <%= link_to 'Edit', edit_product_version_suite_path(@product,@version,suite), class: "btn btn-primary btn-sm" %>
+            <%= link_to 'Destroy', product_version_suite_path(@product,@version,suite), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+        </td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

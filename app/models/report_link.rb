@@ -1,0 +1,14 @@
+class ReportLink
+  include Mongoid::Document
+  
+  field :report_id, type: String
+  field :result, type: Mongoid::Boolean
+  field :error, type: String
+  field :comment, type: String
+  field :investigation_result , type: String
+  field :suite, type: String
+  field :reruns, type: Integer
+  
+  embedded_in :build
+  
+end

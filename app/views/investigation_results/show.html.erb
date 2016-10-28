@@ -1,0 +1,21 @@
+<div class="container m-t-1 m-b-1">
+  <%= link_to investigation_results_path, class: 'btn btn-outline-primary pull-md-right m-l-1' do %>
+    Back
+  <% end %>
+  <%= link_to edit_investigation_result_path(@investigation_result), class: 'btn btn-info pull-md-right' do %>
+    Edit
+  <% end %>
+  <h1>Show investigation_result</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Name:</dt>
+  <dd><%= @investigation_result.name %></dd>
+
+  <dt>Code:</dt>
+  <dd><%= @investigation_result.code %></dd>
+
+  <dt>Description:</dt>
+  <dd><%= @investigation_result.description %></dd>
+
+</dl>

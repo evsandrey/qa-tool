@@ -1,0 +1,39 @@
+<% @builds = @version.builds.desc('_id').limit(10).reverse! %>
+<% @suites = @version.suites %>
+
+
+<div class="container m-t-1 m-b-1">
+  <%= link_to new_product_version_suite_path(@product,@version), class: 'btn btn-outline-primary pull-md-right m-l-1' do %>
+    New suite
+  <% end %>
+  <%= link_to new_product_version_build_path(@product,@version), class: 'btn btn-outline-primary pull-md-right m-l-1' do %>
+    New build
+  <% end %>
+  <%= link_to edit_product_version_path(@product,@version), class: 'btn btn-info pull-md-right' do %>
+    Edit
+  <% end %>
+  <h1>Version <%= @version.name %> </h1>
+</div>
+<div class="table-responsive ">
+  <table class="table table-bordered table-hover big-mama">
+    <thead>
+      <th></th>
+      <% builds = @version.builds.desc('_id').limit(10).reverse! %>
+      <% builds.each do |build| %>
+      <th id="<%= build.id %>"><%= link_to build.name, product_version_build_path(@product,@version,build) %></th>
+      <% end %>
+      <th></th>
+    </thead>
+    <tbody>
+      <% @version.suites.each do |suite| %>
+      <tr id="<%= suite.id %>"> 
+        <td><%= link_to suite.name , product_version_suite_path(@product,@version,suite)%></td>
+        <% builds.each do |build| %>
+          <% report = build.report_links.where(suite: suite._id).last %>
+          <td id="cell-<%= report.report_id %>"> <%= render :partial => 'reports/icon', :locals => {:report => report } %>  </td>  
+        <% end %>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

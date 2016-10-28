@@ -1,0 +1,71 @@
+<%= form_for([@product,@version,@suite], html: { class: "form-horizontal", role: "form" }) do |f| %>
+  <% if @suite.errors.any? %>
+    <div class="alert alert-danger alert-dismissable" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <h4><%= pluralize(@suite.errors.count, "error") %> prohibited this suite from being saved:</h4>
+
+      <ul>
+      <% @suite.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.text_field :version_id, class: "invisible", value: @version._id %>
+
+  <div class="form-group row">
+    
+      <%= f.label :name, class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+    
+  </div>
+  <div class="form-group row">
+    
+      <%= f.label :description, class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :description, class: "form-control" %>
+      </div>
+    
+  </div>
+  <div class="form-group row">
+    <%= f.label :custom_params, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">  
+      <div class="custom-fields-form">
+        <table class="custom-fields-table">
+          <thead>
+            <th>Name</th>
+            <th>Value</th>
+            <th></th>
+          </thead>
+          <tbody class="custom-fields-body">
+            <% if !f.object.custom_params.nil? %>
+              <% JSON.parse(f.object.custom_params).each do |key| %>
+                <tr class="custom-node">
+                  <td>
+                    <input class="form-control name" type="text" value="<%= key['name'] %>"></input>
+                  </td>
+                  <td>
+                    <input class="form-control value" type="text" value="<%= key['val'] %>"></input>
+                  </td>
+                  <td>
+                    <button class="btn btn-sm btn-danger btn-del-custom">-</button>
+                  </td>
+                </tr>
+              <% end %>
+            <% end %>
+          </tbody>
+        </table>
+        <a class="btn btn-sm btn-primary btn-add-custom">Add field</a>
+      </div>
+    </div>  
+        <%= f.text_field :custom_params, class: "invisible json_holder" %>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit class: "btn btn-primary", onclick: "getFormData()" %>
+    </div>
+  </div>
+<% end %>

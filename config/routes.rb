@@ -1,7 +1,28 @@
 Rails.application.routes.draw do
   
+  resources :reports
+  get '/investigation_form', to: "reports#investigation_form"
+  post '/investigation_update', to: "reports#investigation_update"
+  
+  resources :investigation_results
+  resources :bugs
+  resources :bulids
+  resources :versions
+  resources :products do
+    member do
+        post '/report', to: "reports#report_end"
+    end
+    resources :versions do
+      resources :builds 
+      resources :suites do 
+        resources :reports
+      end
+    end
+  end
   resources :logs
-  root to: "static#index"
+  
+  
+  root to: "products#index"
   
   get 'static/index'
   get 'static/faq'

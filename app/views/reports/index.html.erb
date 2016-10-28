@@ -1,0 +1,36 @@
+<div class="container m-t-1 m-b-1">
+  <%= link_to new_report_path, class: 'btn btn-primary pull-xs-right m-x-auto' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Report
+  <% end %>
+  <h2>reports</h2>
+</div>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+            <th>Name</th>
+            <th>Result</th>
+            <th>Comment</th>
+            <th>Additional params</th>
+            <th></th>
+        
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @reports) do |report| %>
+            <td><%= report.name %></td>
+            <td><%= report.result %></td>
+            <td><%= report.comment %></td>
+            <td><%= report.additional_params %></td>
+            <td>
+            <%= link_to 'Show', report, class: "btn btn-outline-primary btn-sm" %>
+            <%= link_to 'Edit', edit_report_path(report), class: "btn btn-primary btn-sm" %>
+            <%= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+        </td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,5 +1,11 @@
 /* global $*/
 
+SliderLinkLoaded="";
+SliderDataLoaded="";
+
+
+
+
 function closeSlider() {
     document.getElementById("slider").style.width = "0";
 }
@@ -15,9 +21,11 @@ function LoadSliderWith(url,data){
       url: url,
       data: data,
       beforeSend: function( xhr ) {
+        SliderLinkLoaded=url;
+        SliderDataLoaded=data;
         //Start loader
         $(".slider-loader").show();
-        $(".slider-content").html("");
+        $(".slider-content").empty();
         openSlider();
       }
     })
@@ -34,4 +42,9 @@ function LoadSliderWith(url,data){
       //Close loader
       $(".slider-loader").hide();
     });     
+}
+
+
+function ReloadSlider() {
+  LoadSliderWith(SliderLinkLoaded,SliderDataLoaded);
 }

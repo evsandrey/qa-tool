@@ -34,6 +34,8 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
 end
 
+gem 'mongoid-slug'
+
 #Attachments
 gem "paperclip"
 gem "mongoid-paperclip"

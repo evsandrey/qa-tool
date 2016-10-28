@@ -1,0 +1,24 @@
+<div class="container m-t-1 m-b-1">
+  <%= link_to new_product_path, class: 'btn btn-primary pull-xs-right m-x-auto' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Product
+  <% end %>
+  <h2>products</h2>
+</div>
+
+<div class="row">
+  <% @products.each do |product| %>
+    <div class="card">
+      <div class="card-block">
+        <h4 class="card-title"><%= product.name %></h4>
+        <p class="card-text"><%= product.description %></p>
+        <%= link_to 'Show', product_versions_path(product), class: "btn btn-outline-primary btn-sm" %>
+        <%= link_to 'Edit', edit_product_path(product), class: "btn btn-primary btn-sm" %>
+        <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>        
+      </div>
+    </div>
+  <% end %>
+  
+  
+  
+</div>

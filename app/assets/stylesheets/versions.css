@@ -1,0 +1,46 @@
+table.big-mama {
+    word-wrap: break-word;
+}
+
+.big-mama tr {
+    border-bottom: 1px !important;
+    border-bottom-color: black !important;
+    max-width:30px !important; 
+}
+
+.big-mama td {
+    position:relative;
+    text-align: center !important;
+    padding: 5px !important;  
+    border-bottom: 1px !important;
+    border-bottom-color: black !important;
+    width:20px !important;
+}
+
+.big-mama th {
+    text-align: center !important;
+    padding: 5px !important;  
+    border-bottom: 1px !important;
+    border-bottom-color: black !important;
+    width:10px !important;
+}
+
+.report-icon {
+    min-height: 100% !important;
+    min-width: 100% !important;
+}
+
+.investigated-code {
+    z-index: 300 !important;
+    position: absolute;
+    left:20%;
+    height: 60%;
+    width: 60%;
+}
+
+.investigated-bg {
+    z-index: 99 !important;
+    position: absolute;
+    top: 5px;
+    left: 30%;
+}

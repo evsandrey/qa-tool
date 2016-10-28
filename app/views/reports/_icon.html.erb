@@ -1,0 +1,13 @@
+
+<div class="report-icon" id="<%= report.class == Report ? report._id : report.report_id %>">
+    <% if report.result %>
+        <img height=30 width=30 src="/icons/Passed.png" />
+    <% else %>
+        <% if report.investigation_result.nil?%>
+            <img height=30 width=30 src="/icons/Failed.png" />
+        <% else %>
+            <div class="investigated-code"></span><%= report.investigation_result.class == InvestigationResult ? report.investigation_result.code : report.investigation_result %></div>
+            <img class="investigated-bg" height=30 width=30 src="/icons/Warning.png" />
+        <% end %>
+    <% end %>
+</div>

@@ -1,0 +1,36 @@
+<div class="container m-t-1 m-b-1">
+  <%= link_to new_bug_path, class: 'btn btn-primary pull-xs-right m-x-auto' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Bug
+  <% end %>
+  <h2>bugs</h2>
+</div>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+            <th>External</th>
+            <th>Summary</th>
+            <th>External link</th>
+            <th>Status</th>
+            <th></th>
+        
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @bugs) do |bug| %>
+            <td><%= bug.external_id %></td>
+            <td><%= bug.summary %></td>
+            <td><%= bug.external_link %></td>
+            <td><%= bug.status %></td>
+            <td>
+            <%= link_to 'Show', bug, class: "btn btn-outline-primary btn-sm" %>
+            <%= link_to 'Edit', edit_bug_path(bug), class: "btn btn-primary btn-sm" %>
+            <%= link_to 'Destroy', bug, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+        </td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

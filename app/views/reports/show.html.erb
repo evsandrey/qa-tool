@@ -1,0 +1,38 @@
+<div class="container row">
+
+<div class="col-md-2 col-sm-3">
+</div>
+<div class="col-md-8 col-sm-6">
+<dl class="dl-horizontal">
+<div class="container m-t-1 m-b-1">
+  <%= link_to edit_report_path(@report), class: 'btn btn-info pull-md-right' do %>
+    Edit
+  <% end %>
+  <h1>Show report</h1>
+</div>
+
+  <dt>Build:</dt>
+  <dd><%= @report.build.name %></dd>
+  
+  <dt>Suite:</dt>
+  <dd><%= @report.suite.name %></dd>
+  
+  <dt>Result:</dt>
+  <dd><%= @report.result %></dd>
+  
+  <dt>Error:</dt>
+  <dd><%= @report.error %></dd>
+
+  <dt>Investigation result:</dt>
+  <dd><%= @report.investigation_result.name if !@report.investigation_result.blank? %></dd>
+  
+  <dt>Comment:</dt>
+  <dd><%= @report.comment %></dd>
+  
+  <button id="<%= @report._id %>" class="btn btn-warning" onclick='LoadModalWith("/investigation_form",{ id: this.id } )'>Set investigation status</button>
+  
+</dl>
+</div>
+<div class="col-md-2 col-sm-3">
+</div>
+</div>

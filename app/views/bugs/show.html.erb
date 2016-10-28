@@ -1,0 +1,24 @@
+<div class="container m-t-1 m-b-1">
+  <%= link_to bugs_path, class: 'btn btn-outline-primary pull-md-right m-l-1' do %>
+    Back
+  <% end %>
+  <%= link_to edit_bug_path(@bug), class: 'btn btn-info pull-md-right' do %>
+    Edit
+  <% end %>
+  <h1>Show bug</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>External:</dt>
+  <dd><%= @bug.external_id %></dd>
+
+  <dt>Summary:</dt>
+  <dd><%= @bug.summary %></dd>
+
+  <dt>External link:</dt>
+  <dd><%= @bug.external_link %></dd>
+
+  <dt>Status:</dt>
+  <dd><%= @bug.status %></dd>
+
+</dl>

@@ -1,6 +1,6 @@
 App.global = App.cable.subscriptions.create "GlobalChannel",
   connected: ->
-    console.log("WebSocket connected");
+    console.log("Global channel connected");
 
   disconnected: ->
     # Called when the subscription has been terminated by the server

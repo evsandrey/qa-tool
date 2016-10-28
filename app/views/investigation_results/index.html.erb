@@ -1,0 +1,34 @@
+<div class="container m-t-1 m-b-1">
+  <%= link_to new_investigation_result_path, class: 'btn btn-primary pull-xs-right m-x-auto' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Investigation result
+  <% end %>
+  <h2>investigation_results</h2>
+</div>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+            <th>Name</th>
+            <th>Code</th>
+            <th>Description</th>
+            <th></th>
+        
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @investigation_results) do |investigation_result| %>
+            <td><%= investigation_result.name %></td>
+            <td><%= investigation_result.code %></td>
+            <td><%= investigation_result.description %></td>
+            <td>
+            <%= link_to 'Show', investigation_result, class: "btn btn-outline-primary btn-sm" %>
+            <%= link_to 'Edit', edit_investigation_result_path(investigation_result), class: "btn btn-primary btn-sm" %>
+            <%= link_to 'Destroy', investigation_result, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+        </td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

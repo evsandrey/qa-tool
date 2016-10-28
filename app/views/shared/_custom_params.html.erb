@@ -1,0 +1,12 @@
+<div class="table-responsive">
+    <table class="table">
+    <% if !custom_params.nil? %>
+        <% JSON.parse(custom_params).each do |key| %>
+          <tr class="custom-node">
+            <td><b><%= key['name'] %></b></td>
+            <td><%= key['val'] %></td>
+          </tr>
+        <% end %>
+    <% end %>
+    </table>
+</div>

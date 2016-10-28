@@ -4,6 +4,8 @@ class ReportsController < ApplicationController
   
   layout false, :except => :edit
   
+  skip_before_filter :verify_authenticity_token, :only => [:report_end]
+  
   # GET /reports
   # GET /reports.json
   def index

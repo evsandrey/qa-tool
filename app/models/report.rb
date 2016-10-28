@@ -17,7 +17,6 @@ class Report
   belongs_to :suite
   belongs_to :build
   
-  embeds_many :report_links
   
   after_save :broadcast
   after_save :link_to_build

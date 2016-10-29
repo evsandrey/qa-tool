@@ -27,6 +27,8 @@ class Report
   def broadcast
     ActionCable.server.broadcast 'reports_channel', 
       id: self._id,
+      build: self.build_id,
+      suite: self.suite_id,
       message: render_icon(self)
   end
   

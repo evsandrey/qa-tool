@@ -20,13 +20,13 @@
       <th></th>
       <% builds = @version.builds.desc('_id').limit(10).reverse! %>
       <% builds.each do |build| %>
-      <th id="<%= build.id %>"><%= link_to build.name, product_version_build_path(@product,@version,build) %></th>
+      <th id="build-<%= build.id %>"><%= link_to build.name, product_version_build_path(@product,@version,build) %></th>
       <% end %>
       <th></th>
     </thead>
     <tbody>
       <% @version.suites.each do |suite| %>
-      <tr id="<%= suite.id %>"> 
+      <tr id="suite-<%= suite.id %>"> 
         <td><%= link_to suite.name , product_version_suite_path(@product,@version,suite)%></td>
         <% builds.each do |build| %>
           <% if !build.report_links.where(suite: suite._id).last.nil? %>

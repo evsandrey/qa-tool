@@ -9,6 +9,7 @@ $(document).on('turbolinks:load', function() {
 });
 
 function updateReportIcon(msg) {
+  console.log(msg)
   $("#cell-"+msg['id']['$oid']).empty();
   $(msg['message']).appendTo($("#cell-"+msg['id']['$oid']));
   $("#cell-"+msg['id']['$oid']).find( "span" ).on("click", function(e){ 

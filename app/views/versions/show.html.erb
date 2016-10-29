@@ -29,8 +29,12 @@
       <tr id="<%= suite.id %>"> 
         <td><%= link_to suite.name , product_version_suite_path(@product,@version,suite)%></td>
         <% builds.each do |build| %>
-          <% report = build.report_links.where(suite: suite._id).last %>
-          <td id="cell-<%= report.report_id %>"> <%= render :partial => 'reports/icon', :locals => {:report => report } %>  </td>  
+          <% if !build.report_links.where(suite: suite._id).last.nil? %>
+            <% report = build.report_links.where(suite: suite._id).last %>
+            <td id="cell-<%= report.report_id %>"> <%= render :partial => 'reports/icon', :locals => {:report => report } %>  </td>
+          <% else %>
+            <td> </td>
+          <% end %>
         <% end %>
       </tr>
       <% end %>

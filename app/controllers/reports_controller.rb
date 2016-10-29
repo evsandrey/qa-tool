@@ -99,6 +99,7 @@ class ReportsController < ApplicationController
       suite.save
       @report.suite=suite
     end
+    
     @report.result  = (params["result"] == 'passed')
     @report.error = params["error"]
     @report.custom_params = params["custom_params"].to_json

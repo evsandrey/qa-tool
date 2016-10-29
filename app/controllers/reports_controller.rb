@@ -82,12 +82,12 @@ class ReportsController < ApplicationController
 
   def report_end
     @report =  Report.new()
-    #@report.version = Version.find_by(name: params["version"])
-    #@report.product = Product.find_by(name: params["product"])
-    if Build.find_by(name: params["build"]).exists? 
-      @report.build = Build.find_by(name: params["build"]) 
+    product = Product.find_by(name: params["product"])
+    version = Version.find_by(name: params["version"])
+    if Build.where(product: product, version: version, name: params["build"]).exists? 
+      @report.build = Build.where(product: product, version: version, name: params["build"]).first 
     else
-      build = Build.new(name: params["build"])
+      build = Build.new(name: params["build"], version: version)
       build.save
       @report.build=build
     end

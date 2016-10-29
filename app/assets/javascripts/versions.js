@@ -14,10 +14,9 @@ function updateReportIcon(msg) {
   var suite_id = msg['suite']['$oid'];
   var build_id = msg['build']['$oid'];
   var cell = findByCoord("build-"+build_id,"suite-"+suite_id,"big-mama")
-  
-  $("#cell-"+msg['id']['$oid']).empty();
-  $(msg['message']).appendTo($("#cell-"+msg['id']['$oid']));
-  $("#cell-"+msg['id']['$oid']).find( "span" ).on("click", function(e){ 
+  cell.empty();
+  $(msg['message']).appendTo(cell);
+  cell.find( "span" ).on("click", function(e){ 
       e.preventDefault(); 
       LoadSliderWith("/reports/"+this.id,{});
   })

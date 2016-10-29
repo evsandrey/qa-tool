@@ -26,7 +26,8 @@ function updateReportIcon(msg) {
 
 function findByCoord(colId,rowId,tableId) {
   var table = $('#'+tableId);
-  var colIndex = table.find("th#"+colId).cellIndex;
-  var rowIndex = table.find("tr#"+rowId).rowIndex;
+  
+  var colIndex = table.find("th#"+colId).index();
+  var rowIndex = table.find("tr#"+rowId).index();
   return table.find('tr')[rowIndex].find('td')[colIndex]
 };

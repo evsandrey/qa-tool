@@ -84,7 +84,7 @@ class ReportsController < ApplicationController
     @report =  Report.new()
     #@report.version = Version.find_by(name: params["version"])
     #@report.product = Product.find_by(name: params["product"])
-    if Build.find_by(name: params["build"]).present? 
+    if Build.find_by(name: params["build"]).exists? 
       @report.build = Build.find_by(name: params["build"]) 
     else
       build = Build.new(name: params["build"])

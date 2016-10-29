@@ -15,7 +15,7 @@
   <h1>Version <%= @version.name %> </h1>
 </div>
 <div class="table-responsive ">
-  <table class="table table-bordered table-hover big-mama">
+  <table id="big-mama" class="table table-bordered table-hover big-mama">
     <thead>
       <th></th>
       <% builds = @version.builds.desc('_id').limit(10).reverse! %>

@@ -13,8 +13,7 @@ function updateReportIcon(msg) {
   var report_id= msg['id']['$oid'];
   var suite_id = msg['suite']['$oid'];
   var build_id = msg['build']['$oid'];
-  var cell = findByCoord("build-"+build_id,"suite-"+suite_id,"big-mama")
-  cell.children('div').hide();
+  var cell = findByCoord("big-mama","build-"+build_id,"suite-"+suite_id)
   cell.empty();
   $(msg['message']).appendTo(cell);
   cell.find( "div" ).on("click", function(e){ 

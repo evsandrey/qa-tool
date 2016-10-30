@@ -31,6 +31,6 @@ function findByCoord(tableId,colId,rowId) {
 
 function addVersion(tableId,versionId) {
   var c = $("#"+tableId+" thead th").length;
-  $("#"+tableId+" thead tr").append("<th><a href=''>Delete</a> Col "+(c+1)+"</th>");
-  $("#"+tableId+" tr:gt(0)").append("<td>Col</td>");
+  $("#"+tableId+" thead tr").append("<th><a href='versionId'>versionId</a> Col "+(c+1)+"</th>");
+  $("#"+tableId+" tr:gt(0)").append("<td></td>");
 }

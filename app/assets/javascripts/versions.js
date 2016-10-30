@@ -43,8 +43,6 @@ function findByCoord(tableId,colId,rowId) {
 };
 
 
-
-
 function addColumn(tableId,colId,colHead) {
   var c = $("#"+tableId+" thead th").length;
   $("#"+tableId+" thead tr").append("<th id='"+colId+"'>"+colHead+"</th>");

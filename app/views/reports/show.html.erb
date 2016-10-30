@@ -33,7 +33,8 @@
   
 </dl>
 <% if JSON.parse(@report.custom_params) %>
-    <%= @report.custom_params %>
+    <% cp = JSON.parse(@report.custom_params)%>
+    <%= render :partial => 'data_types/'+cp['data_type'], :locals => {:data => cp} %>
 <% end %>
 </div>
 <div class="col-md-2 col-sm-3">

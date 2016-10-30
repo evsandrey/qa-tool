@@ -28,6 +28,12 @@ function addBuild(msg) {
   addColumn('big-mama',build_id,build_name)
 }
 
+function addSuite(msg) {
+  var suite_id = "suite-"+msg['id']['$oid'];
+  var suite_name = msg['name'];
+  addRow('big-mama',suite_id,suite_name)
+} 
+
 
 function findByCoord(tableId,colId,rowId) {
   var table = $('#'+tableId);

@@ -14,7 +14,7 @@ function updateReportIcon(msg) {
   var suite_id = msg['suite']['$oid'];
   var build_id = msg['build']['$oid'];
   var cell = findByCoord("build-"+build_id,"suite-"+suite_id,"big-mama")
-  cell.child('div').hide();
+  cell.children('div').hide();
   cell.empty();
   $(msg['message']).appendTo(cell);
   cell.find( "div" ).on("click", function(e){ 
@@ -23,6 +23,13 @@ function updateReportIcon(msg) {
   })
 }
 
+function addBuild(msg) {
+  var build_id = "build-"+msg['id']['$oid'];
+  var build_name = msg['name']['$oid'];
+  addColumn('big-mama',build_id,build_name)
+}
+
+
 function findByCoord(tableId,colId,rowId) {
   var table = $('#'+tableId);
   var colIndex = table.find("th#"+colId).index();
@@ -30,8 +37,11 @@ function findByCoord(tableId,colId,rowId) {
   return $($(table.find('tr')[rowIndex+1]).find('td')[colIndex])
 };
 
-function addBuild(tableId,buildId) {
+
+
+
+function addColumn(tableId,colId,colHead) {
   var c = $("#"+tableId+" thead th").length;
-  $("#"+tableId+" thead tr").append("<th id='build-"+buildId+"'><a href='versionId'>versionId</a> Col "+(c+1)+"</th>");
+  $("#"+tableId+" thead tr").append("<th id='"+colId+"'>"+colHead+"</th>");
   $("#"+tableId+" tr:gt(0)").append("<td></td>");
 }

@@ -13,6 +13,9 @@ Rails.application.routes.draw do
         post '/report', to: "reports#report_end"
     end
     resources :versions do
+      member do
+        post '/report', to: "reports#report_end"
+      end
       resources :builds 
       resources :suites do 
         resources :reports

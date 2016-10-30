@@ -24,7 +24,7 @@ function updateReportIcon(msg) {
 
 function addBuild(msg) {
   var build_id = "build-"+msg['id']['$oid'];
-  var build_name = msg['name']['$oid'];
+  var build_name = msg['name'];
   addColumn('big-mama',build_id,build_name)
 }
 

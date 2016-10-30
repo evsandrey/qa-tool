@@ -9,5 +9,6 @@ class BuildsChannel < ApplicationCable::Channel
   end
 
   def broadcast
+    ActionCable.server.broadcast "builds_channel", message: data['body']
   end
 end

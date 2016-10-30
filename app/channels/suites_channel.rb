@@ -9,5 +9,6 @@ class SuitesChannel < ApplicationCable::Channel
   end
 
   def broadcast
+    ActionCable.server.broadcast "suites_channel", message: data['body']
   end
 end

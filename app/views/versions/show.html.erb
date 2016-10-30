@@ -22,7 +22,7 @@
       <% builds.each do |build| %>
       <th id="build-<%= build.id %>"><%= link_to build.name, product_version_build_path(@product,@version,build) %></th>
       <% end %>
-      <th></th>
+      
     </thead>
     <tbody>
       <% @version.suites.each do |suite| %>

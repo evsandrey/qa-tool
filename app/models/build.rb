@@ -13,7 +13,7 @@ class Build
   embeds_many :report_links
   accepts_nested_attributes_for :report_links
   
-  after_save :broadcast
+  after_create :broadcast
   
   
   def broadcast

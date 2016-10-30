@@ -44,3 +44,13 @@ function addColumn(tableId,colId,colHead) {
   $("#"+tableId+" thead tr").append("<th id='"+colId+"'>"+colHead+"</th>");
   $("#"+tableId+" tr:gt(0)").append("<td></td>");
 }
+
+function addRow(tableId,rowId,rowName) {
+  var c = $("#"+tableId+" thead th").length;
+  var row = $("<tr id='"+rowId+"'></tr>");
+  row.append("<td>"+rowName+"</td>");
+  for (var i = 0; i < c-1; i++) { 
+    row.append("<td></td>")  
+  }
+  var c = $("#"+tableId+" tbody").append(row);
+}

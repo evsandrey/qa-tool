@@ -16,16 +16,21 @@ function updateReportIcon(msg) {
   var cell = findByCoord("build-"+build_id,"suite-"+suite_id,"big-mama")
   cell.empty();
   $(msg['message']).appendTo(cell);
-  cell.find( "span" ).on("click", function(e){ 
+  cell.find( "div" ).on("click", function(e){ 
       e.preventDefault(); 
       LoadSliderWith("/reports/"+this.id,{});
   })
 }
 
-
-function findByCoord(colId,rowId,tableId) {
+function findByCoord(tableId,colId,rowId) {
   var table = $('#'+tableId);
   var colIndex = table.find("th#"+colId).index();
   var rowIndex = table.find("tr#"+rowId).index();
   return $($(table.find('tr')[rowIndex+1]).find('td')[colIndex])
 };
+
+function addVersion(tableId,versionId) {
+  var c = $("#"+tableId+" thead th").length;
+  $("#"+tableId+" thead tr").append("<th><a href=''>Delete</a> Col "+(c+1)+"</th>");
+  $("#"+tableId+" tr:gt(0)").append("<td>Col</td>");
+}

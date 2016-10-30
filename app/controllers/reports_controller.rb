@@ -118,7 +118,11 @@ class ReportsController < ApplicationController
   end
 
   private
-    
+    def set_product
+      if params[:product_id]
+        @product = Product.find(params[:product_id])
+      end
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_report
       @report = Report.find(params[:id])

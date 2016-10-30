@@ -9,6 +9,8 @@ class Suite
   field :custom_params, type: String
   belongs_to :version
   
+  after_save :broadcast
+  
   def broadcast
     ActionCable.server.broadcast 'suites_channel', 
       id: self._id,

@@ -1,6 +1,6 @@
 App.builds = App.cable.subscriptions.create "BuildsChannel",
   connected: ->
-    # Called when the subscription is ready for use on the server
+    console.log("Builds channel connected");
 
   disconnected: ->
     # Called when the subscription has been terminated by the server

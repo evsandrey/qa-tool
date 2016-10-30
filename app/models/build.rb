@@ -17,6 +17,7 @@ class Build
   
   
   def broadcast
+    p "Build saved"
     ActionCable.server.broadcast 'builds_channel', 
       id: self._id,
       name: self.name

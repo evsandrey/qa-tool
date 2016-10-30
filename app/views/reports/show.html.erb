@@ -32,7 +32,7 @@
   <button id="<%= @report._id %>" class="btn btn-warning" onclick='LoadModalWith("/investigation_form",{ id: this.id } )'>Set investigation status</button>
   
 </dl>
-<%= if data = JSON.parse(@report.custom_params) %>
+<% if JSON.parse(@report.custom_params) %>
     <%= data.custom_params %>
 <% end %>
 </div>

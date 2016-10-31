@@ -43,8 +43,10 @@ table.big-mama {
 .investigated-bg {
     z-index: 99 !important;
     position: absolute;
+    left:0%;
     height: 35px !important;
     width: 35px !important;
-    margin: 0px;
-    padding: 0px;
+    margin: 0px !important;
+    padding: 0px !important;
+    padding-top: 5px !important;
 }

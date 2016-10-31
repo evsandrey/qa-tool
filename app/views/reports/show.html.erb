@@ -1,37 +1,25 @@
-<div class="container row">
+<div class="row">
 
-<div class="col-md-2 col-sm-3">
+<div class="col-md-1 col-sm-1">
 </div>
-<div class="col-md-8 col-sm-6">
-<dl class="dl-horizontal">
+<div class="col-md-10 col-sm-10">
+
 <div class="container m-t-1 m-b-1">
   <%= link_to edit_report_path(@report), class: 'btn btn-info pull-md-right' do %>
     Edit
   <% end %>
-  <h1>Show report</h1>
 </div>
-
-  <dt>Build:</dt>
-  <dd><%= @report.build.name %></dd>
-  
-  <dt>Suite:</dt>
-  <dd><%= @report.suite.name %></dd>
-  
-  <dt>Result:</dt>
-  <dd><%= @report.result %></dd>
-  
-  <dt>Error:</dt>
-  <dd><%= @report.error %></dd>
-
-  <dt>Investigation result:</dt>
-  <dd><%= @report.investigation_result.name if !@report.investigation_result.blank? %></dd>
-  
-  <dt>Comment:</dt>
-  <dd><%= @report.comment %></dd>
-  
+  Product: <% @report.build.verson.product.name %>
+  Version: <% @report.build.verson.name %>
+  Build: <%= @report.build.name %>
+  Suite:<%= @report.suite.name %>
+  Result:<%= @report.result %>
+  Error:<%= @report.error %>
+  Investigation result:<%= @report.investigation_result.name if !@report.investigation_result.blank? %>
+  Comment:<%= @report.comment %>
   <button id="<%= @report._id %>" class="btn btn-warning" onclick='LoadModalWith("/investigation_form",{ id: this.id } )'>Set investigation status</button>
   
-</dl>
+
 <% if JSON.parse(@report.custom_params) %>
   <% cp = JSON.parse(@report.custom_params)%>
   <div class="<%= cp['data_type'] %>">
@@ -42,6 +30,6 @@
     <%= @report.custom_params%>
 <% end %>
 </div>
-<div class="col-md-2 col-sm-3">
+<div class="col-md-1 col-sm-1">
 </div>
 </div>

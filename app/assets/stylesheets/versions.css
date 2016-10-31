@@ -38,6 +38,7 @@ table.big-mama {
     width: 35px !important;
     margin: 0px;
     padding: 0px;
+    padding-top: 5px !important;
 }
 
 .investigated-bg {
@@ -48,5 +49,4 @@ table.big-mama {
     width: 35px !important;
     margin: 0px !important;
     padding: 0px !important;
-    padding-top: 5px !important;
 }

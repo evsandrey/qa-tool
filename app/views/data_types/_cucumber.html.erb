@@ -10,6 +10,13 @@
         <td><%= name %></td>
         <td><%= step['status']  %></td>
         <td><%= step['exception']  %></td>
+        <td>
+            <% if step['embeddings'].count > 0 %>
+               <% step['embeddings'].each do |key,embedding| %>
+                   <img src="<%= embedding['src'] %>"/>
+               <% end %>
+            <% end %>
+        </td>
       </tr>
       <% end %>
     </tbody>

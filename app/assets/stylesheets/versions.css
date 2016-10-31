@@ -26,8 +26,8 @@ table.big-mama {
 }
 
 .report-icon {
-    min-height: 100% !important;
-    min-width: 100% !important;
+    height: 35px !important;
+    width: 35px !important;
 }
 
 .investigated-code {

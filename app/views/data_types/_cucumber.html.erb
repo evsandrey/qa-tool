@@ -1,3 +1,17 @@
-<% data['steps'].each do |name , step| %>
- <%= name %>
-<% end %>
+<div class="table-responsive ">
+  <table id="big-mama" class="table table-bordered table-hover big-mama">
+    <thead>
+      
+    </thead>
+    <tbody>
+      <% data['steps'].each do |name , step| %>
+      <tr>
+        <td><b><%= step['keyword'] %></b></td>
+        <td><%= name %></td>
+        <td><%= step['status']  %></td>
+        <td><%= step['exception']  %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

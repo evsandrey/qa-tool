@@ -6,7 +6,7 @@
         <% if report.investigation_result.nil?%>
             <img class="investigated-bg" src="/icons/Failed.png" />
         <% else %>
-            <div class="investigated-code"></span><%= report.investigation_result.class == InvestigationResult ? report.investigation_result.code : report.investigation_result %></div>
+            <div class="investigated-code"><b><%= report.investigation_result.class == InvestigationResult ? report.investigation_result.code : report.investigation_result %></b></div>
             <img class="investigated-bg" src="/icons/Warning.png" />
         <% end %>
     <% end %>

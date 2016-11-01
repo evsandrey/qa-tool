@@ -6,8 +6,7 @@
     <tbody>
       <% data['steps'].each do |name , step| %>
       <tr>
-        <td><b><%= step['keyword'] %></b></td>
-        <td><%= name %></td>
+        <td><b><%= step['keyword'] %></b> <%= name %></td>
         <td><%= step['status']  %></td>
         <td><%= step['exception']  %></td>
         <td>

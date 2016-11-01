@@ -9,15 +9,16 @@
     Edit
   <% end %>
 </div>
-  Product: <% @report.build.version.product.name %>
-  Version: <% @report.build.version.name %>
-  Build: <%= @report.build.name %>
-  Suite:<%= @report.suite.name %>
-  Result:<%= @report.result %>
-  Error:<%= @report.error %>
-  Investigation result:<%= @report.investigation_result.name if !@report.investigation_result.blank? %>
-  Comment:<%= @report.comment %>
-  <button id="<%= @report._id %>" class="btn btn-warning" onclick='LoadModalWith("/investigation_form",{ id: this.id } )'>Set investigation status</button>
+  Product: <% @report.build.version.product.name %><br>
+  Version: <% @report.build.version.name %><br>
+  Build: <%= @report.build.name %><br>
+  Suite:<%= @report.suite.name %><br>
+  Result:<%= @report.result %><br>
+  Error:<%= @report.error %><br>
+  Investigation result:<%= @report.investigation_result.name if !@report.investigation_result.blank? %><br>
+  Comment:<%= @report.comment %><br>
+  <button id="<%= @report._id %>" class="btn btn-warning" onclick='LoadModalWith("/investigation_form",{ id: this.id } )'>Set investigation status</button><br>
+  
   
 
 <% if JSON.parse(@report.custom_params) %>

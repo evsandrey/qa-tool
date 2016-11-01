@@ -8,8 +8,6 @@
 //= require cookie
 //= require versions
 //= require d3
-//= require d3core
-//= require d3stacked
 //= require_tree .
 
 

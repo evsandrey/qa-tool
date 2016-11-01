@@ -7,7 +7,7 @@ $(document).on('turbolinks:load', function() {
       LoadSliderWith("/reports/"+this.id,{});
     });
         console.log("Stacked bar started");
-          var stackedbar = new D3StackedBar({ 
+            stackedbar = new D3StackedBar({ 
             container: "#stackedbar",
             margin: {top: 20, left: 50, bottom: 50, right: 20},
             spacing: 0.5,

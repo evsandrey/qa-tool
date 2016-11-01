@@ -15,5 +15,9 @@ class Product
   validates_attachment_content_type :logo, 
                                     :content_type => /^image\/(png|gif|jpeg)/,
                                     :message => 'only (png/gif/jpeg) images'
+                                    
+  def to_param
+    slug
+  end
 
 end

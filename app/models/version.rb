@@ -13,4 +13,8 @@ class Version
   has_many :builds, dependent: :destroy
   has_many :suites, dependent: :destroy
   
+  def to_param
+    slug
+  end
+  
 end

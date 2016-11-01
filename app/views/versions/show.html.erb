@@ -1,6 +1,9 @@
 <% @builds = @version.builds.desc('_id').limit(10).reverse! %>
 <% @suites = @version.suites %>
 
+<% graph_hash = Hash.new{ |h,k| h[k] = Hash.new(&h.default_proc) } %>
+<% graph_hash['passed'] = 0 %>
+<% graph_hash['failed'] = 0 %>
 
 <div class="container m-t-1 m-b-1">
   <%= link_to new_product_version_suite_path(@product,@version), class: 'btn btn-outline-primary pull-md-right m-l-1' do %>
@@ -30,8 +33,13 @@
         <td><%= link_to suite.name , product_version_suite_path(@product,@version,suite)%></td>
         <% builds.each do |build| %>
           <% if !build.report_links.where(suite: suite._id).last.nil? %>
-            <% report = build.report_links.where(suite: suite._id).last %>
-            <td id="cell-<%= report.report_id %>"> <%= render :partial => 'reports/icon', :locals => {:report => report } %>  </td>
+            <% rlink = build.report_links.where(suite: suite._id).last %>
+            <% if rlink.result %>
+              <% !graph_hash[build.name]['passed'].nil? ? graph_hash[build.name]['passed'] += 1 : graph_hash[build.name]['passed'] = 1 %>
+            <% else %>
+              <% !graph_hash[build.name]['failed'].nil? ? graph_hash[build.name]['failed'] += 1 : graph_hash[build.name]['failed'] = 1 %>
+            <% end %>
+            <td id="cell-<%= report.report_id %>"> <%= render :partial => 'reports/icon', :locals => {:report => rlink } %>  </td>
           <% else %>
             <td> </td>
           <% end %>
@@ -39,5 +47,6 @@
       </tr>
       <% end %>
     </tbody>
+    <%= graph_hash %>
   </table>
 </div>

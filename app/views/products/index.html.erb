@@ -12,7 +12,7 @@
     <div class="row">
     <% group.each do |product| %>
       <div class="card col-xs product-card">
-        <%= link_to '<img class="card-img-top" src="<%= product.logo.url %>" alt="">', product %>
+        <%= link_to '<img class="card-img-top" src="#{product.logo.url}" alt="">', product %>
         <div class="card-block">
           <h4 class="card-title"><%= product.name %></h4>
           <%= link_to 'Show', product_versions_path(product), class: "btn btn-outline-primary btn-sm" %>

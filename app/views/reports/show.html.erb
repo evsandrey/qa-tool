@@ -8,19 +8,42 @@
   <%= link_to edit_report_path(@report), class: 'btn btn-info pull-md-right' do %>
     Edit
   <% end %>
+  <%= @report.build.version.product.name %> <%= @report.build.version.name %>.<%= @report.build.name %>
 </div>
-  Product: <%= @report.build.version.product.name %><br>
-  Version: <%= @report.build.version.name %><br>
-  Build: <%= @report.build.name %><br>
-  Suite: <%= @report.suite.name %><br>
-  Result: <%= @report.result %><br>
-  Error: <%= @report.error %><br>
-  Screenshot: <%= @report.screenshot %><br>
-  Investigation result: <%= @report.investigation_result.name if !@report.investigation_result.blank? %><br>
-  Comment:<%= @report.comment %><br>
-  <button id="<%= @report._id %>" class="btn btn-warning" onclick='LoadModalWith("/investigation_form",{ id: this.id } )'>Set investigation status</button><br>
-  
-  
+  <div class="row">
+    <div class="col-sm-6">
+    <table>
+      <tr>
+        <td>Suite:</td>
+        <td><%= @report.suite.name %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Result:</td>
+        <td><%= @report.result %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Error:</td>
+        <td><%= @report.error %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Investigation:</td>
+        <td><%= @report.investigation_result.name if !@report.investigation_result.blank? %></td>
+        <td><button id="<%= @report._id %>" class="btn btn-warning" onclick='LoadModalWith("/investigation_form",{ id: this.id } )'>Set investigation status</button><br></td>
+      </tr>
+      <tr>
+        <td>Comment:</td>
+        <td><%= @report.error %></td>
+        <td><%= @report.comment %></td>
+      </tr>
+    </table>
+    </div>
+    <div class="col-sm-6">
+      <img src="<%= @report.screenshot %>" />
+    </div>
+  </div>
 
 <% if JSON.parse(@report.custom_params) %>
   <% cp = JSON.parse(@report.custom_params)%>

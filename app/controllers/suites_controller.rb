@@ -7,7 +7,7 @@ class SuitesController < ApplicationController
   # GET /suites
   # GET /suites.json
   def index
-    @suites = Suite.all
+    @suites = Suite.where(version: @version)
   end
 
   # GET /suites/1

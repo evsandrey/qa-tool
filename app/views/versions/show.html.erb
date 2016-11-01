@@ -49,10 +49,13 @@
       <div id="#stackedbar"></div>
       <%= graph_hash %>
       <script type="text/javascript">
-        var stackedbar = new D3StackedBar({ 
-          container: "#stackedbar"
+        $(document).on('turbolinks:load', function() {
+          console.log("Versions.js exec");
+          var stackedbar = new D3StackedBar({ 
+            container: "#stackedbar"
+          });
+          stackedbar.show();
         });
-        stackedbar.show();
     </script>
     </tbody>
     

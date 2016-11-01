@@ -102,8 +102,9 @@ class ReportsController < ApplicationController
     
     @report.result  = (params["result"] == 'passed')
     @report.error = params["error"]
+    @report.screenshot = params["screenshot"]
     @report.custom_params = params["custom_params"].to_json
-    p @report.to_json
+    
     respond_to do |format|
       if @report.save 
         format.json { render :show, status: :created, location: @report }

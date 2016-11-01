@@ -64,12 +64,12 @@ class VersionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_version
-      @version = Version.find_by_slug(params[:id])
+      @version = Version.find_by_name(params[:id])
     end
     
     def set_product
       if params[:product_id]
-        @product = Product.find_by_slug(params[:product_id])
+        @product = Product.find_by_name(params[:product_id])
       end
     end
 

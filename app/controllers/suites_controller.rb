@@ -67,19 +67,19 @@ class SuitesController < ApplicationController
   private
     def set_version
       if params[:version_id]
-        @version = Version.find(params[:version_id])
+        @version = Version.find_by_name(params[:version_id])
       end
     end
     
     def set_product
       if params[:product_id]
-        @product = Product.find(params[:product_id])
+        @product = Product.find_by_name(params[:product_id])
       end
     end
     
     # Use callbacks to share common setup or constraints between actions.
     def set_suite
-      @suite = Suite.find(params[:id])
+      @suite = Suite.find_by_name(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

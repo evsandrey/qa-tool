@@ -5,8 +5,3 @@
 .product-card img {
     max-width:300px !important;
 }
-
-.product-card p {
-    max-width: 250px !important;
-    text-overflow: ellipsis;
-}

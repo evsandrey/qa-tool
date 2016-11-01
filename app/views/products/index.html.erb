@@ -12,10 +12,9 @@
     <div class="row">
     <% group.each do |product| %>
       <div class="card col-xs product-card">
-        <img class="card-img-top" src="<%= product.logo.url %>" alt="">
+        <%= link_to '<img class="card-img-top" src="<%= product.logo.url %>" alt="">', product %>
         <div class="card-block">
           <h4 class="card-title"><%= product.name %></h4>
-          <p class="card-text"><%= product.description %></p>
           <%= link_to 'Show', product_versions_path(product), class: "btn btn-outline-primary btn-sm" %>
           <%= link_to 'Edit', edit_product_path(product), class: "btn btn-primary btn-sm" %>
           <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>        

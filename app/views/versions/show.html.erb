@@ -1,9 +1,9 @@
+
+
 <% @builds = @version.builds.desc('_id').limit(10).reverse! %>
 <% @suites = @version.suites %>
 
 <% graph_hash = Hash.new{ |h,k| h[k] = Hash.new(&h.default_proc) } %>
-<% graph_hash['passed'] = 0 %>
-<% graph_hash['failed'] = 0 %>
 
 <div class="container m-t-1 m-b-1">
   <%= link_to new_product_version_suite_path(@product,@version), class: 'btn btn-outline-primary pull-md-right m-l-1' do %>
@@ -46,7 +46,15 @@
         <% end %>
       </tr>
       <% end %>
+      <div id="#stackedbar"></div>
+      <%= graph_hash %>
+      <script type="text/javascript">
+        var stackedbar = new D3StackedBar({ 
+          container: "#stackedbar"
+        });
+        stackedbar.show();
+    </script>
     </tbody>
-    <%= graph_hash %>
+    
   </table>
 </div>

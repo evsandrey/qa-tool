@@ -1,3 +1,7 @@
 .product-card {
-    max-width:300 !important;
+    max-width:300px !important;
+}
+
+.product-card {
+    max-width:300px !important;
 }

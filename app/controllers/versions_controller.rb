@@ -5,7 +5,7 @@ class VersionsController < ApplicationController
   # GET /versions
   # GET /versions.json
   def index
-    @versions = Version.all
+    @versions = Version.where(product: @product)
   end
 
   # GET /versions/1
@@ -64,12 +64,12 @@ class VersionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_version
-      @version = Version.find_by(name: params[:id])
+      @version = Version.find(params[:id])
     end
     
     def set_product
       if params[:product_id]
-        @product = Product.find_by(name: params[:product_id])
+        @product = Product.find(params[:product_id])
       end
     end
 

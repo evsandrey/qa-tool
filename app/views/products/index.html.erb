@@ -11,7 +11,7 @@
   <div class="container">
     <div class="row">
     <% group.each do |product| %>
-      <div class="card col-xs-2 product-card">
+      <div class="card card-block col-xs-2 product-card">
         <%= link_to raw('<img class="card-img-top" src="#{product.logo.url}" alt="">'), product %>
         <div class="card-block">
           <h4 class="card-title"><%= product.name %></h4>

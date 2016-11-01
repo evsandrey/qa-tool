@@ -9,13 +9,14 @@
     Edit
   <% end %>
 </div>
-  Product: <% @report.build.version.product.name %><br>
-  Version: <% @report.build.version.name %><br>
+  Product: <%= @report.build.version.product.name %><br>
+  Version: <%= @report.build.version.name %><br>
   Build: <%= @report.build.name %><br>
-  Suite:<%= @report.suite.name %><br>
-  Result:<%= @report.result %><br>
-  Error:<%= @report.error %><br>
-  Investigation result:<%= @report.investigation_result.name if !@report.investigation_result.blank? %><br>
+  Suite: <%= @report.suite.name %><br>
+  Result: <%= @report.result %><br>
+  Error: <%= @report.error %><br>
+  Screenshot: <%= @report.screenshot %><br>
+  Investigation result: <%= @report.investigation_result.name if !@report.investigation_result.blank? %><br>
   Comment:<%= @report.comment %><br>
   <button id="<%= @report._id %>" class="btn btn-warning" onclick='LoadModalWith("/investigation_form",{ id: this.id } )'>Set investigation status</button><br>
   

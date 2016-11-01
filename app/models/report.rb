@@ -5,13 +5,14 @@ class Report
   
   field :result, type: Mongoid::Boolean
   field :error, type: String
+  field :screenshot, type: String
   field :comment, type: String
   field :custom_params, type: String
   
-  has_mongoid_attached_file :screenshot
-  validates_attachment_content_type :screenshot, 
-                                    :content_type => /^image\/(png|gif|jpeg)/,
-                                    :message => 'only (png/gif/jpeg) images'
+  # has_mongoid_attached_file :screenshot
+  # validates_attachment_content_type :screenshot, 
+  #                                   :content_type => /^image\/(png|gif|jpeg)/,
+  #                                   :message => 'only (png/gif/jpeg) images'
   
   belongs_to :investigation_result, optional: true
   belongs_to :suite

@@ -39,7 +39,7 @@
             <% else %>
               <% graph_hash[build.name]['failed'].nil? ? graph_hash[build.name]['failed'] += 1 : graph_hash[build.name]['failed'] = 1 %>
             <% end %>
-            <td id="cell-<%= report.report_id %>"> <%= render :partial => 'reports/icon', :locals => {:report => rlink } %>  </td>
+            <td id="cell-<%= rlink.report_id %>"> <%= render :partial => 'reports/icon', :locals => {:report => rlink } %>  </td>
           <% else %>
             <td> </td>
           <% end %>

@@ -1,7 +1,8 @@
 .product-card {
-    max-width:300px !important;
+    width:300px !important;
+    margin:20px;
 }
 
 .product-card img {
-    max-width:300px !important;
+    width:300px !important;
 }

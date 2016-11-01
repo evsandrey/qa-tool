@@ -5,7 +5,12 @@ $(document).on('turbolinks:load', function() {
     $(".report-icon").on("click", function(e){ 
       e.preventDefault(); 
       LoadSliderWith("/reports/"+this.id,{});
-  })
+    });
+    console.log("Stacked bar started");
+          var stackedbar = new D3StackedBar({ 
+            container: "#stackedbar"
+          });
+          stackedbar.show();
 });
 
 function updateReportIcon(msg) {

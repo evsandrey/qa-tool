@@ -7,5 +7,6 @@
 }
 
 .product-card p {
-    max-width:100% !important;
+    max-width: 250px !important;
+    text-overflow: ellipsis;
 }

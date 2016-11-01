@@ -13,7 +13,7 @@
     <% group.each do |product| %>
       <div class="col-sm-3">
       <div class="card">
-        <%= link_to raw('<img class="card-img-top" src="'+product.logo.url+" alt="">'), product %>
+        <%= link_to raw('<img class="card-img-top" src="'+product.logo.url+'" alt="">'), product %>
         <div class="card-block">
           <h4 class="card-title"><%= product.name %></h4>
           <p class="card-text">

@@ -2,12 +2,12 @@
 
 one:
   external_id: MyString
+  priority: MyString
   summary: MyString
-  external_link: MyString
-  status: MyString
+  description: MyText
 
 two:
   external_id: MyString
+  priority: MyString
   summary: MyString
-  external_link: MyString
-  status: MyString
+  description: MyText

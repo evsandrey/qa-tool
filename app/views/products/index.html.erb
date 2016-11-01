@@ -7,16 +7,22 @@
 </div>
 
 <div class="row">
-  <% @products.each do |product| %>
-    <div class="card">
-      <div class="card-block">
-        <h4 class="card-title"><%= product.name %></h4>
-        <p class="card-text"><%= product.description %></p>
-        <%= link_to 'Show', product_versions_path(product), class: "btn btn-outline-primary btn-sm" %>
-        <%= link_to 'Edit', edit_product_path(product), class: "btn btn-primary btn-sm" %>
-        <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>        
+  <% @products.each_slice(3) do |group| %>
+  <div class="container">
+    <div class="row">
+    <% group.each do |product| %>
+      <div class="card col-xs">
+        <div class="card-block">
+          <h4 class="card-title"><%= product.name %></h4>
+          <p class="card-text"><%= product.description %></p>
+          <%= link_to 'Show', product_versions_path(product), class: "btn btn-outline-primary btn-sm" %>
+          <%= link_to 'Edit', edit_product_path(product), class: "btn btn-primary btn-sm" %>
+          <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>        
+        </div>
       </div>
+    <% end %>
     </div>
+  </div>
   <% end %>
   
   

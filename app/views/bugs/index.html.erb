@@ -11,9 +11,9 @@
     <thead>
       <tr>
             <th>External</th>
+            <th>Priority</th>
             <th>Summary</th>
-            <th>External link</th>
-            <th>Status</th>
+            <th>Description</th>
             <th></th>
         
       </tr>
@@ -22,9 +22,9 @@
     <tbody>
       <%= content_tag_for(:tr, @bugs) do |bug| %>
             <td><%= bug.external_id %></td>
+            <td><%= bug.priority %></td>
             <td><%= bug.summary %></td>
-            <td><%= bug.external_link %></td>
-            <td><%= bug.status %></td>
+            <td><%= bug.description %></td>
             <td>
             <%= link_to 'Show', bug, class: "btn btn-outline-primary btn-sm" %>
             <%= link_to 'Edit', edit_bug_path(bug), class: "btn btn-primary btn-sm" %>

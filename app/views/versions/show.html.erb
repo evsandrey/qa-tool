@@ -35,9 +35,9 @@
           <% if !build.report_links.where(suite: suite._id).last.nil? %>
             <% rlink = build.report_links.where(suite: suite._id).last %>
             <% if rlink.result %>
-              <% graph_hash[build.name]['passed'].nil? ? graph_hash[build.name]['passed'] += 1 : graph_hash[build.name]['passed'] = 1 %>
+              <% graph_hash[build.name]['passed'].class != Hash.class ? graph_hash[build.name]['passed'] += 1 : graph_hash[build.name]['passed'] = 1 %>
             <% else %>
-              <% graph_hash[build.name]['failed'].nil? ? graph_hash[build.name]['failed'] += 1 : graph_hash[build.name]['failed'] = 1 %>
+              <% !graph_hash[build.name]['failed'].class != Hash.class ? graph_hash[build.name]['failed'] += 1 : graph_hash[build.name]['failed'] = 1 %>
             <% end %>
             <td id="cell-<%= rlink.report_id %>"> <%= render :partial => 'reports/icon', :locals => {:report => rlink } %>  </td>
           <% else %>

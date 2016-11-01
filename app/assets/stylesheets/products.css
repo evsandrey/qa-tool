@@ -5,3 +5,7 @@
 .product-card img {
     max-width:300px !important;
 }
+
+.product-card p {
+    max-width:100% !important;
+}

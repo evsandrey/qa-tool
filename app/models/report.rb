@@ -4,6 +4,7 @@ class Report
   include Mongoid::Paperclip
   
   field :result, type: Mongoid::Boolean
+  field :status, type: String
   field :error, type: String
   field :screenshot, type: String
   field :comment, type: String

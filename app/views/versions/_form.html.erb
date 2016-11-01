@@ -1,3 +1,6 @@
+<dt>Reporting path:</dt>
+<dd><%= report_product_version_path(@product,@version) %></dd>
+
 <%= form_for([@product,@version], html: { class: "form-horizontal", role: "form" }) do |f| %>
   <% if @version.errors.any? %>
     <div class="alert alert-danger alert-dismissable" role="alert">
@@ -43,4 +46,5 @@
       <%= f.submit class: "btn btn-primary" %>
     </div>
   </div>
+  
 <% end %>

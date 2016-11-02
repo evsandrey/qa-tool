@@ -42,6 +42,7 @@ function addSuite(msg) {
 
 
 function findByCoord(tableId,colId,rowId) {
+  console.log(tableId,colId,rowId)
   var table = $('#'+tableId);
   var colIndex = table.find("th#"+colId).index();
   var rowIndex = table.find("tr#"+rowId).index();

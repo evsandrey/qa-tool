@@ -14,6 +14,7 @@ function showPieGraph(json) {
       "Passed": "#6ab975",
       "Failed": "#ff4c4c",
       "Investigated": "#ffae19",
+      "Not investigated": "#000",
     };
     
     // Total size of all segments; we set this later, after loading the data.

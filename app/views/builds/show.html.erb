@@ -26,6 +26,10 @@
                   {
                     "name":"Investigated",
                     "size":"'+graph_hash['investigated'].to_s+'"
+                  },
+                  {
+                    "name":"Not investigated",
+                    "size":"'+(graph_hash['failed']-graph_hash['investigated']).to_s+'"
                   }
                 ]' : ""  )+'}
             ]}'%>

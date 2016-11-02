@@ -36,9 +36,8 @@ function LoadSliderWith(url,data){
       for (var n = 0; n < arr.length; n++)
       {
         eval(arr[n].innerHTML);
-        
       }
-      $(".slider-loader").toggle();
+      $(".slider-loader").hide();
     })
     .fail(function(e) {
       console.log( "Error in loading slider" );

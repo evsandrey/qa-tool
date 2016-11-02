@@ -62,7 +62,10 @@
   </div>
 </div>
 <%= javascript_include_tag "build" %>
-
+<script>
+  var json =`<%= raw(json) %>`;
+  createVisualization(JSON.parse(json));
+</script>
 <style>
 #main {
   float: left;

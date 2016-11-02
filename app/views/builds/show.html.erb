@@ -64,19 +64,19 @@
 </div>
 <script>
    // Dimensions of sunburst.
-    var width = 375;
-    var height = 300;
+    var width = 175;
+    var height = 200;
     var radius = Math.min(width, height) / 2;
     
     // Breadcrumb dimensions: width, height, spacing, width of tip/tail.
     var b = {
-      w: 75, h: 30, s: 3, t: 10
+      w: 35, h: 20, s: 3, t: 10
     };
     
     // Mapping of step names to colors.
     var colors = {
       "passed": "#6ab975",
-      "failed": "#7b615c",
+      "failed": "#ff4c4c",
     };
     
     // Total size of all segments; we set this later, after loading the data.
@@ -312,16 +312,16 @@
 <style>
 #main {
   float: left;
-  width: 375px;
+  width: 175px;
 }
 
 #sidebar {
   float: right;
-  width: 50px;
+  width: 30px;
 }
 
 #sequence {
-  width: 300px;
+  width: 200px;
   height: 35px;
 }
 
@@ -330,7 +330,7 @@
 }
 
 #sequence text, #legend text {
-  font-weight: 300;
+  font-weight: 150;
   fill: #fff;
 }
 
@@ -344,15 +344,15 @@
 
 #explanation {
   position: absolute;
-  top: 130px;
-  left: 155px;
-  width: 70px;
+  top: 75px;
+  left: 80px;
+  width: 30px;
   text-align: center;
   color: #666;
   z-index: -1;
 }
 
 #percentage {
-  font-size: 1.25em;
+  font-size: .75em;
 }
 </style>

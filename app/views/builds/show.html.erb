@@ -102,6 +102,7 @@
     d3.text("/visit-sequences.csv", function(text) {
       var csv = d3.csv.parseRows(text);
       var json = buildHierarchy(csv);
+      console.log(json);
       createVisualization(json);
     });
     

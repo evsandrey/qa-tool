@@ -12,7 +12,7 @@
 
 <% json = '{"name":"root",
             "children":[
-              {"name":"account",
+              {"name":"passed",
                 "size":"'+graph_hash['passed'].to_s+'"
               },
               {"name":"failed",
@@ -75,7 +75,7 @@
     
     // Mapping of step names to colors.
     var colors = {
-      "passed": "#5687d1",
+      "passed": "#6ab975",
       "failed": "#7b615c",
       "search": "#de783b",
       "account": "#6ab975",
@@ -373,25 +373,25 @@ function buildHierarchy(csv) {
 <style>
 #main {
   float: left;
-  width: 750px;
+  width: 375px;
 }
 
 #sidebar {
   float: right;
-  width: 100px;
+  width: 50px;
 }
 
 #sequence {
-  width: 600px;
-  height: 70px;
+  width: 300px;
+  height: 35px;
 }
 
 #legend {
-  padding: 10px 0 0 3px;
+  padding: 5px 0 0 3px;
 }
 
 #sequence text, #legend text {
-  font-weight: 600;
+  font-weight: 300;
   fill: #fff;
 }
 
@@ -405,15 +405,15 @@ function buildHierarchy(csv) {
 
 #explanation {
   position: absolute;
-  top: 260px;
-  left: 305px;
-  width: 140px;
+  top: 130px;
+  left: 155px;
+  width: 70px;
   text-align: center;
   color: #666;
   z-index: -1;
 }
 
 #percentage {
-  font-size: 2.5em;
+  font-size: 1.25em;
 }
 </style>

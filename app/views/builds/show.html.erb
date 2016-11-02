@@ -40,7 +40,8 @@
   <h1>Show build</h1>
 </div>
 <div class="row">
-  <div class="col-sm-6">
+  <div class="col-sm-1">
+  <div class="col-sm-5">
     <dl class="dl-horizontal">
       <dt>Name:</dt>
       <dd><%= @build.name %></dd>
@@ -59,7 +60,7 @@
     
     </dl>
   </div>
-  <div class="col-sm-6">
+  <div class="col-sm-5">
     <div id="main">
       <div id="chart">
         <div id="explanation" style="visibility: hidden;">
@@ -73,6 +74,7 @@
       <div id="legend" style="visibility: hidden;"></div>
     </div>
   </div>
+  <div class="col-sm-1">
 </div>
 <%= javascript_include_tag "builds.js" %>
 <script>

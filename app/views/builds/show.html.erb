@@ -74,10 +74,6 @@
 </div>
 <%= javascript_include_tag "builds.js" %>
 <script>
-  var json =`<%= raw(json) %>`;
-  $(document).on('turbolinks:load', function() {
     var json =`<%= raw(json) %>`;
     createVisualization(JSON.parse(json));
-  });
-  
 </script>

@@ -21,8 +21,8 @@
                 "size":"'+graph_hash['passed'].to_s+'"
               },
               {"name":"Failed",
-                "size":"'+graph_hash['failed'].to_s+'"
-                '+(graph_hash['investigated'] > 0 ? ',children":[
+                "size":"'+graph_hash['failed'].to_s+'"'+(graph_hash['investigated'] > 0 ? ',
+                "children":[
                   {
                     "name":"Investigated",
                     "size":"'+graph_hash['investigated'].to_s+'"

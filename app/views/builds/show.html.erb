@@ -22,12 +22,12 @@
               },
               {"name":"Failed",
                 "size":"'+graph_hash['failed'].to_s+'",
-                "children":[
+                '+('"children":[
                   {
                     "name":"Investigated",
                     "size":"'+graph_hash['investigated'].to_s+'"
                   }
-                ]
+                ]' if graph_hash['investigated'] > 0 ) +'
               }
             ]}'%>
 
@@ -52,7 +52,7 @@
       <dt>Failed:</dt>
       <dd> <%= graph_hash['failed'] %></dd>
       
-      <dt>Failed:</dt>
+      <dt>Investigated:</dt>
       <dd> <%= graph_hash['investigated']  %></dd>
       
       <dt>Description:</dt>

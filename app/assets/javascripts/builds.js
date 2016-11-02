@@ -9,8 +9,9 @@ var b = {
 
 // Mapping of step names to colors.
 var colors = {
-  "passed": "#6ab975",
-  "failed": "#ff4c4c",
+  "Passed": "#6ab975",
+  "Failed": "#ff4c4c",
+  "Investigated": "#ffae19",
 };
 
 // Total size of all segments; we set this later, after loading the data.

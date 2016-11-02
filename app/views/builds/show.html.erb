@@ -2,21 +2,32 @@
 <% graph_hash = Hash.new{ |h,k| h[k] = Hash.new(&h.default_proc) } %>
 <% graph_hash['passed'] = 0 %>
 <% graph_hash['failed'] = 0 %>
+<% graph_hash['investigated'] = 0 %>
 <% @build.report_links.each do |rlink| %>
   <% if rlink.result %>
     <% graph_hash['passed'] += 1 %>
   <% else %>
     <% graph_hash['failed'] += 1 %>
+    <% if !rlink.investigation_result.blank? %>
+      <% graph_hash['investigated'] += 1 %>
+    <% end %>
   <% end %>
 <% end %>
 
 <% json = '{"name":"root",
             "children":[
-              {"name":"passed",
+              {
+                "name":"Passed",
                 "size":"'+graph_hash['passed'].to_s+'"
               },
-              {"name":"failed",
-                "size":"'+graph_hash['failed'].to_s+'"
+              {"name":"Failed",
+                "size":"'+graph_hash['failed'].to_s+'",
+                "children":[
+                  {
+                    "name":"Investigated",
+                    "size":"'+graph_hash['investigated'].to_s+'"
+                  }
+                ]
               }
             ]}'%>
 

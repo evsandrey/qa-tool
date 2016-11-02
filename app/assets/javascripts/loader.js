@@ -32,8 +32,12 @@ function LoadSliderWith(url,data){
     .done(function(html) {
       $(".slider-content").append(html);
       var arr = document.getElementsByClassName("slider-content")[0].getElementsByTagName('script')
+      console.log(arr);
       for (var n = 0; n < arr.length; n++)
+      {
         eval(arr[n].innerHTML);
+        
+      }
       $(".slider-loader").toggle();
     })
     .fail(function(e) {

@@ -1,4 +1,5 @@
 function showPieGraph(json) {
+    console.log(json);
     var width = 175;
     var height = 200;
     var radius = Math.min(width, height) / 2;

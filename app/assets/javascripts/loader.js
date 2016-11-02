@@ -31,9 +31,9 @@ function LoadSliderWith(url,data){
     })
     .done(function(html) {
       $(".slider-content").append(html);
-      var arr = $(".slider-content").getElementsByTagName('script')
+      var arr = document.getElementsByClassName("slider-content")[0].getElementsByTagName('script')
       for (var n = 0; n < arr.length; n++)
-        eval(arr[n].innerHTML)
+        eval(arr[n].innerHTML);
       $(".slider-loader").toggle();
     })
     .fail(function(e) {

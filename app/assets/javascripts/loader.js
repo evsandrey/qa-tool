@@ -35,7 +35,7 @@ function LoadSliderWith(url,data){
       console.log(arr);
       for (var n = 0; n < arr.length; n++)
       {
-        eval(arr[n].innerHTML);
+        // eval(arr[n].innerHTML);
       }
       $(".slider-loader").hide();
     })

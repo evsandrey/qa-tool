@@ -6,6 +6,12 @@ $(document).on('turbolinks:load', function() {
       e.preventDefault(); 
       LoadSliderWith("/reports/"+this.id,{});
     });
+    
+     $(".build-head").on("click", function(e){ 
+      e.preventDefault(); 
+      LoadSliderWith("/builds/"+this.id.replace("build-",""),{});
+    });
+    
 });
 
 function updateReportIcon(msg) {

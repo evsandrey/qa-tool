@@ -23,7 +23,7 @@
       <th></th>
       <% builds = @version.builds.desc('_id').limit(10).reverse! %>
       <% builds.each do |build| %>
-      <th id="build-<%= build.id %>"><%= link_to build.name, product_version_build_path(@product,@version,build) %></th>
+      <th id="build-<%= build.id %>" class="build-head"><%= link_to build.name, product_version_build_path(@product,@version,build) %></th>
       <% end %>
       
     </thead>

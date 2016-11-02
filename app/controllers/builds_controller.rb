@@ -3,6 +3,8 @@ class BuildsController < ApplicationController
   before_action :set_product
   before_action :set_version
   
+  layout false, :except => [:edit, :new, :index]
+  
   # GET /builds
   # GET /builds.json
   def index

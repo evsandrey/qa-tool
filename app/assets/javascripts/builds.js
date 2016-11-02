@@ -75,7 +75,7 @@ function showPieGraph(json) {
     function mouseover(d) {
     
       var percentage = (100 * d.value / totalSize).toPrecision(3);
-      var percentageString = percentage + "%("+d.value+")";
+      var percentageString = percentage + "%";
       if (percentage < 0.1) {
         percentageString = "< 0.1%";
       }

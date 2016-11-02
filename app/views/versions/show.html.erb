@@ -28,7 +28,7 @@
       
     </thead>
     <tbody>
-      <% @version.suites.each do |suite| %>
+      <% @version.suites.desc('name').each do |suite| %>
       <tr id="suite-<%= suite.id %>"> 
         <td><%= link_to suite.name , product_version_suite_path(@product,@version,suite)%></td>
         <% builds.each do |build| %>

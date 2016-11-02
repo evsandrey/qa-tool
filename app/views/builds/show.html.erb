@@ -22,14 +22,6 @@
     ]}    
 ' %>
 
-<!--field :report_id, type: String-->
-<!--field :result, type: Mongoid::Boolean-->
-<!--field :error, type: String-->
-<!--field :comment, type: String-->
-<!--field :investigation_result , type: String-->
-<!--field :suite, type: String-->
-<!--field :reruns, type: Integer-->
-
 <div class="container m-t-1 m-b-1">
   <%= link_to product_version_builds_path(@product,@version), class: 'btn btn-outline-primary pull-md-right m-l-1' do %>
     Back
@@ -81,8 +73,8 @@
     
     // Mapping of step names to colors.
     var colors = {
-      "home": "#5687d1",
-      "product": "#7b615c",
+      "passed": "#5687d1",
+      "failed": "#7b615c",
       "search": "#de783b",
       "account": "#6ab975",
       "other": "#a173d1",
@@ -112,7 +104,7 @@
     // Use d3.text and d3.csv.parseRows so that we do not need to have a header
     // row, and can receive the csv as an array of arrays.
     d3.text("/visit-sequences.csv", function(text) {
-      var json = '<%= json %>';
+      var json = '<%= raw(json) %>';
       console.log(JSON.stringify(json));
       createVisualization(json);
     });
@@ -375,51 +367,7 @@ function buildHierarchy(csv) {
   return root;
 };
 </script>
-#main {
-  float: left;
-  width: 750px;
-}
 
-#sidebar {
-  float: right;
-  width: 100px;
-}
-
-#sequence {
-  width: 600px;
-  height: 70px;
-}
-
-#legend {
-  padding: 10px 0 0 3px;
-}
-
-#sequence text, #legend text {
-  font-weight: 600;
-  fill: #fff;
-}
-
-#chart {
-  position: relative;
-}
-
-#chart path {
-  stroke: #fff;
-}
-
-#explanation {
-  position: absolute;
-  top: 260px;
-  left: 305px;
-  width: 140px;
-  text-align: center;
-  color: #666;
-  z-index: -1;
-}
-
-#percentage {
-  font-size: 2.5em;
-}
 <style>
 #main {
   float: left;

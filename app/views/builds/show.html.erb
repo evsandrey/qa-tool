@@ -10,17 +10,15 @@
   <% end %>
 <% end %>
 
-<% json = '
-    {"name":"root",
-    "children":[
-      {"name":"account",
-        "size":"'+graph_hash['passed'].to_s+'"
-      },
-      {"name":"failed",
-        "size":"'+graph_hash['failed'].to_s+'"
-      },
-    ]}    
-' %>
+<% json = '{"name":"root",
+            "children":[
+              {"name":"account",
+                "size":"'+graph_hash['passed'].to_s+'"
+              },
+              {"name":"failed",
+                "size":"'+graph_hash['failed'].to_s+'"
+              },
+            ]}'%>
 
 <div class="container m-t-1 m-b-1">
   <%= link_to product_version_builds_path(@product,@version), class: 'btn btn-outline-primary pull-md-right m-l-1' do %>
@@ -104,7 +102,7 @@
     // Use d3.text and d3.csv.parseRows so that we do not need to have a header
     // row, and can receive the csv as an array of arrays.
     d3.text("/visit-sequences.csv", function(text) {
-      var json = '<%= raw(json) %>';
+      var json ='<%= raw(json) %>';
       console.log(JSON.stringify(json));
       createVisualization(json);
     });

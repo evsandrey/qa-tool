@@ -18,7 +18,7 @@ table.big-mama {
 }
 
 .big-mama th {
-    text-align: center !important;
+    text-align: left !important;
     padding: 5px !important;  
     border-bottom: 1px !important;
     border-bottom-color: black !important;

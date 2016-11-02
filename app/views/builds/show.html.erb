@@ -104,7 +104,7 @@
     d3.text("/visit-sequences.csv", function(text) {
       var json =`<%= raw(json) %>`;
       console.log(JSON.stringify(json));
-      createVisualization(json);
+      createVisualization(JSON.parse(json));
     });
     
     // Main function to draw and set up the visualization, once we have the data.

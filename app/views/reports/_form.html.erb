@@ -42,10 +42,10 @@
               <% JSON.parse(f.object.custom_params).each do |key| %>
                 <tr class="custom-node">
                   <td>
-                    <input class="form-control name" type="text" value="<%= key['name'] %>"></input>
+                    <input class="form-control name" type="text" value="<%= key.to_s %>"></input>
                   </td>
                   <td>
-                    <input class="form-control value" type="text" value="<%= key['val'] %>"></input>
+                    <input class="form-control value" type="text" value=""></input>
                   </td>
                   <td>
                     <button class="btn btn-sm btn-danger btn-del-custom">-</button>

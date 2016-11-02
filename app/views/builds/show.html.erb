@@ -47,10 +47,13 @@
       <dd><%= @build.name %></dd>
       
       <dt>Passed:</dt>
-      <dd> <% graph_hash['passed'] %></dd>
+      <dd> <%= graph_hash['passed'] %></dd>
       
       <dt>Failed:</dt>
       <dd> <%= graph_hash['failed'] %></dd>
+      
+      <dt>Failed:</dt>
+      <dd> <%= graph_hash['investigated']  %></dd>
       
       <dt>Description:</dt>
       <dd><%= @build.description %></dd>

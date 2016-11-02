@@ -7,7 +7,7 @@ class ReportLink
   field :comment, type: String
   field :investigation_result , type: String
   field :suite, type: String
-  field :reruns, type: Integer
+  field :reruns, type: Integer, default: 0
   
   embedded_in :build
   

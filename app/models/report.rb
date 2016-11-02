@@ -35,7 +35,14 @@ class Report
   end
   
   def link_to_build
-    r_link = ReportLink.new() 
+    new = true
+    if self.build.report_links.where(suite: self.suite_id).last.nil? 
+      r_link = ReportLink.new() 
+    else 
+      r_link = self.build.report_links.where(suite: self.suite_id).last
+      r_link.reruns += 1 
+      new = false
+    end
     r_link.report_id = self._id
     r_link.result = self.result
     r_link.error = self.error
@@ -43,8 +50,7 @@ class Report
     r_link.investigation_result = self.investigation_result.code if !self.investigation_result_id.blank?
     r_link.suite = self.suite_id
     
-    self.build.report_links.<< r_link
-    
+    new ? self.build.report_links << r_link : r_link.save
     self.build.save
 
   end

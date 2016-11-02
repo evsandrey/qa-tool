@@ -9,7 +9,7 @@ $(document).on('turbolinks:load', function() {
     
      $(".build-head").on("click", function(e){ 
       e.preventDefault(); 
-      LoadSliderWith("/builds/"+this.id.replace("build-",""),{});
+      LoadSliderWith("builds/"+this.id.replace("build-",""),{});
     });
     
 });

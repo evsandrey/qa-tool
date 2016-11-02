@@ -29,39 +29,43 @@
   <% end %>
   <h1>Show build</h1>
 </div>
-
-<dl class="dl-horizontal">
-  <dt>Name:</dt>
-  <dd><%= @build.name %></dd>
-  
-  <dt>Passed:</dt>
-  <dd> <% graph_hash['passed'] %></dd>
-  
-  <dt>Failed:</dt>
-  <dd> <%= graph_hash['failed'] %></dd>
-  
-  <dt>Description:</dt>
-  <dd><%= @build.description %></dd>
-
-</dl>
-<div id="main">
-  <div id="sequence"></div>
-  <div id="chart">
-    <div id="explanation" style="visibility: hidden;">
-      <span id="percentage"></span><br/>
-      of visits begin with this sequence of pages
+<div class="row">
+  <div class="col-sm-6">
+    <dl class="dl-horizontal">
+      <dt>Name:</dt>
+      <dd><%= @build.name %></dd>
+      
+      <dt>Passed:</dt>
+      <dd> <% graph_hash['passed'] %></dd>
+      
+      <dt>Failed:</dt>
+      <dd> <%= graph_hash['failed'] %></dd>
+      
+      <dt>Description:</dt>
+      <dd><%= @build.description %></dd>
+    
+    </dl>
+  </div>
+  <div class="col-sm-6">
+    <div id="main">
+      <div id="sequence"></div>
+      <div id="chart">
+        <div id="explanation" style="visibility: hidden;">
+          <span id="percentage"></span><br/>
+          of visits begin with this sequence of pages
+        </div>
+      </div>
+    </div>
+    <div id="sidebar">
+      <input type="checkbox" id="togglelegend"> Legend<br/>
+      <div id="legend" style="visibility: hidden;"></div>
     </div>
   </div>
 </div>
-<div id="sidebar">
-  <input type="checkbox" id="togglelegend"> Legend<br/>
-  <div id="legend" style="visibility: hidden;"></div>
-</div>
-
 <script>
    // Dimensions of sunburst.
-    var width = 750;
-    var height = 600;
+    var width = 375;
+    var height = 300;
     var radius = Math.min(width, height) / 2;
     
     // Breadcrumb dimensions: width, height, spacing, width of tip/tail.

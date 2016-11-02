@@ -69,7 +69,7 @@
     
     // Breadcrumb dimensions: width, height, spacing, width of tip/tail.
     var b = {
-      w: 35, h: 20, s: 3, t: 10
+      w: 55, h: 25, s: 3, t: 10
     };
     
     // Mapping of step names to colors.
@@ -99,12 +99,9 @@
         .outerRadius(function(d) { return Math.sqrt(d.y + d.dy); });
     
     var json =`<%= raw(json) %>`;
-    console.log(JSON.stringify(json));
     createVisualization(JSON.parse(json));
-    
     // Main function to draw and set up the visualization, once we have the data.
     function createVisualization(json) {
-    
       // Basic setup of page elements.
       initializeBreadcrumbTrail();
       drawLegend();

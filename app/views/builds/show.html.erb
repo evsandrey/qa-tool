@@ -76,9 +76,6 @@
 </div>
 <%= javascript_include_tag "builds.js" %>
 <script>
-  $(document).on('turbolinks:load', function() {
-    var build_pie_json =`<%= raw(json) %>`;
-    createVisualization(JSON.parse(build_pie_json));
-  });
-  
+  var build_pie_json =`<%= raw(json) %>`;
+  createVisualization(JSON.parse(build_pie_json));
 </script>

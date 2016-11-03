@@ -77,12 +77,13 @@
   <table class="table">
   <% error_hash.each do |err, rlinks| %>
     <tr >
-      <td colspan=3>
-        <%=err%>    
+      <td colspan=4>
+        <b><%=err%></b>    
       </td>
     </tr>
     <% rlinks.each do |key, rlink| %>
       <tr>
+        <td><%= render :partial => 'reports/icon', :locals => {:report => rlink } %></td>
         <td><%= rlink.suite_name %></td>
         <td><%= rlink.investigation_result %></td>
         <td><%= rlink.comment %></td>

@@ -74,8 +74,22 @@
   <div class="col-sm-1"></div>
 </div>
 <div class="container">
-  <%= error_hash.to_json %>
-  
+  <table class="table">
+  <% error_hash.each do |err, rlinks| %>
+    <tr >
+      <td colspan=3>
+        <%=err%>    
+      </td>
+    </tr>
+    <% rlinks.each do |rlink| %>
+      <tr>
+        <td><%= rlink.suite %></td>
+        <td><%= rlink.investigation_result %></td>
+        <td><%= rlink.comment %></td>
+      </tr>
+    <% end %>
+  <% end %>
+  </table>
 </div>
 <%= javascript_include_tag "builds.js" %>
 <script>

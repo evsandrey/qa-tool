@@ -81,11 +81,11 @@
         <%=err%>    
       </td>
     </tr>
-    <% rlinks.each do |rlink| %>
+    <% rlinks.each do |key, rlink| %>
       <tr>
-        <td><%= rlink %></td>
-        <td><%=  %></td>
-        <td><%=  %></td>
+        <td><%= rlink.suite %></td>
+        <td><%= rlink.investigation_result %></td>
+        <td><%= rlink.comment %></td>
       </tr>
     <% end %>
   <% end %>

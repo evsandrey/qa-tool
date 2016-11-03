@@ -4,10 +4,11 @@
       
     </thead>
     <tbody>
-      <% data['steps'].each do |name , step| %>
+      <% data['steps'].each_with_index do |name , step, index| %>
       <tr>
+        <td><%= index %></td>
         <td><b><%= step['keyword'] %></b> <%= name %></td>
-        <td><%= step['status']  %></td>
+        <td><span class="tag tag-<%= step['status'] == "passed" ? "success" : "danger" %>"><%= step['status']  %></span></td>
         <td><%= step['exception']  %></td>
         <td>
             <% if !step['embeddings'].nil? %>

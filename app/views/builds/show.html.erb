@@ -1,13 +1,16 @@
 <!--http://www.havlena.net/en/programming/d3stackedbar-d3js-responsive-stacked-bar-with-legend-tooltip-and-transitions/-->
 <% graph_hash = Hash.new{ |h,k| h[k] = Hash.new(&h.default_proc) } %>
+<% error_hash = Hash.new{ |h,k| h[k] = Hash.new(&h.default_proc) } %>
 <% graph_hash['passed'] = 0 %>
 <% graph_hash['failed'] = 0 %>
 <% graph_hash['investigated'] = 0 %>
+
 <% @build.report_links.each do |rlink| %>
   <% if rlink.result %>
     <% graph_hash['passed'] += 1 %>
   <% else %>
     <% graph_hash['failed'] += 1 %>
+    <% error_hash[rlink.error].store(rlink.report_id,rlink)  %>
     <% if !rlink.investigation_result.blank? %>
       <% graph_hash['investigated'] += 1 %>
     <% end %>
@@ -69,6 +72,10 @@
     </div>
   </div>
   <div class="col-sm-1"></div>
+</div>
+<div class="container">
+  <%= error_hash.to_json %>
+  
 </div>
 <%= javascript_include_tag "builds.js" %>
 <script>

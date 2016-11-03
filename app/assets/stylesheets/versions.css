@@ -33,8 +33,8 @@ table.big-mama {
 .investigated-code {
     z-index: 300 !important;
     position: absolute;
-    top: 15px;
-    left: 4px;
+    top: 10px;
+    left: 7px;
     height: 35px !important;
     width: 35px !important;
     margin: 0px;

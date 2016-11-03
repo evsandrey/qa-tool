@@ -4,9 +4,10 @@
       
     </thead>
     <tbody>
-      <% data['steps'].each_with_index do |name , step, index| %>
+      <% i = 0 %>
+      <% data['steps'].each do |name , step| %>
       <tr>
-        <td><%= index %></td>
+        <td><%= i++ %></td>
         <td><b><%= step['keyword'] %></b> <%= name %></td>
         <td><span class="tag tag-<%= step['status'] == "passed" ? "success" : "danger" %>"><%= step['status']  %></span></td>
         <td><%= step['exception']  %></td>

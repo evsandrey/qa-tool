@@ -33,14 +33,14 @@ table.big-mama {
 .investigated-code {
     z-index: 300 !important;
     position: absolute;
-    top: 4px;
+    top: 15px;
     left: 4px;
     height: 35px !important;
     width: 35px !important;
     margin: 0px;
     padding: 0px;
     padding-top: 5px !important;
-    font-size: 70%;
+    font-size: 10px;
 }
 
 .investigated-bg {

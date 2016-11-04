@@ -1,25 +1,29 @@
-<div class="table-responsive ">
-  <table id="cucumber-table" class="table table-bordered table-hover">
-    <thead>
-      
-    </thead>
-    <tbody>
-      <% i = 0 %>
-      <% data['steps'].each do |name , step| %>
-      <tr>
-        <td><%= i+=1 %></td>
-        <td><b><%= step['keyword'] %></b> <%= name %></td>
-        <td><span class="tag tag-<%= step['status'] == "passed" ? "success" : "danger" %>"><%= step['status']  %></span></td>
-        <td><%= step['exception']  %></td>
-        <td>
-            <% if !step['embeddings'].nil? %>
-               <% step['embeddings'].each do |key,embedding| %>
-                   <img src="<%= embedding['src'] %>"/>
-               <% end %>
-            <% end %>
-        </td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
+<div class="row">
+  <div class=col-sm-6>
+    <div class="table-responsive ">
+      <table id="cucumber-table" class="table table-bordered table-hover">
+        <tbody>
+          <% i = 0 %>
+          <% data['steps'].each do |name , step| %>
+          <tr id = "step_<%= i+=1 %>">
+            <td><%= i+=1 %></td>
+            <td><b><%= step['keyword'] %></b> <%= name %></td>
+            <td><span class="tag tag-<%= step['status'] == "passed" ? "success" : "danger" %>"><%= step['status']  %></span></td>
+            <td><%= step['exception']  %></td>
+            <td>
+                <% if !step['embeddings'].nil? %>
+                   <% step['embeddings'].each do |key,embedding| %>
+                       <img src="<%= embedding['src'] %>"/>
+                   <% end %>
+                <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>    
+  </div>
+  <div class=col-sm-6>
+    step desc
+  </div>
 </div>

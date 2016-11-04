@@ -25,6 +25,14 @@ table.big-mama {
     width:10px !important;
 }
 
+.big-mama th .build-head {
+    text-align: left !important;
+    padding: 5px !important;  
+    border-bottom: 1px !important;
+    border-bottom-color: black !important;
+    width:40px !important;
+}
+
 .report-icon {
     height: 35px !important;
     width: 35px !important;

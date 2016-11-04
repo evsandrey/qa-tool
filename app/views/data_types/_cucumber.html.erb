@@ -6,7 +6,7 @@
           <% i = 0 %>
           <% data['steps'].each do |name , step| %>
           <tr id = "step_<%= i+=1 %>">
-            <td><%= i+=1 %></td>
+            <td><%= i %></td>
             <td><b><%= step['keyword'] %></b> <%= name %></td>
             <td><span class="tag tag-<%= step['status'] == "passed" ? "success" : "danger" %>"><%= step['status']  %></span></td>
             <td><%= step['exception']  %></td>

@@ -23,7 +23,7 @@
       <th></th>
       <% builds = @version.builds.desc('_id').limit(10).reverse! %>
       <% builds.each do |build| %>
-      <th id="build-<%= build.id %>" class="build-head"><%= link_to build.name, product_version_build_path(@product,@version,build) %></th>
+      <th width=40 id="build-<%= build.id %>" class="build-head"><%= link_to build.name, product_version_build_path(@product,@version,build) %></th>
       <% end %>
       
     </thead>
@@ -39,7 +39,7 @@
             <% else %>
               <% graph_hash[build.name]['failed'].instance_of?(Hash) ? graph_hash[build.name]['failed'] = 1 : graph_hash[build.name]['failed'] += 1 %>
             <% end %>
-            <td id="cell-<%= rlink.report_id %>"> <%= render :partial => 'reports/icon', :locals => {:report => rlink } %>  </td>
+            <td width=40 id="cell-<%= rlink.report_id %>"> <%= render :partial => 'reports/icon', :locals => {:report => rlink } %>  </td>
           <% else %>
             <td> </td>
           <% end %>

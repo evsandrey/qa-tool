@@ -78,16 +78,17 @@
     <div class="container">
       <% i=0 %>
       <% error_hash.each do |err, rlinks| %>
+      <% i++ %>
       <div class="row">
         <div class="row">
           <div class="col-sm-10">
-            <a data-toggle="collapse" href="#<%= "group-"+ i++ %>" aria-expanded="false" aria-controls="collapseExample">
+            <a data-toggle="collapse" href="#<%= "group-"+ i.to_s %>" aria-expanded="false" aria-controls="collapseExample">
               <%=err%>(<%= rlinks.count %>)
             </a>
           </div>
         </div>
         <% rlinks.each do |key, rlink| %>
-        <div class="row" id="<%= "group-"+i %>">
+        <div class="row" id="<%= "group-"+i.to_s  %>">
           <div class="col-sm-3"><%= rlink.suite_name %></div>
           <div class="col-sm-3"><%= render :partial => 'reports/icon', :locals => {:report => rlink } %></div>
           <div class="col-sm-3"><%= rlink.comment %></div>

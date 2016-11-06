@@ -38,7 +38,7 @@
       <img src="<%= @report.screenshot %>" />
     </div>
   </div>
-<div class="container separator"></div>
+<div class="container separator">&nbsp;</div>
 <% if JSON.parse(@report.custom_params) %>
   <% cp = JSON.parse(@report.custom_params)%>
   <div class="<%= cp['data_type'] %>">

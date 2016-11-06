@@ -49,13 +49,12 @@
 <div class="row">
   <div class="col-sm-2"></div>
   <div class="col-sm-4">
-    <dl class="dl-horizontal">
-      <dt>Name: <%= @build.name %></dt>
-      <dt>Passed: <%= graph_hash['passed'] %> </dt>
-      <dt>Failed: <%= graph_hash['failed'] %></dt>
-      <dt>Investigated: <%= graph_hash['investigated']  %></dt>
-      <dt>Description: <%= @build.description %></dt>
-    </dl>
+    <div class="row">
+      <div class=col-sm-6>Name:</div><div class=col-sm-6><%= @build.name %></div>
+      <div class=col-sm-6>Passed:</div><div class=col-sm-6><%= graph_hash['passed'] %></div>
+      <div class=col-sm-6>Failed:</div><div class=col-sm-6><%= graph_hash['failed'] %></div>
+      <div class=col-sm-6>Description:</div><div class=col-sm-6><%= @build.description %></div>
+    </div>
   </div>
   <div class="col-sm-5">
     <div id="main">

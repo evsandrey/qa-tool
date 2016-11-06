@@ -12,32 +12,27 @@
 </div>
   <div class="row">
     <div class="col-sm-6">
-    <table class="table table-bordered table-hover">
-      <tr>
-        <td>Suite:</td>
-        <td><%= @report.suite.name %></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Result:</td>
-        <td><%= @report.result %></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Error:</td>
-        <td><%= @report.error %></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Investigation:</td>
-        <td><%= @report.investigation_result.name if !@report.investigation_result.blank? %></td>
-        <td><button id="<%= @report._id %>" class="btn btn-warning btn-sm" onclick='LoadModalWith("/investigation_form",{ id: this.id } )'>Set investigation status</button><br></td>
-      </tr>
-      <tr>
-        <td>Comment:</td>
-        <td colspan=2 ><%= @report.comment %></td>
-      </tr>
-    </table>
+    <div class="row">
+      <div class="col-sm-6">Suite:</div>
+      <div class="col-sm-6"><%= @report.suite.name %></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">Result:</div>
+      <div class="col-sm-6"><%= @report.result %></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">Error:</div>
+      <div class="col-sm-6"><%= @report.error %></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">Investigation:</div>
+      <div class="col-sm-3"><%= @report.investigation_result.name if !@report.investigation_result.blank? %></div>
+      <div class="col-sm-3"><button id="<%= @report._id %>" class="btn btn-warning btn-sm" onclick='LoadModalWith("/investigation_form",{ id: this.id } )'>Set investigation status</button></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">Comment:</div>
+      <div class="col-sm-6"><%= @report.comment %></div>
+    </div>
     </div>
     <div class="col-sm-6">
       <img src="<%= @report.screenshot %>" />

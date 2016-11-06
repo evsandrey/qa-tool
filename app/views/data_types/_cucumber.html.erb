@@ -10,7 +10,7 @@
         <b><%= step['keyword'] %></b> <%= name %>
       </div>
       <div class="col-sm-2">
-        <span class="tag tag-<%= step['status'] == "passed" ? "success" : "danger" %>"><%= step['status']  %></span>
+        <span class="tag tag-<%= step['status'] == "passed" ? "success" : "danger" %>"><%= step['status'].upcase  %></span>
       </div>
       <div class="col-sm-4">
         <%= step['exception']  %>

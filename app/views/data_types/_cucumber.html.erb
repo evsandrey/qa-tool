@@ -18,7 +18,7 @@
       <div class="col-sm-1">
         <% if !step['embeddings'].nil? %>
            <% step['embeddings'].each do |key,embedding| %>
-               <img src="<%= embedding['src'] %>"/>
+               <img height=10 width=10 src="<%= embedding['src'] %>"/>
            <% end %>
         <% end %>
       </div>

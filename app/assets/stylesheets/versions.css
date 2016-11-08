@@ -2,6 +2,10 @@ table.big-mama {
     word-wrap: break-word;
 }
 
+.first-col {
+    min-width:300px !important;
+}
+
 .big-mama tr {
     border-bottom: 1px !important;
     border-bottom-color: black !important;

@@ -20,7 +20,7 @@
 <div class="table-responsive ">
   <table id="big-mama" class="table table-bordered table-hover big-mama">
     <thead>
-      <th></th>
+      <th class="first-col"></th>
       <% builds = @version.builds.desc('_id').limit(10).reverse! %>
       <% builds.each do |build| %>
       <th id="build-<%= build.id %>" class="build-head"><%= link_to build.name, product_version_build_path(@product,@version,build) %></th>
@@ -30,7 +30,7 @@
     <tbody>
       <% @version.suites.asc('name').each do |suite| %>
       <tr id="suite-<%= suite.id %>"> 
-        <td><%= link_to suite.name , product_version_suite_path(@product,@version,suite)%></td>
+        <td class="first-col" ><%= link_to suite.name , product_version_suite_path(@product,@version,suite)%></td>
         <% builds.each do |build| %>
           <% if !build.report_links.where(suite: suite._id).last.nil? %>
             <% rlink = build.report_links.where(suite: suite._id).last %>
@@ -39,7 +39,7 @@
             <% else %>
               <% graph_hash[build.name]['failed'].instance_of?(Hash) ? graph_hash[build.name]['failed'] = 1 : graph_hash[build.name]['failed'] += 1 %>
             <% end %>
-            <td width=40 id="cell-<%= rlink.report_id %>"> <%= render :partial => 'reports/icon', :locals => {:report => rlink } %>  </td>
+            <td id="cell-<%= rlink.report_id %>"> <%= render :partial => 'reports/icon', :locals => {:report => rlink } %>  </td>
           <% else %>
             <td> </td>
           <% end %>

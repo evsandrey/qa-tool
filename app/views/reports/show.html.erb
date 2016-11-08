@@ -13,28 +13,28 @@
   <div class="row">
     <div class="col-sm-6">
     <div class="row">
-      <div class="col-sm-6">Suite:</div>
-      <div class="col-sm-6"><%= @report.suite.name %></div>
+      <div class="col-sm-3">Suite:</div>
+      <div class="col-sm-9"><%= @report.suite.name %></div>
     </div>
     <div class="row">
-      <div class="col-sm-6">Result:</div>
-      <div class="col-sm-6"><%= @report.result %></div>
+      <div class="col-sm-3">Result:</div>
+      <div class="col-sm-9"><%= @report.result %></div>
     </div>
     <div class="row">
-      <div class="col-sm-6">Error:</div>
-      <div class="col-sm-6"><%= @report.error %></div>
+      <div class="col-sm-3">Error:</div>
+      <div class="col-sm-9"><%= @report.error %></div>
     </div>
     <div class="row">
-      <div class="col-sm-6">Investigation:</div>
-      <div class="col-sm-3"><%= @report.investigation_result.name if !@report.investigation_result.blank? %></div>
+      <div class="col-sm-3">Investigation:</div>
+      <div class="col-sm-9"><%= @report.investigation_result.name if !@report.investigation_result.blank? %></div>
     </div>
     <div class="row">
-      <div class="col-sm-6">Comment:</div>
-      <div class="col-sm-6"><%= @report.comment %></div>
+      <div class="col-sm-3">Comment:</div>
+      <div class="col-sm-9"><%= @report.comment %></div>
     </div>
     <div class="row">
       <div class="col-sm-3"></div>
-      <div class="col-sm-6"><button id="<%= @report._id %>" class="btn btn-warning btn-sm" onclick='LoadModalWith("/investigation_form",{ id: this.id } )'>Set investigation status</button></div>
+      <div class="col-sm-6"><button id="<%= @report._id %>" class="btn btn-warning" onclick='LoadModalWith("/investigation_form",{ id: this.id } )'>Set investigation status</button></div>
       <div class="col-sm-3"></div>
     </div>
     </div>

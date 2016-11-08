@@ -49,6 +49,7 @@ table.big-mama {
     padding: 0px;
     padding-top: 5px !important;
     font-size: 10px;
+    cursor: pointer;
 }
 
 .investigated-bg {

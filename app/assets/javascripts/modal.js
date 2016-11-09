@@ -24,3 +24,9 @@ function LoadModalWith(url,data){
 function closeModal(){
   $('#globalModal').modal('hide');
 }
+
+function LoadModalWithImg(src){
+  $(".modal-body").empty();
+  $(".modal-body").append("<img src=\""+src+"\" />");
+  $('#globalModal').modal('show')
+}

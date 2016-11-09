@@ -104,12 +104,12 @@ class ReportsController < ApplicationController
     @report.error = params["error"]
     @report.screenshot = params["screenshot"]
     @report.custom_params = params["custom_params"].to_json
-    params["files"].to_json.each do |file|
+    params["files"].each do |file|
         p file
         attach = Attachment.new()
-        case(file.to_json.mime_type)
+        case(file["mime_type"])
           when /^image\/(png|gif|jpg|jpeg)/
-            StringIO.open(Base64.decode64(file.to_json.src)) do |data|
+            StringIO.open(Base64.decode64(file["src"])) do |data|
               data.class.class_eval { attr_accessor :original_filename, :content_type }
               data.original_filename = "file.jpg"
               data.content_type = "image/jpeg"

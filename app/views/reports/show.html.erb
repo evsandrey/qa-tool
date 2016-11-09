@@ -21,10 +21,6 @@
       <div class="col-sm-9"><%= @report.result %></div>
     </div>
     <div class="row">
-      <div class="col-sm-3">Error:</div>
-      <div class="col-sm-9"><%= @report.error %></div>
-    </div>
-    <div class="row">
       <div class="col-sm-3">Investigation:</div>
       <div class="col-sm-9"><%= @report.investigation_result.name if !@report.investigation_result.blank? %></div>
     </div>
@@ -40,6 +36,10 @@
     </div>
     <div class="col-sm-6">
       <img src="<%= @report.screenshot %>" />
+      <div class="row">
+      <div class="col-sm-3">Error:</div>
+      <div class="col-sm-9"><%= @report.error %></div>
+    </div>
     </div>
   </div>
 <div class="container separator">&nbsp;</div>

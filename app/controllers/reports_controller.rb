@@ -106,23 +106,10 @@ class ReportsController < ApplicationController
     @report.custom_params = params["custom_params"].to_json
     @report.save
     params["files"].each do |file|
-        attach = Attachment.new()
-        case(file["mime_type"])
-          when /^image\/(png|gif|jpg|jpeg)/
-            StringIO.open(Base64.decode64(file["src"])) do |data|
-              data.class.class_eval { attr_accessor :original_filename, :content_type }
-              data.original_filename = "file"+file["mime_type"].split("/")[1]
-              data.content_type = file["mime_type"]
-              attach.file = data
-            end
-          when /^text\/plain/
-            StringIO.open(Base64.decode64(image_json)) do |data|
-              data.class.class_eval { attr_accessor :original_filename, :content_type }
-              data.original_filename = "file.jpg"
-              data.content_type = "image/jpeg"
-              attach.file = data
-            end
-        end
+        image = Paperclip.io_adapters.for(file["src"]) 
+        image.original_filename = "something.gif"
+        attach = Attachment.create!(image: image)
+        attach.name = file['label']
         @report.attachments << attach
     end
     

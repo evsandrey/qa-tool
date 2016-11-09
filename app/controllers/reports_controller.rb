@@ -112,8 +112,8 @@ class ReportsController < ApplicationController
     params["attachments"].each do |k,file|
         file_object = Paperclip.io_adapters.for(file["src"])
         case file['mime_type']
-          when /^(image)\/(png|gif|jpeg)/
-            file_object.original_filename = file['label']+".jpeg"
+          when /^(image)\/(png|gif|jpeg|jpg)/
+            file_object.original_filename = file['label']+"."+file['mime_type'].split("/")[1]  
           else 
            file_object.original_filename = file['label']+".txt" 
         end

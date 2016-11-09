@@ -1,5 +1,12 @@
 <div class="row">
   <div class=col-sm-9>
+    <div class="row steps-header" >
+      <div class="col-sm-1">#</div>
+      <div class="col-sm-4">Step</div>
+      <div class="col-sm-2">Status</div>
+      <div class="col-sm-4">Exception</div>
+      <div class="col-sm-1">Embeds</div>
+    </div>
     <% i = 0 %>
     <% data['steps'].each do |name , step| %>
     <div class="row step" id="step_<%= i+=1 %>" >

@@ -1,3 +1,8 @@
 .step {
     border-bottom: 1px solid gray !important;
 }
+
+.steps-header {
+ font-weight: bold;
+ font-size: 110%; 
+}

@@ -27,6 +27,6 @@ function closeModal(){
 
 function LoadModalWithImg(src){
   $(".modal-body").empty();
-  $(".modal-body").append("<img class=\"mx-auto\" src=\""+src+"\" />");
+  $(".modal-body").append("<div class=\"text-xs-center\"><img class=\"mx-auto\" src=\""+src+"\" /></div>");
   $('#globalModal').modal('show')
 }

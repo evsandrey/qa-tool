@@ -46,7 +46,7 @@
   </div>
 <div class="container separator">
   <% @report.attachments.each do |attach| %>
-    Files: <%= attach.name %>
+    Files: <%= attach.file.url %>
   <% end %>
 </div>
 <% if JSON.parse(@report.custom_params) %>

@@ -36,12 +36,12 @@
     </div>
     <div class="col-sm-6">
       <div class="row">
-        <img class="img-fluid mx-auto d-block" src="<%= @report.screenshot %>" />
+        <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#imgModal"><img class="rounded mx-auto d-block" src="<%= @report.screenshot %>" /></a>
       </div>
       <div class="row">
         <div class="col-sm-3">Error:</div>
         <div class="col-sm-9"><%= @report.error %></div>
-      </div>
+    </div>
     </div>
   </div>
 <div class="container separator">&nbsp;</div>
@@ -57,4 +57,13 @@
 </div>
 <div class="col-md-1 col-sm-1">
 </div>
+</div>
+<div id="imgModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-body">
+           <img src="<%= @report.screenshot %>" />
+        </div>
+    </div>
+  </div>
 </div>

@@ -24,6 +24,7 @@ class Report
   after_save :broadcast
   after_save :link_to_build
   
+  accepts_nested_attributes_for :attachments
   
   def broadcast
     ActionCable.server.broadcast 'reports_channel', 

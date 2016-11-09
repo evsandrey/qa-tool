@@ -104,8 +104,7 @@ class ReportsController < ApplicationController
     @report.error = params["error"]
     @report.screenshot = params["screenshot"]
     @report.custom_params = params["custom_params"].to_json
-    if params["files"].to_json.count > 0 
-      params["files"].to_json.each do |file|
+    params["files"].to_json.each do |file|
         p file
         attach = Attachment.new()
         case(file.to_json.mime_type)
@@ -125,8 +124,8 @@ class ReportsController < ApplicationController
             end
         end
         @report.attachments << attach
-      end
     end
+    
     
     respond_to do |format|
       if @report.save 

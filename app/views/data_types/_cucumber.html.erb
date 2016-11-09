@@ -23,7 +23,7 @@
         <%= step['exception']  %>
       </div>
       <div class="col-sm-1">
-        <% if !step['embeddings'].nil? %>
+        <% if report.attachments.nil? %>
            <% step['embeddings'].each do |key,embedding| %>
                <img onclick='LoadModalWithImg(this.src)' height=20 width=20 src="<%= embedding['src'] %>"/>
            <% end %>

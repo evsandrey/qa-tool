@@ -3,6 +3,8 @@ class Attachment
   include Mongoid::Paperclip
   
   field :name, type: String
+  field :mime_type, type: String
+  field :link, type: String
   
   embedded_in :report
   

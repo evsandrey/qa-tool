@@ -1,9 +1,9 @@
 .step {
-    border-bottom: 1px solid gray !important;
+    border-bottom: 1px solid rgb(221,221,221) !important;
 }
 
 .steps-header {
-    border-bottom: 2px solid gray !important;
+    border-bottom: 1px solid rgb(221,221,221) !important;
     font-weight: bold;
-    font-size: 110%; 
+    font-size: 105%; 
 }

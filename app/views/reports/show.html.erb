@@ -5,7 +5,6 @@
 <div class="col-md-10 col-sm-10">
 
 <div class="container m-t-1 m-b-1">
-  <button id="<%= @report._id %>" class="btn btn-warning pull-md-right" onclick='LoadModalWith("/investigation_form",{ id: this.id } )'>Set investigation status</button>
   <%= link_to edit_report_path(@report), class: 'btn btn-info pull-md-right' do %>
     Edit
   <% end %>
@@ -31,7 +30,7 @@
     </div>
     <div class="row">
       <div class="col-sm-3"></div>
-      <div class="col-sm-6"><br></div>
+      <div class="col-sm-6"><br><button id="<%= @report._id %>" class="btn btn-warning" onclick='LoadModalWith("/investigation_form",{ id: this.id } )'>Set investigation status</button></div>
       <div class="col-sm-3"></div>
     </div>
     </div>
@@ -46,7 +45,6 @@
     </div>
   </div>
 <div class="container separator">
-  Attachments:
   <% @report.attachments.each do |attach| %>
     <% case attach.mime_type %>
       <% when "image/jpg" %>
@@ -60,7 +58,7 @@
 <% if JSON.parse(@report.custom_params) %>
   <% cp = JSON.parse(@report.custom_params)%>
   <div class="<%= cp['data_type'] %>">
-    <%= render :partial => 'data_types/'+cp['data_type'], :locals => {:data => cp, report: => @report} %>
+    <%= render :partial => 'data_types/'+cp['data_type'], :locals => {:data => cp} %>
   </div>
 <% else %>
     Custom params are not json

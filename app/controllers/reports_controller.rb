@@ -108,7 +108,7 @@ class ReportsController < ApplicationController
     params["files"].each do |file|
         image = Paperclip.io_adapters.for(file["src"]) 
         image.original_filename = "something.gif"
-        attach = Attachment.create!(image: image)
+        attach = Attachment.create!(file: image)
         attach.name = file['label']
         @report.attachments << attach
     end

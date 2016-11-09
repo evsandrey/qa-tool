@@ -111,8 +111,8 @@ class ReportsController < ApplicationController
           when /^image\/(png|gif|jpg|jpeg)/
             StringIO.open(Base64.decode64(file["src"])) do |data|
               data.class.class_eval { attr_accessor :original_filename, :content_type }
-              data.original_filename = "file.jpg"
-              data.content_type = "image/jpeg"
+              data.original_filename = "file"+file["mime_type"].split("/")[1]
+              data.content_type = file["mime_type"]
               attach.file = data
             end
           when /^text\/plain/

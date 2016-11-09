@@ -11,6 +11,7 @@ class Build
   belongs_to :version
   has_many :reports
   embeds_many :report_links
+  
   accepts_nested_attributes_for :report_links
   
   after_create :broadcast

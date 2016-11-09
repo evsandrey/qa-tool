@@ -7,14 +7,14 @@
       <div class="col-sm-4">Exception</div>
       <div class="col-sm-1">Embeds</div>
     </div>
-    <% i = 0 %>
-    <% data['steps'].each do |name , step| %>
-    <div class="row step" id="step_<%= i+=1 %>" >
+    
+    <% data['steps'].each do |id , step| %>
+    <div class="row step" id="step_<%= id %>" >
       <div class="col-sm-1">
-        <%= i %>
+        <%= id %>
       </div>
       <div class="col-sm-4">
-        <b><%= step['keyword'] %></b> <%= name %>
+        <b><%= step['keyword'] %></b> <%= step['step_name'] %>
       </div>
       <div class="col-sm-2">
         <span class="tag tag-<%= step['status'] == "passed" ? "success" : "danger" %>"><%= step['status'].upcase  %></span>

@@ -106,6 +106,7 @@ class ReportsController < ApplicationController
     @report.custom_params = params["custom_params"].to_json
     if params["files"].count > 0 
       params["files"].each do |file|
+        p file
         attach = Attachment.new()
         case(file.mime_type)
           when /^image\/(png|gif|jpg|jpeg)/

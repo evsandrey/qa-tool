@@ -18,7 +18,8 @@ class Report
   belongs_to :investigation_result, optional: true
   belongs_to :suite
   belongs_to :build
-  has_many :attachments
+  
+  embeds_many :attachments
   
   after_save :broadcast
   after_save :link_to_build

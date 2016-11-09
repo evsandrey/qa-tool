@@ -44,7 +44,11 @@
     </div>
     </div>
   </div>
-<div class="container separator">&nbsp;</div>
+<div class="container separator">
+  <% report.attachments.each do |attach| %>
+    <%= attach.name %>
+  <% end %>
+</div>
 <% if JSON.parse(@report.custom_params) %>
   <% cp = JSON.parse(@report.custom_params)%>
   <div class="<%= cp['data_type'] %>">

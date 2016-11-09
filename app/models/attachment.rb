@@ -4,7 +4,7 @@ class Attachment
   
   field :name, type: String
   
-  belongs_to :report
+  embedded_in :report
   has_mongoid_attached_file :file
   
   validates_attachment_content_type :file, 

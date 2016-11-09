@@ -104,8 +104,8 @@ class ReportsController < ApplicationController
     @report.error = params["error"]
     @report.screenshot = params["screenshot"]
     @report.custom_params = params["custom_params"].to_json
+    @report.save
     params["files"].each do |file|
-        p file
         attach = Attachment.new()
         case(file["mime_type"])
           when /^image\/(png|gif|jpg|jpeg)/

@@ -14,7 +14,7 @@
         <%= id %>
       </div>
       <div class="col-sm-4">
-        <b><%= step['keyword'] %></b> <%= step['step_name'] %>
+        <b><%= step['keyword'] %></b> <%= step['step_text'] %>
       </div>
       <div class="col-sm-2">
         <span class="tag tag-<%= step['status'] == "passed" ? "success" : "danger" %>"><%= step['status'].upcase  %></span>

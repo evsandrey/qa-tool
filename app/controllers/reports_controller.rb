@@ -102,11 +102,11 @@ class ReportsController < ApplicationController
     
     @report.result  = (params["result"] == 'passed')
     @report.error = params["error"]
-    screen_file = Paperclip.io_adapters.for(params["screenshot"])
-    
-    screen_file.original_filename = @report.id.to_s+".jpg"
-    
-    @report.screenshot = sreen_file
+    if !params["screenshot"].blank?
+      screen_file = Paperclip.io_adapters.for(params["screenshot"])
+      screen_file.original_filename = @report.id.to_s+".jpg"
+      @report.screenshot = screen_file
+    end
     @report.custom_params = params["custom_params"].to_json
     @report.save
     params["attachments"].each do |k,file|

@@ -76,25 +76,32 @@
   <div class=col-sm-2></div>
   <div class=col-sm-10>
       <% i=0 %>
-      <ul class="list-group" id="accordion" role="tablist" aria-multiselectable="true">
+      <div id="accordion" role="tablist" aria-multiselectable="true">
         <% error_hash.each do |err, rlinks| %>
         <% i+=1 %>
-          <li class="list-group-item">
-            <span class="tag tag-default tag-pill float-xs-right"><%= rlinks.count %></span>
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapse-<%= i %>" aria-expanded="true" aria-controls="collapse-<%= i %>"><%= err %></a>
-            <div id="#collapse-<%= i %>" class="collapse in" role="tabpanel" aria-labelledby="headingOne">
-            <% rlinks.each do |key, rlink| %>
-            <div class="row">
-              <div class="col-sm-3"><%= rlink.suite_name %></div>
-              <div class="col-sm-3"><%= render :partial => 'reports/icon', :locals => {:report => rlink } %></div>
-              <div class="col-sm-3"><%= rlink.comment %></div>
-              <div class="col-sm-3"></div>
+          <div class="card">
+            <div class="card-header" role="tab" id="headingOne">
+              <h5 class="mb-0">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse-<%= i%>" aria-expanded="true" aria-controls="collapse-<%= i%>">
+                  <%= err %>(<%= rlinks.count %>)
+                </a>
+              </h5>
             </div>
-          <% end %>
-          </div>
-          </li>
+            <div id="collapse-<%= i%>" class="collapse in" role="tabpanel" aria-labelledby="heading-<%= i%>">
+              <div class="card-block">
+                <% rlinks.each do |key, rlink| %>
+                <div class="row">
+                  <div class="col-sm-3"><%= rlink.suite_name %></div>
+                  <div class="col-sm-3"><%= render :partial => 'reports/icon', :locals => {:report => rlink } %></div>
+                  <div class="col-sm-3"><%= rlink.comment %></div>
+                  <div class="col-sm-3"></div>
+                </div>
+                <% end %>      
+              </div>
+            </div>
+          </div>  
         <% end %>
-      </ul>    
+      </div>
   </div>
   <div class=col-sm-2></div>
 </div>

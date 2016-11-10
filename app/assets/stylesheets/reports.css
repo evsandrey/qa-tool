@@ -11,6 +11,7 @@
 .img-err-screen {
  max-height: 200px;
  max-width: 100%;
+ cursor: -webkit-zoom-in; 
 }
 
 #largeImgPanel {
@@ -27,4 +28,5 @@
     min-height:70%;
     max-height:80%;
     max-width: 90% !important;
+    cursor: -webkit-zoom-out; 
 }

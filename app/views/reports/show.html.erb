@@ -48,9 +48,9 @@
       <% @report.attachments.each do |attach| %>
         <% case attach.mime_type %>
           <% when "image/jpg" %>
-            <img onclick='LoadModalWithImg(this.src)' height=20 width=20 src="<%= attach.file.url %>"/>
+            <img onclick='LoadModalWithImg(this.src)' height=20 width=20 src="<%= attach.file.url %>"/><%= attach.name %><br>
           <% else %>
-            tf
+            tf<%= attach.name %><br>
           <% end %>
       <% end %>      
     </div>

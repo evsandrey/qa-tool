@@ -1,12 +1,11 @@
 table.big-mama {
-    word-wrap: break-word;
+    border-collapse: collapse;
 }
 
 .big-mama td {
     position:relative;
     text-align: left !important;
     padding: 5px !important;  
-    border-bottom: 1pt solid black !important;
     min-width:30px !important;
 }
 

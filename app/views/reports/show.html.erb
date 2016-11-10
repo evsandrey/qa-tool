@@ -5,7 +5,7 @@
 <div class="col-md-10 col-sm-10">
 
 <div class="container m-t-1 m-b-1">
-  <button id="<%= @report._id %>" class="btn btn-warning pull-md-right" onclick='LoadModalWith("/investigation_form",{ id: this.id } )'>Set investigation status</button>
+  <button id="<%= @report._id %>" class="btn btn-warning pull-md-right m-l-1" onclick='LoadModalWith("/investigation_form",{ id: this.id } )'>Set investigation status</button>
   <%= link_to edit_report_path(@report), class: 'btn btn-info pull-md-right' do %>
     Edit
   <% end %>
@@ -14,19 +14,19 @@
   <div class="row">
     <div class="col-sm-6">
     <div class="row">
-      <div class="col-sm-3">Suite:</div>
+      <div class="col-sm-3 text-right"><strong>Suite:</strong></div>
       <div class="col-sm-9"><%= @report.suite.name %></div>
     </div>
     <div class="row">
-      <div class="col-sm-3">Result:</div>
+      <div class="col-sm-3  text-right"><strong>Result:</strong></div>
       <div class="col-sm-9"><%= @report.result %></div>
     </div>
     <div class="row">
-      <div class="col-sm-3">Investigation:</div>
+      <div class="col-sm-3 text-right"><strong>Investigation:</strong></div>
       <div class="col-sm-9"><%= @report.investigation_result.name if !@report.investigation_result.blank? %></div>
     </div>
     <div class="row">
-      <div class="col-sm-3">Comment:</div>
+      <div class="col-sm-3 text-right"><strong>Comment:</strong></div>
       <div class="col-sm-9"><%= @report.comment %></div>
     </div>
     <div class="row">

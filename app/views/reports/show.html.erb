@@ -2,8 +2,7 @@
 
 <div class="col-md-1 col-sm-1">
 </div>
-<div class="col-md-10 col-sm-10">
-
+<div class="col-md-10 col-sm-11">
 <div class="container m-t-1 m-b-1">
   <button id="<%= @report._id %>" class="btn btn-warning pull-md-right m-l-1" onclick='LoadModalWith("/investigation_form",{ id: this.id } )'>Set investigation status</button>
   <%= link_to edit_report_path(@report), class: 'btn btn-info pull-md-right' do %>
@@ -40,7 +39,7 @@
     </div>
     <div class="col-sm-4">
       <div class="text-xs-center mx-auto">
-        <img class="mx-auto img-err-screen" src="<%= @report.screenshot %>" onclick='LoadModalWithImg(this.src)' />
+        <img class="mx-auto img-err-screen" src="<%= @report.screenshot %>" onclick='LoadModalWithImg(this.src,".img-modal")' />
       </div>
     </div>
   </div>
@@ -51,7 +50,7 @@
       <% @report.attachments.each do |attach| %>
         <% case attach.mime_type %>
           <% when "image/jpg" %>
-            <img onclick='LoadModalWithImg(this.src)' height=20 width=20 src="<%= attach.file.url %>"/><%= attach.name %><br>
+            <img onclick='LoadModalWithImg(this.src,".img-modal")' height=20 width=20 src="<%= attach.file.url %>"/><%= attach.name %><br>
           <% else %>
             tf<%= attach.name %><br>
           <% end %>
@@ -75,15 +74,13 @@
     <%= @report.custom_params%>
 <% end %>
 </div>
-<div class="col-md-1 col-sm-1">
 </div>
 </div>
-<div id="imgModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+
+<div class="modal fade img-modal" role="dialog" aria-labelledby="imgModal" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
-        <div class="modal-body">
-           <img src="<%= @report.screenshot %>" />
-        </div>
+      
     </div>
   </div>
 </div>

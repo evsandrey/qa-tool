@@ -25,8 +25,8 @@ function closeModal(){
   $('#globalModal').modal('hide');
 }
 
-function LoadModalWithImg(src){
+function LoadModalWithImg(src,modal){
   $(".modal-body").empty();
   $(".modal-body").append("<div class=\"text-xs-center\"><img class=\"img-fluid mx-auto\" src=\""+src+"\" /></div>");
-  $('#globalModal').modal('show')
+  $(modal).modal('show')
 }

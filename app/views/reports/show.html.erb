@@ -11,7 +11,7 @@
   <% end %>
 </div>
   <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-8">
     <div class="row">
       <div class="col-sm-3 text-xs-right"><strong>Build:</strong></div>
       <div class="col-sm-9"><%= @report.build.version.product.name %> <%= @report.build.version.name %>.<%= @report.build.name %></div>
@@ -38,9 +38,9 @@
       <div class="col-sm-3"></div>
     </div>
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-4">
       <div class="text-xs-center mx-auto">
-        <img class="img-fluid mx-auto img-err-screen" src="<%= @report.screenshot %>" onclick='LoadModalWithImg(this.src)' />
+        <img class="mx-auto img-err-screen" src="<%= @report.screenshot %>" onclick='LoadModalWithImg(this.src)' />
       </div>
     </div>
   </div>

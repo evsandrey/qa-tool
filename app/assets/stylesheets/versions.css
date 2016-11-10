@@ -3,7 +3,7 @@ table.big-mama {
 }
 
 .big-mama tr {
-    border-bottom: 1px !important;
+    border-bottom: 1px solid black !important;
     border-bottom-color: black !important;
     max-width:30px !important; 
 }
@@ -28,7 +28,7 @@ table.big-mama {
 .big-mama th .build-head {
     text-align: left !important;
     padding: 5px !important;  
-    border-bottom: 1px !important;
+    border-bottom: 1px solid black !important;
     border-bottom-color: black !important;
     width:40px !important;
 }

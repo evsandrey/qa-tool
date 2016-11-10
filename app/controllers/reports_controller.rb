@@ -117,7 +117,7 @@ class ReportsController < ApplicationController
           else 
            file_object.original_filename = file['label']+".txt" 
         end
-        attach = Attachment.create!(file: file_object, name: file['label'], report: @report, mime_type: file['mime_type'], link: file['link'])
+        Attachment.create!(file: file_object, name: file['label'], report: @report, mime_type: file['mime_type'], link: file['link'])
     end
     
     

@@ -14,6 +14,10 @@
  cursor: -webkit-zoom-in; 
 }
 
+.attach-prev {
+  cursor: -webkit-zoom-in;  
+}
+
 #largeImgPanel {
     text-align: center;
     display: none;

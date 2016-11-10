@@ -50,7 +50,7 @@
       <% @report.attachments.each do |attach| %>
         <% case attach.mime_type %>
           <% when "image/jpg" %>
-            <img onclick='enlargeImage(this.src,this.src)' height=20 width=20 src="<%= attach.file.url %>"/><%= attach.name %><br>
+            <img class="attach-prev" onclick='enlargeImage(this.src,this.src)' height=30 width=30 src="<%= attach.file.url %>"/><%= attach.name %><br>
           <% else %>
             tf<%= attach.name %><br>
           <% end %>

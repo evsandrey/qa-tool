@@ -9,12 +9,10 @@ table.big-mama {
     min-width:30px !important;
 }
 
-.big-mama th {
+.big-mama tr {
     text-align: left !important;
-    padding: 5px !important;  
     border-bottom: 1px !important;
     border-bottom-color: rgb(221,221,221) !important;
-    width:10px !important;
 }
 
 .big-mama th .build-head {

@@ -14,12 +14,12 @@
   <div class="row">
     <div class="col-sm-6">
     <div class="row">
-      <div class="col-sm-3 text-xs--right"><strong>Suite:</strong></div>
+      <div class="col-sm-3 text-xs-right"><strong>Suite:</strong></div>
       <div class="col-sm-9"><%= @report.suite.name %></div>
     </div>
     <div class="row">
       <div class="col-sm-3  text-xs-right"><strong>Result:</strong></div>
-      <div class="col-sm-9"><%= @report.result %></div>
+      <div class="col-sm-9"><%= render :partial => 'reports/icon', :locals => {:report => @report } %></div>
     </div>
     <div class="row">
       <div class="col-sm-3 text-xs-right"><strong>Investigation:</strong></div>

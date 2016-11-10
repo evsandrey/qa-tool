@@ -13,15 +13,14 @@ table.big-mama {
     text-align: left !important;
     padding: 5px !important;  
     border-bottom: 1px !important;
-    border-bottom-color: black !important;
+    border-bottom-color: rgb(221,221,221) !important;
     width:10px !important;
 }
 
 .big-mama th .build-head {
     text-align: left !important;
     padding: 5px !important;  
-    border-bottom: 1px solid black !important;
-    border-bottom-color: black !important;
+    border-bottom: 1px solid rgb(221,221,221) !important;
     width:40px !important;
 }
 
@@ -60,6 +59,6 @@ table.big-mama {
 }
 
 .first-col {
-    max-width: 300px !important;
-    min-width: 200px !important;
+    max-width: 250px !important;
+    min-width: 150px !important;
 }

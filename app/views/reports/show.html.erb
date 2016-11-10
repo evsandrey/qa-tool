@@ -39,7 +39,7 @@
     </div>
     <div class="col-sm-4">
       <div class="text-xs-center mx-auto">
-        <img class="mx-auto img-err-screen" src="<%= @report.screenshot %>" onclick='enlargeImage(this.src,this.src)' />
+        <img class="mx-auto img-err-screen" src="<%= @report.result ? "/gif/passed.gif" : @report.screenshot %>" onclick='enlargeImage(this.src,this.src)' />
       </div>
     </div>
   </div>

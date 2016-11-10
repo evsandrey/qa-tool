@@ -82,14 +82,16 @@
           <li class="list-group-item">
             <span class="tag tag-default tag-pill float-xs-right"><%= rlinks.count %></span>
             <a data-toggle="collapse" data-parent="#accordion" href="#collapse-<%= i %>" aria-expanded="true" aria-controls="collapse-<%= i %>"><%= err %></a>
+            <div id="#collapse-<%= i %>" class="collapse in" role="tabpanel" aria-labelledby="headingOne">
             <% rlinks.each do |key, rlink| %>
-            <div id="#collapse-<%= i %>" class=" row collapse in" role="tabpanel" aria-labelledby="headingOne">
+            <div class="row">
               <div class="col-sm-3"><%= rlink.suite_name %></div>
               <div class="col-sm-3"><%= render :partial => 'reports/icon', :locals => {:report => rlink } %></div>
               <div class="col-sm-3"><%= rlink.comment %></div>
               <div class="col-sm-3"></div>
             </div>
           <% end %>
+          </div>
           </li>
         <% end %>
       </ul>    

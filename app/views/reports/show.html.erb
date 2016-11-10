@@ -51,7 +51,7 @@
         <% case attach.mime_type %>
           <% when "image/jpg" %>
             <span class="tag tag-pill tag-primary">
-              <img class="attach-prev" onclick='enlargeImage(this.src,this.src)' height=30 width=30 src="<%= attach.file.url %>"/><%= attach.name %>
+              <img class="attach-prev btn-circle" onclick='enlargeImage(this.src,this.src)' height=30 width=30 src="<%= attach.file.url %>"/><%= attach.name %>
             </span>
           <% else %>
             <span class="tag tag-pill tag-primary">

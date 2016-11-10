@@ -61,8 +61,13 @@ table.big-mama {
     padding: 0px !important;
 }
 
-.text-cut {
+.text-cut  {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+}
+
+.first-col {
+    max-width: 300px !important;
+    min-width: 200px !important;
 }

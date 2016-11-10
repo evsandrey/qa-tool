@@ -7,6 +7,7 @@
 //= mCustomScrollbar
 //= require cookie
 //= require versions
+//= require colorpicker
 //= require d3
 //= require_tree .
 

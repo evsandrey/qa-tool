@@ -42,12 +42,6 @@
     </div>
   </div>
 <div class="m-t-1 m-b-1">
-  <div class="row text-warning">
-    <% if !@report.result %>
-    <div class="col-sm-2 text-xs-right"><strong>Error:</strong></div>
-    <% end %>
-    <div class="col-sm-10 text-xs-left"><pre><%= @report.error %></pre></div>
-  </div>
   <div class="row">
     <div class="col-sm-2 text-xs-right"><strong>Attachments:</strong></div>
     <div class="col-sm-10 text-xs-left">
@@ -60,6 +54,12 @@
           <% end %>
       <% end %>      
     </div>
+  </div>
+  <div class="row">
+    <% if !@report.result %>
+    <div class="col-sm-2 text-xs-right"><strong>Error:</strong></div>
+    <% end %>
+    <div class="col-sm-10 text-xs-left"><pre><%= @report.error %></pre></div>
   </div>
 </div>
 <% if JSON.parse(@report.custom_params) %>

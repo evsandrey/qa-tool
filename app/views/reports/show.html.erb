@@ -39,7 +39,7 @@
     </div>
     <div class="col-sm-4">
       <div class="text-xs-center mx-auto">
-        <img class="mx-auto img-err-screen" src="<%= @report.screenshot %>" onclick='LoadModalWithImg(this.src,".img-modal")' />
+        <img class="mx-auto img-err-screen" src="<%= @report.screenshot %>" onclick='enlargeImage(this.src,this.src)' />
       </div>
     </div>
   </div>
@@ -50,7 +50,7 @@
       <% @report.attachments.each do |attach| %>
         <% case attach.mime_type %>
           <% when "image/jpg" %>
-            <img onclick='LoadModalWithImg(this.src,".img-modal")' height=20 width=20 src="<%= attach.file.url %>"/><%= attach.name %><br>
+            <img onclick='enlargeImage(this.src,this.src)' height=20 width=20 src="<%= attach.file.url %>"/><%= attach.name %><br>
           <% else %>
             tf<%= attach.name %><br>
           <% end %>
@@ -76,11 +76,6 @@
 </div>
 </div>
 </div>
-
-<div class="modal fade img-modal" role="dialog" aria-labelledby="imgModal" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      
-    </div>
-  </div>
+<div id="largeImgPanel" onclick="this.style.display='none'">
+  <img id="largeImg" style="height:100%; margin:0; padding:0;" />
 </div>

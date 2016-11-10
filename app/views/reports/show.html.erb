@@ -36,15 +36,17 @@
     </div>
     </div>
     <div class="col-sm-6">
-      <div class="text-xs-center">
-        <img class="img-fluid mx-auto w-100" src="<%= @report.screenshot %>" onclick='LoadModalWithImg(this.src)' />
+      <div class="text-xs-center mx-auto">
+        <img class="img-fluid mx-auto img-err-screen" src="<%= @report.screenshot %>" onclick='LoadModalWithImg(this.src)' />
       </div>
     </div>
   </div>
 <div class="m-t-1 m-b-1">
   <div class="row text-warning">
-    <div class="col-sm-2 text-xs-right"><strong>Error:</strong></div>
-    <div class="col-sm-10 text-xs-left "><%= @report.error %></div>
+    <% if !@report.result %>
+    <div class="col-sm-2 bg-danger text-white"><strong>Error:</strong></div>
+    <% end %>
+    <div class="col-sm-10 text-xs-left "><pre><%= @report.error %></pre></div>
   </div>
   <div class="row">
     <div class="col-sm-2 text-xs-right"><strong>Attachments:</strong></div>

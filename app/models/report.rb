@@ -77,11 +77,14 @@ class Report
         self.investigation_result = prev_report.investigation_result
         self.comment = prev_report.comment
         self.save
+        "Comparsion applied"
       else
         self.apply_auto_investigation_rules
+        "Comparsion not applied"
       end  
     else
       self.apply_auto_investigation_rules
+      "Comparsion not applied 2"
     end
   end
   

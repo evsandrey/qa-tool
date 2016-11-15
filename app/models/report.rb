@@ -47,7 +47,7 @@ class Report
     r_link.result = self.result
     r_link.error = self.error
     r_link.comment = self.comment
-    r_link.investigation_result_id = self.investigation_result._id if !self.investigation_result._id.blank?
+    r_link.investigation_result_id = self.investigation_result_id if !self.investigation_result_id.blank?
     r_link.investigation_result = self.investigation_result.code if !self.investigation_result_id.blank?
     r_link.suite = self.suite_id
     r_link.suite_name = self.suite.name

@@ -21,7 +21,7 @@ class Report
   embeds_many :attachments
   
   after_save :link_to_build
-  after_save :compare_with_prev_build
+  after_create :compare_with_prev_build
   after_save :broadcast
   
   accepts_nested_attributes_for :attachments

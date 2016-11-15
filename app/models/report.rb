@@ -47,6 +47,7 @@ class Report
     r_link.result = self.result
     r_link.error = self.error
     r_link.comment = self.comment
+    r_link.investigation_result_id = self.investigation_result._id if !self.investigation_result._id.blank?
     r_link.investigation_result = self.investigation_result.code if !self.investigation_result_id.blank?
     r_link.suite = self.suite_id
     r_link.suite_name = self.suite.name
@@ -74,7 +75,7 @@ class Report
     prev_report = get_prev_build_last_report
     if !prev_report.nil?
       if prev_report.error == self.error && prev_report.investigated?
-        self.investigation_result = prev_report.investigation_result
+        self.investigation_result = InvestigationResult.find(prev_report.investigation_result_id)
         self.comment = prev_report.comment
         self.save
         "Comparsion applied"

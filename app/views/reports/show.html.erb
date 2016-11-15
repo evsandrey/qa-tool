@@ -32,9 +32,9 @@
       <div class="col-sm-9"><%= @report.comment %></div>
     </div>
     <div class="row">
-      <div class="col-sm-3"><%= @report.get_prev_build_last_report.error %></div>
+      <div class="col-sm-3 text-xs-right"><strong>Notes:</strong></div>
       <div class="col-sm-6"><br><%= @report.compare_with_prev_build %></div>
-      <div class="col-sm-3"><%= @report.get_prev_build_last_report.investigation_result %></div>
+      <div class="col-sm-3"></div>
     </div>
     </div>
     <div class="col-sm-4">

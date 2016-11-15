@@ -12,4 +12,8 @@ class ReportLink
   
   embedded_in :build
   
+  def investigated?
+    self.investigation_result.nil? ? false : true 
+  end
+
 end

@@ -57,8 +57,8 @@ class Report
   end
   
   def get_prev_build_last_report
-    prev_version = Version.where(:_id.lt => self.version._id).order_by([[:_id, :desc]]).limit(1).first
-    prev_report = prev_version.report_links.where(suite: self.suite.id)
+    prev_build = Build.where(:_id.lt => self.build._id).order_by([[:_id, :desc]]).limit(1).first
+    prev_report = prev_build.report_links.where(suite: self.suite.id)
     prev_report
   end
   

@@ -55,6 +55,35 @@ class Report
 
   end
   
+  def get_prev_build_last_report
+    prev_version = Version.where(:_id.lt => self.version._id).order_by([[:_id, :desc]]).limit(1).first
+    prev_report = prev_version.report_links.where(suite: self.suite.id)
+    prev_report
+  end
+  
+  def investigated?
+    self.investigation_result.nil? ? false : true 
+  end  
+  
+  def apply_auto_investigation_rules
+    true
+  end
+  
+  def compare_with_prev_build
+    prev_report = get_prev_build_last_report
+    if !prev_report.nil?
+      if prev_report.error == self.error && prev_report.investigated?
+        self.investigation_result = prev_report.investigation_result
+        self.comment = prev_report.comment
+        self.save
+      else
+        self.apply_auto_investigation_rules
+      end  
+    else
+      self.apply_auto_investigation_rules
+    end
+  end
+  
   def render_icon(report) 
       ApplicationController.new.render_to_string(partial: 'reports/icon', locals: {report: report})
   end

@@ -31,12 +31,12 @@ function LoadSliderWith(url,data){
     })
     .done(function(html) {
       $(".slider-content").append(html);
-      var arr = document.getElementsByClassName("slider-content")[0].getElementsByTagName('script')
-      for (var n = 0; n < arr.length; n++)
-      {
-        // eval(arr[n].innerHTML);
-      }
-      $(".slider-loader").hide();
+      // var arr = document.getElementsByClassName("slider-content")[0].getElementsByTagName('script')
+      // for (var n = 0; n < arr.length; n++)
+      // {
+      //   // eval(arr[n].innerHTML);
+      // }
+      // $(".slider-loader").hide();
     })
     .fail(function(e) {
       console.log( "Error in loading slider" );

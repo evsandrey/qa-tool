@@ -22,7 +22,7 @@ function updateReportIcon(msg) {
   var cell = findByCoord("big-mama","build-"+build_id,"test_case-"+test_case_id)
   cell.empty();
   $(msg['message']).appendTo(cell);
-  cell.find( "div" ).on("click", function(e){ 
+  cell.find( ".report-icon" ).on("click", function(e){ 
       e.preventDefault(); 
       LoadSliderWith("/reports/"+this.id,{});
   })

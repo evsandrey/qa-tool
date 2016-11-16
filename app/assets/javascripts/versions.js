@@ -17,9 +17,9 @@ $(document).on('turbolinks:load', function() {
 function updateReportIcon(msg) {
   console.log(msg);
   var report_id= msg['id']['$oid'];
-  var suite_id = msg['suite']['$oid'];
+  var test_case_id = msg['test_case']['$oid'];
   var build_id = msg['build']['$oid'];
-  var cell = findByCoord("big-mama","build-"+build_id,"suite-"+suite_id)
+  var cell = findByCoord("big-mama","build-"+build_id,"test_case-"+test_case_id)
   cell.empty();
   $(msg['message']).appendTo(cell);
   cell.find( "div" ).on("click", function(e){ 
@@ -34,10 +34,10 @@ function addBuild(msg) {
   addColumn('big-mama',build_id,build_name)
 }
 
-function addSuite(msg) {
-  var suite_id = "suite-"+msg['id']['$oid'];
-  var suite_name = msg['name'];
-  addRow('big-mama',suite_id,suite_name)
+function addtest_case(msg) {
+  var test_case_id = "test_case-"+msg['id']['$oid'];
+  var test_case_name = msg['name'];
+  addRow('big-mama',test_case_id,test_case_name)
 } 
 
 

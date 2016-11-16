@@ -17,7 +17,7 @@ Rails.application.routes.draw do
         post '/report', to: "reports#report_end"
       end
       resources :builds 
-      resources :suites do 
+      resources :test_cases do 
         resources :reports
       end
     end

@@ -1,2 +1,2 @@
-module SuitesHelper
+module TestCasesHelper
 end

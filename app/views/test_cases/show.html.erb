@@ -1,0 +1,20 @@
+<div class="container m-t-1 m-b-1">
+  <%= link_to product_version_test_cases_path(@product,@version), class: 'btn btn-outline-primary pull-md-right m-l-1' do %>
+    Back
+  <% end %>
+  <%= link_to edit_product_version_test_case_path(@product,@version,@test_case), class: 'btn btn-info pull-md-right' do %>
+    Edit
+  <% end %>
+  <h1>Show test_case</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Name:</dt>
+  <dd><%= @test_case.name %></dd>
+
+  <dt>Description:</dt>
+  <dd><%= @test_case.description %></dd>
+
+  <dt>Custom params:</dt>
+    <%= render :partial => 'shared/custom_params', :locals => {:custom_params => @test_case.custom_params} %>
+</dl>

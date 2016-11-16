@@ -7,8 +7,8 @@ class ReportLink
   field :comment, type: String
   field :investigation_result_id , type: String
   field :investigation_result , type: String
-  field :suite, type: String
-  field :suite_name, type: String
+  field :test_case, type: String
+  field :test_case_name, type: String
   field :reruns, type: Integer, default: 0
   
   embedded_in :build

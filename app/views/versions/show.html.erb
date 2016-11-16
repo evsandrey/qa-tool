@@ -1,13 +1,13 @@
 
 
 <% @builds = @version.builds.desc('_id').limit(10).reverse! %>
-<% @suites = @version.suites %>
+<% @test_cases = @version.test_cases %>
 
 <% graph_hash = Hash.new{ |h,k| h[k] = Hash.new(&h.default_proc) } %>
 
 <div class="container m-t-1 m-b-1">
-  <%= link_to new_product_version_suite_path(@product,@version), class: 'btn btn-outline-primary pull-md-right m-l-1' do %>
-    New suite
+  <%= link_to new_product_version_test_case_path(@product,@version), class: 'btn btn-outline-primary pull-md-right m-l-1' do %>
+    New test_case
   <% end %>
   <%= link_to new_product_version_build_path(@product,@version), class: 'btn btn-outline-primary pull-md-right m-l-1' do %>
     New build
@@ -28,12 +28,12 @@
       
     </thead>
     <tbody>
-      <% @version.suites.asc('name').each do |suite| %>
-      <tr id="suite-<%= suite.id %>"> 
-        <td class="first-col text-cut" ><%= link_to suite.name , product_version_suite_path(@product,@version,suite)%></td>
+      <% @version.test_cases.asc('name').each do |test_case| %>
+      <tr id="test_case-<%= test_case.id %>"> 
+        <td class="first-col text-cut" ><%= link_to test_case.name , product_version_test_case_path(@product,@version,test_case)%></td>
         <% builds.each do |build| %>
-          <% if !build.report_links.where(suite: suite._id).last.nil? %>
-            <% rlink = build.report_links.where(suite: suite._id).last %>
+          <% if !build.report_links.where(test_case: test_case._id).last.nil? %>
+            <% rlink = build.report_links.where(test_case: test_case._id).last %>
             <% if rlink.result %>
               <% graph_hash[build.name]['passed'].instance_of?(Hash) ? graph_hash[build.name]['passed'] = 1 : graph_hash[build.name]['passed'] += 1 %>
             <% else %>

@@ -1,4 +1,4 @@
-class Suite
+class TestCase
   include Mongoid::Document
   include Mongoid::Timestamps
   include Mongoid::Slug

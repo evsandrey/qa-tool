@@ -1,11 +1,11 @@
-<%= form_for([@product,@version,@suite], html: { class: "form-horizontal", role: "form" }) do |f| %>
-  <% if @suite.errors.any? %>
+<%= form_for([@product,@version,@test_case], html: { class: "form-horizontal", role: "form" }) do |f| %>
+  <% if @test_case.errors.any? %>
     <div class="alert alert-danger alert-dismissable" role="alert">
       <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-      <h4><%= pluralize(@suite.errors.count, "error") %> prohibited this suite from being saved:</h4>
+      <h4><%= pluralize(@test_case.errors.count, "error") %> prohibited this test_case from being saved:</h4>
 
       <ul>
-      <% @suite.errors.full_messages.each do |msg| %>
+      <% @test_case.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>

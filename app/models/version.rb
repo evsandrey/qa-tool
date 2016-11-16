@@ -11,7 +11,7 @@ class Version
   
   belongs_to :product, inverse_of: :version
   has_many :builds, dependent: :destroy
-  has_many :suites, dependent: :destroy
+  has_many :test_cases, dependent: :destroy
   
   def to_param
     slug

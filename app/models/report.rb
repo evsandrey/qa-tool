@@ -15,7 +15,7 @@ class Report
                                      :message => 'only (png/gif/jpeg) images'
   
   belongs_to :investigation_result, optional: true
-  belongs_to :suite
+  belongs_to :test_case
   belongs_to :build
   
   embeds_many :attachments
@@ -30,16 +30,16 @@ class Report
     ActionCable.server.broadcast 'reports_channel', 
       id: self._id,
       build: self.build_id,
-      suite: self.suite_id,
+      test_case: self.test_case_id,
       message: render_icon(self)
   end
   
   def link_to_build
     new = true
-    if self.build.report_links.where(suite: self.suite_id).last.nil? 
+    if self.build.report_links.where(test_case: self.test_case_id).last.nil? 
       r_link = ReportLink.new() 
     else 
-      r_link = self.build.report_links.where(suite: self.suite_id).last
+      r_link = self.build.report_links.where(test_case: self.test_case_id).last
       r_link.reruns += 1 
       new = false
     end
@@ -49,8 +49,8 @@ class Report
     r_link.comment = self.comment
     r_link.investigation_result_id = self.investigation_result_id if !self.investigation_result_id.blank?
     r_link.investigation_result = self.investigation_result.code if !self.investigation_result_id.blank?
-    r_link.suite = self.suite_id
-    r_link.suite_name = self.suite.name
+    r_link.test_case = self.test_case_id
+    r_link.test_case_name = self.test_case.name
     
     new ? self.build.report_links << r_link : r_link.save
     self.build.save
@@ -59,7 +59,7 @@ class Report
   
   def get_prev_build_last_report
     prev_build = Build.where(:_id.lt => self.build._id).order_by([[:_id, :desc]]).limit(1).first
-    prev_report = prev_build.report_links.where(suite: self.suite.id).limit(1).first
+    prev_report = prev_build.report_links.where(test_case: self.test_case.id).limit(1).first
     prev_report
   end
   

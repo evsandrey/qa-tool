@@ -90,7 +90,7 @@
               <div class="card-block">
                 <% rlinks.each do |key, rlink| %>
                 <div class="row">
-                  <div class="col-sm-3"><%= rlink.suite_name %></div>
+                  <div class="col-sm-3"><%= rlink.test_case_name %></div>
                   <div class="col-sm-3"><%= render :partial => 'reports/icon', :locals => {:report => rlink } %></div>
                   <div class="col-sm-3"><%= rlink.comment %></div>
                   <div class="col-sm-3"></div>

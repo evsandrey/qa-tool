@@ -92,12 +92,12 @@ class ReportsController < ApplicationController
       @report.build=build
     end
     
-    if Suite.where(version: version, name: params["suite"]).exists? 
-      @report.suite = Suite.where(version: version, name: params["suite"]).first 
+    if TestCase.where(version: version, name: params["test_case"]).exists? 
+      @report.test_case = TestCase.where(version: version, name: params["test_case"]).first 
     else
-      suite = Suite.new(name: params["suite"], version: version)
-      suite.save
-      @report.suite=suite
+      test_case = TestCase.new(name: params["test_case"], version: version)
+      test_case.save
+      @report.test_case=test_case
     end
     
     @report.result  = (params["result"] == 'passed')
@@ -149,6 +149,6 @@ class ReportsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def report_params
-      params.require(:report).permit(:name, :suite, :error, :screenshot, :result, :comment, :custom_params)
+      params.require(:report).permit(:name, :test_case, :error, :screenshot, :result, :comment, :custom_params)
     end
 end

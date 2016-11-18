@@ -1,6 +1,6 @@
 <!--http://www.havlena.net/en/programming/d3stackedbar-d3js-responsive-stacked-bar-with-legend-tooltip-and-transitions/-->
 
-<% overall = Build.test_cases.count %>
+<% overall = @build.version.test_cases.count %>
 <% graph_hash = Hash.new{ |h,k| h[k] = Hash.new(&h.default_proc) } %>
 <% error_hash = Hash.new{ |h,k| h[k] = Hash.new(&h.default_proc) } %>
 <% graph_hash['passed'] = 0 %>
@@ -8,7 +8,7 @@
 <% graph_hash['investigated'] = 0 %>
 <% graph_hash['pending'] = 0 %>
 
-<% @build.version.report_links.each do |rlink| %>
+<% @build.report_links.each do |rlink| %>
   <% if rlink.result %>
     <% graph_hash['passed'] += 1 %>
   <% else %>

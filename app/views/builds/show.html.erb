@@ -8,7 +8,7 @@
 <% graph_hash['investigated'] = 0 %>
 <% graph_hash['pending'] = 0 %>
 
-<% @build.report_links.each do |rlink| %>
+<% @build.version.report_links.each do |rlink| %>
   <% if rlink.result %>
     <% graph_hash['passed'] += 1 %>
   <% else %>

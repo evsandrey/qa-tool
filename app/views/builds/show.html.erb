@@ -20,7 +20,7 @@
   <% end %>
 <% end %>
 
-<% graph_hash['pending'] = overall - graph_hash['passed'] - graph_hash['pending'] %>
+<% graph_hash['pending'] = overall - graph_hash['passed'] - graph_hash['failed'] %>
 
 <% json = '{"name":"root",
             "children":[
@@ -63,6 +63,7 @@
       <div class="col-sm-6 text-xs-right"><strong>Overall:</strong></div><div class=col-sm-6><%= overall %></div>
       <div class="col-sm-6 text-xs-right"><strong>Passed:</strong></div><div class=col-sm-6><%= graph_hash['passed'] %></div>
       <div class="col-sm-6 text-xs-right"><strong>Failed:</strong></div><div class=col-sm-6><%= graph_hash['failed'] %></div>
+      <div class="col-sm-6 text-xs-right"><strong>Pending:</strong></div><div class=col-sm-6><%= graph_hash['pending'] %></div>
       <div class="col-sm-6 text-xs-right"><strong>Description:</strong></div><div class=col-sm-6><%= @build.description %></div>
     </div>
   </div>

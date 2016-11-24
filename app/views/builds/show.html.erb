@@ -120,4 +120,12 @@
 <script>
   build_pie_json =`<%= raw(json) %>`;
   showPieGraph(build_pie_json);
+  $(document).on('turbolinks:load', function() {
+    console.log("Versions.js exec");
+    $(".report-icon").on("click", function(e){ 
+      e.preventDefault(); 
+      LoadSliderWith("/reports/"+this.id,{});
+    });
+    
+   });
 </script>

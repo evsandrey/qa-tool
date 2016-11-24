@@ -7,10 +7,10 @@ $(document).on('turbolinks:load', function() {
       LoadSliderWith("/reports/"+this.id,{});
     });
     
-     $(".build-head").on("click", function(e){ 
-      e.preventDefault(); 
-      LoadSliderWith(window.location.href+"/builds/"+this.id.replace("build-",""),{});
-    });
+    // $(".build-head").on("click", function(e){ 
+    //   e.preventDefault(); 
+    //   LoadSliderWith(window.location.href+"/builds/"+this.id.replace("build-",""),{});
+    // });
     
 });
 

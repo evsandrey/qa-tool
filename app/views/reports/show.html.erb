@@ -33,12 +33,12 @@
     </div>
     <div class="row">
       <div class="col-sm-3 text-xs-right"><strong>Notes:</strong></div>
-      <div class="col-sm-6"><br><%= @report.compare_with_prev_build %></div>
+      <div class="col-sm-6"><%= @report.compare_with_prev_build %></div>
       <div class="col-sm-3"></div>
     </div>
     <div class="row">
       <div class="col-sm-3 text-xs-right"><strong>Direct link:</strong></div>
-      <div class="col-sm-6"><br><%= link_to @report.id, show_direct_report_path(@report), :target => "_blank" %></div>
+      <div class="col-sm-6"><%= link_to @report.id, show_direct_report_path(@report), :target => "_blank" %></div>
       <div class="col-sm-3"></div>
     </div>
     </div>

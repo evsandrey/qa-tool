@@ -22,7 +22,9 @@ Rails.application.routes.draw do
       member do
         post '/report', to: "reports#report_end"
       end
-      resources :builds 
+      resources :builds
+      resources :hosts
+      resources :categories
       resources :test_cases do 
         resources :reports
       end

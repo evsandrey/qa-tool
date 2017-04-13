@@ -7,7 +7,9 @@ class TestCase
   slug  :name
   field :description, type: String
   field :custom_params, type: String
+  
   belongs_to :version
+  belongs_to :category
   
   after_save :broadcast
   

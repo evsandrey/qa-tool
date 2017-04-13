@@ -12,6 +12,18 @@ class Version
   belongs_to :product, inverse_of: :version
   has_many :builds, dependent: :destroy
   has_many :test_cases, dependent: :destroy
+  has_many :categories, dependent: :destroy
+  has_many :hosts, dependent: :destroy
+  
+  after_create :create_defaults
+  
+  def create_defaults
+    category = Categories.new
+    category.name = "Default"
+    category.description = "Default catecory"
+    category.version = self
+    category.save
+  end
   
   def to_param
     slug

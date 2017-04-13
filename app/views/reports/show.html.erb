@@ -36,6 +36,11 @@
       <div class="col-sm-6"><br><%= @report.compare_with_prev_build %></div>
       <div class="col-sm-3"></div>
     </div>
+    <div class="row">
+      <div class="col-sm-3 text-xs-right"><strong>Direct link:</strong></div>
+      <div class="col-sm-6"><br><%= link_to report.id, @report %></div>
+      <div class="col-sm-3"></div>
+    </div>
     </div>
     <div class="col-sm-4">
       <div class="text-xs-center mx-auto">

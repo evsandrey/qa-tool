@@ -1,0 +1,32 @@
+<div class="container m-t-1 m-b-1">
+  <%= link_to new_host_path, class: 'btn btn-primary pull-xs-right m-x-auto' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Host
+  <% end %>
+  <h2>hosts</h2>
+</div>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th></th>
+        
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @hosts) do |host| %>
+            <td><%= host.name %></td>
+            <td><%= host.description %></td>
+            <td>
+            <%= link_to 'Show', host, class: "btn btn-outline-primary btn-sm" %>
+            <%= link_to 'Edit', edit_host_path(host), class: "btn btn-primary btn-sm" %>
+            <%= link_to 'Destroy', host, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+        </td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

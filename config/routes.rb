@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :categories
+  resources :hosts
   resources :reports
   get '/investigation_form', to: "reports#investigation_form"
   post '/investigation_update', to: "reports#investigation_update"

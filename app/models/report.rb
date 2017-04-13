@@ -6,6 +6,7 @@ class Report
   field :result, type: Mongoid::Boolean
   field :status, type: String
   field :error, type: String
+  field :logs_location, type: String
   field :comment, type: String
   field :custom_params, type: String
   

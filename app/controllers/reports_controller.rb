@@ -110,6 +110,10 @@ class ReportsController < ApplicationController
       @report.test_case=test_case
     end
     
+    if !params["logs_location"].blank?
+      @report.logs_location = params["logs_location"]
+    end
+    
     if Host.where(version: version, name: params["host"]).exists? 
       @report.host = Host.where(version: version, name: params["host"]).first 
     else

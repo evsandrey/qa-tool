@@ -1,7 +1,6 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy, :show_direct ]
   before_action :set_product
-  before_action :set_version
   
   respond_to :html, :js, :json
   

@@ -22,7 +22,7 @@
     <% if !@report.host.nil? %>
     <div class="row">
       <div class="col-sm-3 text-xs-right"><strong>Host:</strong></div>
-      <div class="col-sm-9"><%= link_to @report.host.name, product_version_host_path(@product,@version,@report.host) %></div>
+      <div class="col-sm-9"><%= link_to @report.host.name, product_version_host_path(@report.test_case.version.product,@report.test_case.version,@report.host) %></div>
     </div>
     <% end %>
     

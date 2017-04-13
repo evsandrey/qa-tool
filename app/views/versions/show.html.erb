@@ -12,6 +12,9 @@
   <%= link_to new_product_version_build_path(@product,@version), class: 'btn btn-outline-primary pull-md-right m-l-1' do %>
     New build
   <% end %>
+  <%= link_to new_product_version_category_path(@product,@version), class: 'btn btn-outline-primary pull-md-right m-l-1' do %>
+    New category
+  <% end %>
   <%= link_to edit_product_version_path(@product,@version), class: 'btn btn-info pull-md-right' do %>
     Edit
   <% end %>
@@ -28,6 +31,13 @@
       
     </thead>
     <tbody>
+      <% @version.categories.asc('name').each do |category| %>
+        <tr id="cat_-<%= category.id %>"> 
+          <td colspan = 11 ><%=link_to category.name,product_version_category_path(@product,@version,category)  %> </td>
+        <tr>
+          
+        
+      <% end %>
       <% @version.test_cases.asc('name').each do |test_case| %>
       <tr id="test_case-<%= test_case.id %>"> 
         <td class="first-col text-cut" ><%= link_to test_case.name , product_version_test_case_path(@product,@version,test_case)%></td>

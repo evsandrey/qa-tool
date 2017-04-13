@@ -100,6 +100,7 @@ class ReportsController < ApplicationController
       @report.test_case = TestCase.where(version: version, name: params["test_case"]).first 
     else
       test_case = TestCase.new(name: params["test_case"], version: version)
+      test_case.category = version.categories.first
       test_case.save
       @report.test_case=test_case
     end

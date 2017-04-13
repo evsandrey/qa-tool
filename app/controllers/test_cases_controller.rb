@@ -7,7 +7,7 @@ class TestCasesController < ApplicationController
   # GET /test_cases
   # GET /test_cases.json
   def index
-    @test_cases = test_case.where(version: @version)
+    @test_cases = TestCase.where(version_id: @version._id)
   end
 
   # GET /test_cases/1
@@ -84,6 +84,6 @@ class TestCasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def test_case_params
-      params.require(:test_case).permit(:name, :description, :custom_params, :version_id)
+      params.require(:test_case).permit(:name, :description, :custom_params, :version_id, :category_id)
     end
 end

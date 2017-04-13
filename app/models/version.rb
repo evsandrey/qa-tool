@@ -18,9 +18,9 @@ class Version
   after_create :create_defaults
   
   def create_defaults
-    category = Categories.new
+    category = Category.new
     category.name = "Default"
-    category.description = "Default catecory"
+    category.description = "Default category"
     category.version = self
     category.save
   end

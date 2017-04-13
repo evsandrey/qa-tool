@@ -19,6 +19,20 @@
       <div class="col-sm-3 text-xs-right"><strong>Suite:</strong></div>
       <div class="col-sm-9"><%= @report.test_case.name %></div>
     </div>
+    <% if !@report.host.nil? %>
+    <div class="row">
+      <div class="col-sm-3 text-xs-right"><strong>Host:</strong></div>
+      <div class="col-sm-9"><%= link_to @report.host.name, product_version_host_path(@product,@version,@report.host) %></div>
+    </div>
+    <% end %>
+    
+    <% if !@report.logs_location.nil? %>
+    <div class="row">
+      <div class="col-sm-3 text-xs-right"><strong>Logs:</strong></div>
+      <div class="col-sm-9"><%= @report.logs_location %></div>
+    </div>
+    <% end %>
+    
     <div class="row">
       <div class="col-sm-3  text-xs-right"><strong>Result:</strong></div>
       <div class="col-sm-9"><%= @report.result ? "Passed" : "Failed"  %></div>

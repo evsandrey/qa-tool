@@ -35,20 +35,24 @@
         <tr id="cat_-<%= category.id %>"> 
           <td colspan = 11 ><%=link_to category.name,product_version_category_path(@product,@version,category)  %> </td>
         <tr>
-        <% builds.where(category_id: category.id).each do |build| %>
-          <% if !build.report_links.where(test_case: test_case._id).last.nil? %>
-            <% rlink = build.report_links.where(test_case: test_case._id).last %>
-            <% if rlink.result %>
-              <% graph_hash[build.name]['passed'].instance_of?(Hash) ? graph_hash[build.name]['passed'] = 1 : graph_hash[build.name]['passed'] += 1 %>
-            <% else %>
-              <% graph_hash[build.name]['failed'].instance_of?(Hash) ? graph_hash[build.name]['failed'] = 1 : graph_hash[build.name]['failed'] += 1 %>
+        <% @version.test_cases.where(category_id: category.id).asc('name').each do |test_case| %>
+          <tr id="test_case-<%= test_case.id %>"> 
+            <td class="first-col text-cut" ><%= link_to test_case.name , product_version_test_case_path(@product,@version,test_case)%></td>
+            <% builds.each do |build| %>
+              <% if !build.report_links.where(test_case: test_case._id).last.nil? %>
+                <% rlink = build.report_links.where(test_case: test_case._id).last %>
+                <% if rlink.result %>
+                  <% graph_hash[build.name]['passed'].instance_of?(Hash) ? graph_hash[build.name]['passed'] = 1 : graph_hash[build.name]['passed'] += 1 %>
+                <% else %>
+                  <% graph_hash[build.name]['failed'].instance_of?(Hash) ? graph_hash[build.name]['failed'] = 1 : graph_hash[build.name]['failed'] += 1 %>
+                <% end %>
+                <td id="cell-<%= rlink.report_id %>"> <%= render :partial => 'reports/icon', :locals => {:report => rlink } %>  </td>
+              <% else %>
+                <td> </td>
+              <% end %>
             <% end %>
-            <td id="cell-<%= rlink.report_id %>"> <%= render :partial => 'reports/icon', :locals => {:report => rlink } %>  </td>
-          <% else %>
-            <td> </td>
-          <% end %>
-        <% end %>  
-        
+          </tr>
+        <% end %>
       <% end %>
       <% @version.test_cases.asc('name').each do |test_case| %>
       <tr id="test_case-<%= test_case.id %>"> 

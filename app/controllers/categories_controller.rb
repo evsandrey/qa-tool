@@ -4,6 +4,8 @@ class CategoriesController < ApplicationController
   before_action :set_product
   before_action :set_version
   
+  skip_before_filter :verify_authenticity_token
+  
   # GET /categories
   # GET /categories.json
   def index

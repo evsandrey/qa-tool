@@ -1,5 +1,5 @@
 class ReportsController < ApplicationController
-  before_action :set_report, only: [:show, :edit, :update, :destroy ]
+  before_action :set_report, only: [:show, :edit, :update, :destroy, :show_direct ]
   respond_to :html, :js, :json
   
   layout false, :except => [:edit, :show_direct]

@@ -12,13 +12,45 @@
   <div class="row">
     <div class="col-sm-8">
     <div class="row">
-      <div class="col-sm-3 text-xs-right"><strong>Build:</strong></div>
+      <div class="col-sm-3 text-xs-right"><strong>Obligatory parameters:</strong></div>
+    </div> 
+    <div class="row">
+      <div class="col-sm-3 text-xs-right"><strong>Product (product):</strong></div>
+      <div class="col-sm-9"><%= @report.build.version.product.name %></div>
+    </div>      
+    <div class="row">
+      <div class="col-sm-3 text-xs-right"><strong>Version (version):</strong></div>
+      <div class="col-sm-9"><%= @report.build.version.name %></div>
+    </div>      
+    <div class="row">
+      <div class="col-sm-3 text-xs-right"><strong>Build (build):</strong></div>
+      <div class="col-sm-9"><%= @report.build.name %></div>
+    </div>      
+    <div class="row">
+      <div class="col-sm-3 text-xs-right"><strong>INI TEMP:</strong></div>
       <div class="col-sm-9"><%= @report.build.version.product.name %> <%= @report.build.version.name %>.<%= @report.build.name %></div>
     </div>
     <div class="row">
-      <div class="col-sm-3 text-xs-right"><strong>Suite:</strong></div>
+      <div class="col-sm-3 text-xs-right"><strong>Suite (test_case):</strong></div>
       <div class="col-sm-9"><%= @report.test_case.name %></div>
     </div>
+    <div class="row">
+      <div class="col-sm-3  text-xs-right"><strong>Result (result):</strong></div>
+      <div class="col-sm-9"><%= @report.result ? "Passed" : "Failed"  %></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3  text-xs-right"><strong>Failed script (error):</strong></div>
+      <div class="col-sm-9">TO BE ADDED</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3  text-xs-right"><strong>Screenshot (screenshot):</strong></div>
+      <div class="col-sm-9">TO BE ADDED</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3  text-xs-right"><strong>Total time (time):</strong></div>
+      <div class="col-sm-9">TO BE ADDED</div>
+    </div>
+    
     <% if !@report.host.nil? %>
     <div class="row">
       <div class="col-sm-3 text-xs-right"><strong>Host:</strong></div>
@@ -32,11 +64,12 @@
       <div class="col-sm-9"><%= @report.logs_location %></div>
     </div>
     <% end %>
-    
-    <div class="row">
-      <div class="col-sm-3  text-xs-right"><strong>Result:</strong></div>
-      <div class="col-sm-9"><%= @report.result ? "Passed" : "Failed"  %></div>
-    </div>
+ 
+ <hr>
+     <div class="row">
+      <div class="col-sm-3 text-xs-right"><strong>Custom/Additional parameters:</strong></div>
+    </div> 
+
     <div class="row">
       <div class="col-sm-3 text-xs-right"><strong>Investigation:</strong></div>
       <div class="col-sm-9"><%= @report.investigation_result.name if !@report.investigation_result.blank? %></div>

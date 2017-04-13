@@ -88,9 +88,9 @@ class ReportsController < ApplicationController
 
   def report_end
     @report =  Report.new()
-    
+    p "PARAMS"
+    p params["product"]
     product = Product.find_by(name: params["product"])
-    
     version = Version.find_by(name: params["version"])
     
     if Build.where(version: version, name: params["build"]).exists? 

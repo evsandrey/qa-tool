@@ -89,8 +89,11 @@ class ReportsController < ApplicationController
 
   def report_end
     @report =  Report.new()
+    
     product = Product.find_by(name: params["product"])
+    
     version = Version.find_by(name: params["version"])
+    
     if Build.where(version: version, name: params["build"]).exists? 
       @report.build = Build.where(version: version, name: params["build"]).first 
     else
@@ -150,6 +153,13 @@ class ReportsController < ApplicationController
         @product = Product.find(params[:product_id])
       end
     end
+    
+    def set_version
+      if params[:version_id]
+        @version = Version.find(params[:version_id])
+      end
+    end 
+    
     # Use callbacks to share common setup or constraints between actions.
     def set_report
       @report = Report.find(params[:id])

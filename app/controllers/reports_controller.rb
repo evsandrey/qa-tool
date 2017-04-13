@@ -2,7 +2,7 @@ class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy ]
   respond_to :html, :js, :json
   
-  layout false, :except => :edit
+  layout false, :except => :edit, :show_direct
   
   skip_before_filter :verify_authenticity_token, :only => [:report_end]
   
@@ -17,6 +17,9 @@ class ReportsController < ApplicationController
   def show
   end
 
+  def show_direct
+  end
+  
   # GET /reports/new
   def new
     @report = Report.new

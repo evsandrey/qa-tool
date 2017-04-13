@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   
   resources :categories
   resources :hosts
-  resources :reports
+  resources :reports do
+    member do
+      get 'show_direct'
+    end
+  end
   get '/investigation_form', to: "reports#investigation_form"
   post '/investigation_update', to: "reports#investigation_update"
   

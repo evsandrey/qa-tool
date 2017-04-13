@@ -18,6 +18,7 @@ class ReportsController < ApplicationController
   end
 
   def show_direct
+  
   end
   
   # GET /reports/new

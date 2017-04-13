@@ -18,6 +18,7 @@ class Report
   belongs_to :investigation_result, optional: true
   belongs_to :test_case
   belongs_to :build
+  belongs_to :host
   
   embeds_many :attachments
   

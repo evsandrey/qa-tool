@@ -1,5 +1,8 @@
 class HostsController < ApplicationController
   before_action :set_host, only: [:show, :edit, :update, :destroy]
+  before_action :set_product
+  before_action :set_version
+
 
   # GET /hosts
   # GET /hosts.json
@@ -28,7 +31,7 @@ class HostsController < ApplicationController
 
     respond_to do |format|
       if @host.save
-        format.html { redirect_to @host, notice: 'Host was successfully created.' }
+        format.html { redirect_to product_version_host_path(@product,@version,@host), notice: 'Host was successfully created.' }
         format.json { render :show, status: :created, location: @host }
       else
         format.html { render :new }
@@ -42,7 +45,7 @@ class HostsController < ApplicationController
   def update
     respond_to do |format|
       if @host.update(host_params)
-        format.html { redirect_to @host, notice: 'Host was successfully updated.' }
+        format.html { redirect_to product_version_host_path(@product,@version,@host), notice: 'Host was successfully updated.' }
         format.json { render :show, status: :ok, location: @host }
       else
         format.html { render :edit }
@@ -56,12 +59,24 @@ class HostsController < ApplicationController
   def destroy
     @host.destroy
     respond_to do |format|
-      format.html { redirect_to hosts_url, notice: 'Host was successfully destroyed.' }
+      format.html { redirect_to product_version_hosts_path, notice: 'Host was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
+  
+    def set_version
+      if params[:version_id]
+        @version = Version.find(params[:version_id])
+      end
+    end
+    
+    def set_product
+      if params[:product_id]
+        @product = Product.find(params[:product_id])
+      end
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_host
       @host = Host.find(params[:id])

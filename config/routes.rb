@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :products do
     member do
         post '/report', to: "reports#report_end"
+        get '/report', to: "reports#report_end"
     end
     resources :versions do
       member do

@@ -23,6 +23,15 @@
           <%= link_to @product.name, products_path, :class => "nav-link" %>
         </li>
         <% if !@version.nil? %>
+          <li class="nav-item active">
+            <%= link_to "Hosts", product_version_hosts_path(@product,@version), :class => "nav-link" %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "Test cases", product_version_test_cases_path(@product,@version), :class => "nav-link" %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "Builds", product_version_builds_path(@product,@version), :class => "nav-link" %>
+          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
             <%= @version.name %>
@@ -32,12 +41,6 @@
                 <%= link_to version.name, product_version_path(@product,version), :class => "dropdown-item" %>
               <% end %>
               </div>
-          </li>
-          <li class="nav-item active">
-            <%= link_to "test_cases", product_version_test_cases_path(@product,@version), :class => "nav-link" %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to "Builds", product_version_builds_path(@product,@version), :class => "nav-link" %>
           </li>
         <% else %>
           <li class="nav-item dropdown">

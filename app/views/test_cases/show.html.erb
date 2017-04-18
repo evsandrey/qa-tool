@@ -5,16 +5,35 @@
   <%= link_to edit_product_version_test_case_path(@product,@version,@test_case), class: 'btn btn-info pull-md-right' do %>
     Edit
   <% end %>
-  <h1>Show test_case</h1>
+  <h1><%= @test_case.name %></h1>
 </div>
 
 <dl class="dl-horizontal">
   <dt>Name:</dt>
   <dd><%= @test_case.name %></dd>
-
   <dt>Description:</dt>
   <dd><%= @test_case.description %></dd>
-
   <dt>Custom params:</dt>
     <%= render :partial => 'shared/custom_params', :locals => {:custom_params => @test_case.custom_params} %>
 </dl>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Build</th>
+        <th>Result</th>
+        <th>Host</th>
+        <th>Time</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, Report.where(version: @version, product: @product, test_case: @test_case).last(10) do |report| %>
+            <td><%= link_to report.build.name, product_version_build_path(@product, @version,report.build) %></td>
+            <td><%= report.result %></td>
+            <td><%= link_to report.host.name, product_version_host_path(@product, @version,report.host) %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

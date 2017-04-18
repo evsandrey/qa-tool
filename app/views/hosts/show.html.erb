@@ -16,3 +16,26 @@
   <dd><%= @host.description %></dd>
 
 </dl>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Build</th>
+        <th>Test case</th>
+        <th>Result</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% Report.where(host_id: @host.id).desc('_id').limit(30).each do |report| %>
+      <tr>
+        <td><%= link_to report.build.name, product_version_build_path(@product, @version,report.build) %></td>
+        <td><%= link_to report.test_case.name, product_version_test_case_path(@product, @version,report.test_case)  if !report.host.nil? %></td>
+        <td><%= report.result %></td>
+      </tr>
+      <% end %>
+      
+    </tbody>
+  </table>
+</div>

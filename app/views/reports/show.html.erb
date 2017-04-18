@@ -28,7 +28,7 @@
     </div>      
     <div class="row">
       <div class="col-sm-3 text-xs-right"><strong>Test case:</strong></div>
-      <div class="col-sm-9"><%= link_to @report.test_case.name, product_version_build_test_case_path(@report.build.version.product,@report.build.version,@report.build,@report.test_case) %></div>
+      <div class="col-sm-9"><%= link_to @report.test_case.name, product_version_test_case_path(@report.build.version.product,@report.build.version,@report.test_case) %></div>
     </div>
     <div class="row">
       <div class="col-sm-3  text-xs-right"><strong>Result:</strong></div>

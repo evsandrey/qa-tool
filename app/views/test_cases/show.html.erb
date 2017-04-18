@@ -29,7 +29,7 @@
     </thead>
 
     <tbody>
-      <%= content_tag_for(:tr, Report.where(version: @version, product: @product, test_case: @test_case)..desc('_id').limit(7000).each do |report| %>
+      <%= content_tag_for(:tr, Report.where(version: @version, product: @product, test_case: @test_case).desc('_id').limit(7000).each do |report| %>
             <td><%= link_to report.build.name, product_version_build_path(@product, @version,report.build) %></td>
             <td><%= report.result %></td>
             <td><%= link_to report.host.name, product_version_host_path(@product, @version,report.host) %></td>

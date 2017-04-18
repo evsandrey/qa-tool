@@ -7,11 +7,13 @@ SliderDataLoaded="";
 
 
 function closeSlider() {
+    document.getElementById("closebtn").style.position = "absolute";
     document.getElementById("slider").style.width = "0";
 }
 
 function openSlider() {
     document.getElementById("slider").style.width = "100%";
+    document.getElementById("closebtn").style.position = "fixed";
 }
 
 

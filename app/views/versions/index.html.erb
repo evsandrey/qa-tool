@@ -12,7 +12,6 @@
       <tr>
             <th>Name</th>
             <th>Description</th>
-            <th>Vcs</th>
             <th></th>
         
       </tr>
@@ -20,9 +19,8 @@
 
     <tbody>
       <%= content_tag_for(:tr, @versions) do |version| %>
-            <td><%= version.name %></td>
+            <td><%= link_to version.name, product_version_path(@product, version) %></td>
             <td><%= version.description %></td>
-            <td><%= version.vcs %></td>
             <td>
             <%= link_to 'Show', product_version_path(@product, version), class: "btn btn-outline-primary btn-sm" %>
             <%= link_to 'Edit', edit_product_version_path(@product, version), class: "btn btn-primary btn-sm" %>

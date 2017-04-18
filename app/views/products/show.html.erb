@@ -14,8 +14,24 @@
 
   <dt>Description:</dt>
   <dd><%= @product.description %></dd>
-  
+
   <dt>Reporting path:</dt>
   <dd><%= report_product_path(@product) %></dd>
-
 </dl>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= content_tag_for(:tr, @product.versions) do |version| %>
+        <td><%= link_to version.name, product_version_path(@product, version) %></td>
+        <td><%= version.description %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

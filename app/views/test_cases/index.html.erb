@@ -3,7 +3,7 @@
     <span class="glyphicon glyphicon-plus"></span>
     New Suite
   <% end %>
-  <h2>test_cases</h2>
+  <h2>Test cases for version <%= @version.name %></h2>
 </div>
 
 <div class="table-responsive">
@@ -20,11 +20,10 @@
 
     <tbody>
       <%= content_tag_for(:tr, @test_cases) do |test_case| %>
-            <td><%= test_case.name %></td>
+            <td><%= link_to test_case.name, product_version_test_case_path(@product,@version,test_case) %></td>
             <td><%= test_case.description %></td>
             <td><%= test_case.custom_params %></td>
             <td>
-            <%= link_to 'Show', product_version_test_case_path(@product,@version,test_case), class: "btn btn-outline-primary btn-sm" %>
             <%= link_to 'Edit', edit_product_version_test_case_path(@product,@version,test_case), class: "btn btn-primary btn-sm" %>
             <%= link_to 'Destroy', product_version_test_case_path(@product,@version,test_case), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
         </td>

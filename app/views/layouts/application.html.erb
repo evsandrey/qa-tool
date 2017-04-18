@@ -20,7 +20,7 @@
     <ul class="nav navbar-nav">
       <% if !@product.nil? && controller.controller_name != "products" && controller.action_name != "new" %>
         <li class="nav-item active">
-          <%= link_to @product.name+' >>', products_path, :class => "nav-link" %>
+          <%= link_to @product.name +' >>', @product , :class => "nav-link" %>
         </li>
         <% if !@version.nil? %>
           

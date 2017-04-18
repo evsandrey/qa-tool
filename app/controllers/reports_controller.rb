@@ -17,7 +17,7 @@ class ReportsController < ApplicationController
   # GET /reports/1
   # GET /reports/1.json
   def show
-    @version = @report.version
+    @version = @report.test_case.version
     @product = @version.product
     @hostname = request.host || "www.mydomain.com"
   end

@@ -29,7 +29,7 @@
     </thead>
 
     <tbody>
-      <%= Report.where(version_id: @version.id, product_id: @product.id, test_case_id: @test_case.id).desc('_id').limit(30).each do |report| %>
+      <% Report.where(test_case_id: @test_case.id).desc('_id').limit(30).each do |report| %>
       <tr>
         <td><%= link_to report.build.name, product_version_build_path(@product, @version,report.build) %></td>
         <td><%= report.result %></td>

@@ -20,11 +20,11 @@
     </div>      
     <div class="row">
       <div class="col-sm-3 text-xs-right"><strong>Version:</strong></div>
-      <div class="col-sm-9"><%= link_to @report.build.version.name, @report.build.version %></div>
+      <div class="col-sm-9"><%= link_to @report.build.version.name, product_version_path(@report.build.version.product,@report.build.version) %></div>
     </div>      
     <div class="row">
       <div class="col-sm-3 text-xs-right"><strong>Build:</strong></div>
-      <div class="col-sm-9"><%= link_to @report.build.name, @report.build %></div>
+      <div class="col-sm-9"><%= link_to @report.build.name, product_version_build_path(@report.build.version.product,@report.build.version,@report.build) %></div>
     </div>      
     <div class="row">
       <div class="col-sm-3 text-xs-right"><strong>Test case:</strong></div>

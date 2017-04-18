@@ -18,7 +18,7 @@
     <nav class="navbar navbar-dark bg-inverse navbar-fixed-top header">
     <a class="navbar-brand" href="/">Test server</a>
     <ul class="nav navbar-nav">
-      <% if !@product.nil? %>
+      <% if !@product.nil? && controller.controller_name != "products" && controller.action_name != "new" %>
         <li class="nav-item active">
           <%= link_to @product.name+' >>', products_path, :class => "nav-link" %>
         </li>

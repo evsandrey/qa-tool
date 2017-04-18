@@ -19,11 +19,11 @@
 
     <tbody>
       <%= content_tag_for(:tr, @hosts) do |host| %>
-            <td><%= host.name %></td>
+            <td><%= link_to host.name, product_version_host_path(@product,@version,host) %></td>
             <td><%= host.description %></td>
             <td>
-            <%= link_to 'Show', host, class: "btn btn-outline-primary btn-sm" %>
-            <%= link_to 'Edit', edit_host_path(host), class: "btn btn-primary btn-sm" %>
+            <%= link_to 'Show', product_version_host_path(@product,@version,host), class: "btn btn-outline-primary btn-sm" %>
+            <%= link_to 'Edit', edit_product_version_host_path(@product,@version,host), class: "btn btn-primary btn-sm" %>
             <%= link_to 'Destroy', host, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
         </td>
       <% end %>

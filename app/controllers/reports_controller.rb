@@ -17,10 +17,13 @@ class ReportsController < ApplicationController
   # GET /reports/1
   # GET /reports/1.json
   def show
+    @version = @report.version
+    @product = @version.product
+    @hostname = request.host || "www.mydomain.com"
   end
 
   def show_direct
-  
+    @hostname = request.host || "www.mydomain.com"
   end
   
   # GET /reports/new

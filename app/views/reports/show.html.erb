@@ -61,7 +61,7 @@
     </div>
     <div class="row">
       <div class="col-sm-3 text-xs-right"><strong>Direct link:</strong></div>
-      <div class="col-sm-6"><%= link_to show_direct_report_path(@report).to_s, show_direct_report_path(@report), :target => "_blank" %></div>
+      <div class="col-sm-6"><%= link_to @hostname+show_direct_report_path(@report).to_s, show_direct_report_path(@report), :target => "_blank" %></div>
       <div class="col-sm-3"></div>
     </div>
     </div>

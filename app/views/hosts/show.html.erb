@@ -24,6 +24,7 @@
         <th>Build</th>
         <th>Test case</th>
         <th>Result</th>
+        <th>Error</th>
       </tr>
     </thead>
 
@@ -33,6 +34,7 @@
         <td><%= link_to report.build.name, product_version_build_path(@product, @version,report.build) %></td>
         <td><%= link_to report.test_case.name, product_version_test_case_path(@product, @version,report.test_case)  if !report.host.nil? %></td>
         <td><%= report.result %></td>
+        <td><%= report.error %></td>
       </tr>
       <% end %>
       

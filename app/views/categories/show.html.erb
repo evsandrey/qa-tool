@@ -9,7 +9,7 @@
 </div>
 
 <% @number_of_builds = 10 %>
-<% @categories = @category %>
+<% @categories = Category.where(id: @category.id) %>
 
 <%= render partial: "versions/table", locals: {version: @version, product: @product, number_of_builds: @number_of_builds, categories: @categories } %>
       

@@ -19,7 +19,7 @@
 
     <tbody>
       <%= content_tag_for(:tr, @builds) do |build| %>
-            <td><%= build.name %></td>
+            <td><%= link_to build.name, product_version_build_path(@product,@version,build) %></td>
             <td><%= build.description %></td>
             <td>
             <%= link_to 'Show', product_version_build_path(@product,@version,build), class: "btn btn-outline-primary btn-sm" %>

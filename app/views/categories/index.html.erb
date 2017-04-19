@@ -19,10 +19,10 @@
 
     <tbody>
       <%= content_tag_for(:tr, @categories) do |category| %>
-            <td><%= category.name %></td>
+            <td><%= link_to category.name, product_version_category_path(@product,@version,category)  %></td>
             <td><%= category.description %></td>
             <td>
-            <%= link_to 'Show', category, class: "btn btn-outline-primary btn-sm" %>
+            <%= link_to 'Show', product_version_category_path(@product,@version,category), class: "btn btn-outline-primary btn-sm" %>
             <%= link_to 'Edit', edit_product_version_category_path(@product,@version,category), class: "btn btn-primary btn-sm" %>
             <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
         </td>

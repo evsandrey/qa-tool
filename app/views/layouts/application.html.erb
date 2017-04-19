@@ -141,6 +141,7 @@
       </div>
       <!--END OF Global modal HTML-->
       <!--Global slider HTML-->
+      <% if !@slider.nil? %>
         <div id="slider" class="slider">
           <div class="slider-loader">
                 <div class="loader"></div>            
@@ -149,7 +150,7 @@
           <div class="closebtn" onclick="closeSlider()"><i class="fa fa-arrow-circle-o-right facentered arrow"></i></div>
         </div>
         <div class="openbtn" onclick="openSlider()"><i class="fa fa-arrow-circle-o-left facentered arrow m-l-1"></i></div>
-        
+      <% end %>
       
       <!--END OF Global slider HTML-->
       

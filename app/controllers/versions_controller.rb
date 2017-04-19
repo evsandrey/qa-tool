@@ -11,6 +11,7 @@ class VersionsController < ApplicationController
   # GET /versions/1
   # GET /versions/1.json
   def show
+    @slider = true
   end
 
   # GET /versions/new

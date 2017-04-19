@@ -5,12 +5,12 @@
   <%= link_to edit_category_path(@category), class: 'btn btn-info pull-md-right' do %>
     Edit
   <% end %>
-  <h1>Show category</h1>
+  <h1><%= @category.name %></h1>
 </div>
 
 <% @number_of_builds = 10 %>
 <% @categories = @category %>
 
-<%= render partial: "table", locals: {version: @version, product: @product, number_of_builds: @number_of_builds, categories: @categories } %>
+<%= render partial: "versions/table", locals: {version: @version, product: @product, number_of_builds: @number_of_builds, categories: @categories } %>
       
 

@@ -15,6 +15,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
+    @slider = true
     @product = @category.version.product
   end
 

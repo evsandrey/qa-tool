@@ -16,6 +16,7 @@ class ReportsController < ApplicationController
     @q = Report.ransack(params[:q])
     @q.sorts = 'created_at desc' if @q.sorts.empty?
     @reports = @q.result.page params[:page]
+    @slider = true
   end
 
   # GET /reports/1

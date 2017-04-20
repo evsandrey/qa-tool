@@ -5,10 +5,6 @@
 <div class="container row">
 <%= search_form_for @q , url: product_version_reports_path(@product,@version) ,:html => { :class => "form-inline" } do |f| %>
   <div class="form-group col-sm-3">
-    <%= f.label "Test case" %>
-    <%= f.search_field :test_case_name_cont, :class => "form-control" %>
-  </div>
-  <div class="form-group col-sm-3">
     <%= f.label "Error" %>
     <%= f.search_field :error_cont, :class => "form-control" %>
   </div>

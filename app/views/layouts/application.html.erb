@@ -28,7 +28,7 @@
         <li class="nav-item active">
           <%= link_to @product.name , product_path(@product) , :class => "nav-link"  if !@product.nil? %>
         </li>
-        <% if !@version.nil? & !@product.nil? %>
+        <% if !@version.nil?  %>
           
           <li class="nav-item active">
             <%= link_to @version.name , product_version_path(@product,@version), :class => "nav-link" %>

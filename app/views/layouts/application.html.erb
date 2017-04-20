@@ -6,7 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="turbolinks-root" content="/" >
-    <title>Test portal2</title>
+    <title>
+    <% if @version.nil? %> 
+    Mega Portal
+    <%else%>
+    <%= @version.name %>
+    <%end%>
+    </title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>

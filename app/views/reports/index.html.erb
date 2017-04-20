@@ -30,9 +30,9 @@
     </thead>
     <tbody>
       <%= content_tag_for(:tr, @reports) do |report| %>
-        <td><%= link_to report.test_case.name, product_version_test_case_path(report.build.version.product,report.build.version,report.test_case) if !report.test_case.blank? %></td>
+        <td><%= link_to report.test_case.name, product_version_test_case_path(@product,@version,report.test_case) if !report.test_case.blank?  %></td>
         <td><%= render :partial => 'reports/icon', :locals => {:report => report } %> </td>
-        <td><%= link_to report.host.name, product_version_host_path(report.test_case.version.product,report.test_case.version,report.host)  if !report.host.blank?%></td>
+        <td><%= link_to report.host.name, product_version_host_path(@product,@version,report.host)  if !report.host.blank?%></td>
         <td><%= report.error %></td>
       <% end %>
     </tbody>

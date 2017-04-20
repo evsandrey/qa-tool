@@ -14,6 +14,7 @@ class BuildsController < ApplicationController
   # GET /builds/1
   # GET /builds/1.json
   def show
+    @slider = true
   end
 
   # GET /builds/new

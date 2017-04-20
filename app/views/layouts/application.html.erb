@@ -43,6 +43,9 @@
             <%= link_to "Test cases", product_version_test_cases_path(@product,@version), :class => "nav-link" %>
           </li>
           <li class="nav-item active">
+            <%= link_to "Reports", product_version_reports_path(@product,@version), :class => "nav-link" %>
+          </li>
+          <li class="nav-item active">
             <%= link_to "Builds", product_version_builds_path(@product,@version), :class => "nav-link" %>
           </li>
         <% else %>

@@ -23,6 +23,8 @@ class Report
   
   embeds_many :attachments
   
+  paginates_per 100
+  
   after_save :link_to_build
   after_create :compare_with_prev_build
   after_save :broadcast

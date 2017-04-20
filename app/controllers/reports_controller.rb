@@ -4,14 +4,16 @@ class ReportsController < ApplicationController
   
   respond_to :html, :js, :json
   
-  layout false, :except => [:edit, :show_direct]
+  layout false, :except => [:edit, :show_direct, :index ]
   
   skip_before_filter :verify_authenticity_token
   
   # GET /reports
   # GET /reports.json
   def index
-    @reports = Report.all
+    @q = Report.ransack(params[:q])
+    @q.sorts = 'created_at desc' if @q.sorts.empty?
+    @logs = @q.result.page params[:page]
   end
 
   # GET /reports/1
@@ -95,6 +97,8 @@ class ReportsController < ApplicationController
     @report =  Report.new()
     product = Product.find_by(name: params["product"])
     version = Version.find_by(name: params["version"])
+    
+    @report.version = version
     
     if Build.where(version: version, name: params["build"]).exists? 
       @report.build = Build.where(version: version, name: params["build"]).first 

@@ -16,6 +16,7 @@ class Report
                                      :message => 'only (png/gif/jpeg) images'
   
   belongs_to :investigation_result, optional: true
+  belongs_to :version
   belongs_to :test_case
   belongs_to :build
   belongs_to :host

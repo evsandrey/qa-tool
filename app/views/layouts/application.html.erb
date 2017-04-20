@@ -28,7 +28,7 @@
         <li class="nav-item active">
           <%= link_to @product.name , product_path(@product) , :class => "nav-link"  if !@product.nil? %>
         </li>
-        <% if !@version.nil?  %>
+        <% if !@version.nil? %>
           
           <li class="nav-item active">
             <%= link_to @version.name , product_version_path(@product,@version), :class => "nav-link" %>
@@ -49,6 +49,7 @@
             <%= link_to "Builds", product_version_builds_path(@product,@version), :class => "nav-link" %>
           </li>
         <% else %>
+          <% if !@product.nil? %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
             Versions
@@ -59,6 +60,7 @@
               <% end %>
               </div>
           </li>
+          <% end %>
         <% end %>
       <% else %>
       <li class="nav-item dropdown">

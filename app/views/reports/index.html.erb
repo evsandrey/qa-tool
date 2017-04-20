@@ -1,9 +1,5 @@
 <div class="container m-t-1 m-b-1">
-  <%= link_to new_report_path, class: 'btn btn-primary pull-xs-right m-x-auto' do %>
-    <span class="glyphicon glyphicon-plus"></span>
-    New Report
-  <% end %>
-  <h2>reports</h2>
+  <h2>Reports for <%= @product.name %> <%= @version.name %></h2>
 </div>
 
 <div class="container row">
@@ -26,26 +22,18 @@
   <table class="table">
     <thead>
       <tr>
-            
+            <th>Test</th>
             <th>Result</th>
-            <th>Comment</th>
-            <th></th>
-            <th></th>
-        
+            <th>Host</th>
+            <th>Error</th>
       </tr>
     </thead>
-
     <tbody>
       <%= content_tag_for(:tr, @reports) do |report| %>
-            
-            <td><%= report.result %></td>
-            <td><%= report.comment %></td>
-            <td><%= report.custom_params %></td>
-            <td>
-            <%= link_to 'Show', report, class: "btn btn-outline-primary btn-sm" %>
-            <%= link_to 'Edit', edit_report_path(report), class: "btn btn-primary btn-sm" %>
-            <%= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
-        </td>
+        <td><%= link_to report.test_case.name, product_version_test_case_path(report.build.version.product,report.build.version,report.test_case) %></td>
+        <td><%= render :partial => 'reports/icon', :locals => {:report => report } %> </td>
+        <td><%= link_to report.host.name, product_version_host_path(report.test_case.version.product,report.test_case.version,report.host) %></td>
+        <td><%= report.error %></td>
       <% end %>
     </tbody>
   </table>

@@ -1,6 +1,8 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy, :show_direct ]
-  before_action :set_product
+  
+  before_action :set_product, only: [:index]
+  before_action :set_version, only: [:index]
   
   respond_to :html, :js, :json
   
@@ -13,7 +15,7 @@ class ReportsController < ApplicationController
   def index
     @q = Report.ransack(params[:q])
     @q.sorts = 'created_at desc' if @q.sorts.empty?
-    @logs = @q.result.page params[:page]
+    @reports = @q.result.page params[:page]
   end
 
   # GET /reports/1
@@ -166,17 +168,17 @@ class ReportsController < ApplicationController
   end
 
   private
+     def set_version
+      if params[:version_id]
+        @version = Version.find(params[:version_id])
+      end
+    end
+    
     def set_product
       if params[:product_id]
         @product = Product.find(params[:product_id])
       end
     end
-    
-    def set_version
-      if params[:version_id]
-        @version = Version.find(params[:version_id])
-      end
-    end 
     
     # Use callbacks to share common setup or constraints between actions.
     def set_report

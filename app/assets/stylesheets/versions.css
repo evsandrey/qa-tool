@@ -31,7 +31,7 @@ table.big-mama {
     z-index: 300 !important;
     position: absolute;
     top: 10px;
-    left: 7px;
+    left: 12px;
     height: 35px !important;
     width: 35px !important;
     margin: 0px;
@@ -43,7 +43,6 @@ table.big-mama {
 
 .investigated-bg {
     z-index: 99 !important;
-    position: absolute;
     left:0%;
     height: 35px !important;
     width: 35px !important;

@@ -6,7 +6,7 @@
       <th class="first-col text-cut"></th>
       <% builds = @version.builds.desc('_id').limit(10).reverse! %>
       <% builds.each do |build| %>
-      <% link_name = build_name_mutator.blank? ? build.name : eval(build_name_mutator) %>
+      <% build_name_mutator.blank? ? link_name=build.name : link_name=eval(build_name_mutator) %>
       <th id="build-<%= build.id %>" class="build-head"><%= link_to link_name, product_version_build_path(@product,@version,build), target: "_blank" %></th>
       <% end %>
       

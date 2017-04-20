@@ -6,6 +6,7 @@ class Version
   field :name, type: String
   slug :name
   
+  field :build_name_mutator, type: String
   field :description, type: String
   field :vcs, type: String
   

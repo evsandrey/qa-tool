@@ -16,6 +16,7 @@ class Version
   has_many :hosts, dependent: :destroy
   has_many :reports, through: :test_cases
   
+  
   after_create :create_defaults
   
   def create_defaults

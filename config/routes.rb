@@ -25,6 +25,7 @@ Rails.application.routes.draw do
       resources :builds
       resources :hosts
       resources :categories
+      resources :reports
       resources :test_cases do 
         resources :reports
       end

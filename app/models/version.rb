@@ -14,6 +14,7 @@ class Version
   has_many :test_cases, dependent: :destroy
   has_many :categories, dependent: :destroy
   has_many :hosts, dependent: :destroy
+  has_many :reports, through: :test_cases
   
   after_create :create_defaults
   

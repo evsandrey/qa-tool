@@ -31,9 +31,9 @@ table.big-mama {
     z-index: 300 !important;
     position: absolute;
     top: 10px;
-    left: 12px;
-    height: 35px !important;
-    width: 35px !important;
+    left: 8px;
+    height: 25px !important;
+    width: 25px !important;
     margin: 0px;
     padding: 0px;
     padding-top: 5px !important;
@@ -44,8 +44,8 @@ table.big-mama {
 .investigated-bg {
     z-index: 99 !important;
     left:0%;
-    height: 35px !important;
-    width: 35px !important;
+    height: 25px !important;
+    width: 25px !important;
     margin: 0px !important;
     padding: 0px !important;
     cursor: pointer;

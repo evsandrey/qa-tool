@@ -29,9 +29,18 @@
           <%= link_to @product.name , product_path(@product) , :class => "nav-link"  if !@product.nil? %>
         </li>
         <% if !@version.nil? %>
-          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            Versions
+            </a>
+              <div class="dropdown-menu" aria-labelledby="Versions">
+              <% @product.versions.each do |version| %>
+                <%= link_to version.name, product_version_path(@product,version), :class => "dropdown-item" %>
+              <% end %>
+              </div>
+          </li>
           <li class="nav-item active">
-            <%= link_to @version.name , product_version_path(@product,@version), :class => "nav-link" %>
+            <%= link_to "Grid" , product_version_path(@product,@version), :class => "nav-link" %>
           </li>
           <li class="nav-item active">
             <%= link_to "Hosts", product_version_hosts_path(@product,@version), :class => "nav-link" %>

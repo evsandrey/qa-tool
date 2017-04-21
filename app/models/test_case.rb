@@ -8,6 +8,8 @@ class TestCase
   field :description, type: String
   field :custom_params, type: String
   
+  has_many :reports, dependent: :destroy
+  
   belongs_to :version
   belongs_to :category
   

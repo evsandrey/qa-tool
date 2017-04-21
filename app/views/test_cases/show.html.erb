@@ -31,7 +31,7 @@
     <tbody>
       <% Report.where(test_case_id: @test_case.id).desc('_id').limit(30).each do |report| %>
       <tr>
-        <td><%= link_to report.build.name, product_version_build_path(@product, @version,report.build) %></td>
+        <td><%= report.build.nil? ? 'N/A' : (link_to report.build.name, product_version_build_path(@product, @version,report.build)) %></td>
         <td><%= render :partial => 'reports/icon', :locals => {:report => report } %></td>
         <td><%= link_to report.host.name, product_version_host_path(@product, @version,report.host)  if !report.host.nil? %></td>
       </tr>

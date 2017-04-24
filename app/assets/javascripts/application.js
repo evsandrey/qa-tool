@@ -1,5 +1,5 @@
 //= require jquery
-//= require tether
+//= require tether.min
 //= require bootstrap
 //= require jquery_ujs
 //= require turbolinks

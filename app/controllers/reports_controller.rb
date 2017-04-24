@@ -56,12 +56,14 @@ class ReportsController < ApplicationController
   end
   
   
-  def mass_investigation_update 
-    @report=Report.find(params['report']['report_id'])
-    @investigation_status = InvestigationResult.find(params['report']['investigation_result_id'])
-    @report.comment = params['report']['comment']
-    @report.investigation_result = @investigation_status
-    @report.save
+  def mass_investigation_update
+    eval(params['report']['report_ids']).each do |report_id|
+      @report=Report.find(report_id)
+      @investigation_status = InvestigationResult.find(params['report']['investigation_result_id'])
+      @report.comment = params['report']['comment']
+      @report.investigation_result = @investigation_status
+      @report.save
+    end
   end
   
   def mass_investigation_form 

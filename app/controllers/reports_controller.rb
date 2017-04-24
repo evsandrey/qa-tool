@@ -57,13 +57,13 @@ class ReportsController < ApplicationController
   
   
   def mass_investigation_update
+    debug = ""
     eval(params['report']['report_ids']).each do |report_id|
-      p report_id
-      # @report=Report.find_by(_id: report_id)
-      # @investigation_status = InvestigationResult.find(params['report']['investigation_result_id'])
-      # @report.comment = params['report']['comment']
-      # @report.investigation_result = @investigation_status
-      # @report.save
+      @report=Report.find(id: report_id.to_s)
+      @investigation_status = InvestigationResult.find(params['report']['investigation_result_id'])
+      @report.comment = params['report']['comment']
+      @report.investigation_result = @investigation_status
+      @report.save
     end
   end
   

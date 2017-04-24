@@ -100,9 +100,9 @@
             <div id="collapse-<%= i%>" class="collapse" role="tabpanel" aria-labelledby="heading-<%= i%>">
               <div class="card-block">
                 <div class="row buttons">
-                  <% ids = "" %>
+                  <% ids = [] %>
                   <% rlinks.each do |key, rlink| %>
-                    <% ids += rlink.id %>
+                    <% ids.push(rlink.id) %>
                   <% end %>
                   <a class="btn btn-primary pull-xs-right m-x-auto"  onclick='LoadModalWith("/investigation_form",{ id: "<%= ids %>" } )' >Set investigation result</a>
                 </div>

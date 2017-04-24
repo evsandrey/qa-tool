@@ -102,7 +102,7 @@
                 <div class="row buttons">
                   <% ids = [] %>
                   <% rlinks.each do |key, rlink| %>
-                    <% ids.push(rlink._id.to_s) %>
+                    <% ids.push(rlink.report_id) %>
                   <% end %>
                   <a class="btn btn-primary pull-xs-right m-x-auto"  onclick='LoadModalWith("/mass_investigation_form",{ id: <%= ids %> } )' >Set investigation result</a>
                 </div>

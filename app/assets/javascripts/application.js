@@ -38,6 +38,10 @@ $(document).on('turbolinks:load', function() {
   del_button.on("click", function(e){ //user click on remove text
       e.preventDefault(); $(this).parent('td').parent('tr').remove();
   })
+  
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
 }
 );
 

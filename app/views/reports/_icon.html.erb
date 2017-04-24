@@ -1,5 +1,5 @@
 
-<div class="report-icon" id="<%= report.class == Report ? report._id : report.report_id %>" <%= data-toggle="tooltip" data-placement="right" title="#{report.comment}" if !report.comment.blank? %> >
+<div class="report-icon" id="<%= report.class == Report ? report._id : report.report_id %>" <%= "data-toggle='tooltip' data-placement='right' title='#{report.comment}'" if !report.comment.blank? %> >
     <% if report.result %>
         <img class="investigated-bg" src="/icons/Passed.png" />
     <% else %>

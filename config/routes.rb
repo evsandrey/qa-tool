@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   get '/investigation_form', to: "reports#investigation_form"
   post '/investigation_update', to: "reports#investigation_update"
   
+  get '/mass_investigation_form', to: "reports#mass_investigation_form"
+  post '/mass_investigation_update', to: "reports#mass_investigation_update"
+  
   resources :investigation_results
   resources :bugs
   resources :bulids

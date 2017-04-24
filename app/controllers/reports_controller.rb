@@ -56,6 +56,20 @@ class ReportsController < ApplicationController
   end
   
   
+  def mass_investigation_update 
+    @report=Report.find(params['report']['report_id'])
+    @investigation_status = InvestigationResult.find(params['report']['investigation_result_id'])
+    @report.comment = params['report']['comment']
+    @report.investigation_result = @investigation_status
+    @report.save
+  end
+  
+  def mass_investigation_form 
+    @report_ids = params
+    render :partial => '/reports/mass_investigation_form'
+  end
+  
+  
   # POST /reports
   # POST /reports.json
   def create

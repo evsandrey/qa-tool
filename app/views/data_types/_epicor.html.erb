@@ -1,27 +1,31 @@
+<br><b>Framework ver: </b><%= data['Portal']['HeaderSection']['FWver'] %>
+<br><b>Epicor ver: </b><%= data['Portal']['HeaderSection']['EpicorVer'] %>
 
-    
-<br><b>'data_type':</b><%= data['data_type'] %>   
-
-<br><b>'FWver': </b><%= data['FWver'] %>
-<br><b>'EpicorVer': </b><%= data['EpicorVer'] %>
-<br><b>'Host': </b><%= data['Host'] %>
-<br><b>'bStatus': </b><%= data['bStatus'] %>
-<br><b>'bDiffs': </b><%= data['bDiffs'] %>
-<br><b>'StatusDetails': </b><%= data['StatusDetails'] %>
-<br><b>'ScriptsTotal': </b><%= data['ScriptsTotal'] %>
-<br><b>'ScriptsPassed': </b><%= data['ScriptsPassed'] %>
-<br><b>'RerunPassed': </b><%= data['RerunPassed'] %>
-<br><b>'StartTime': </b><%= data['StartTime'] %>
-<br><b>'EndTime': </b><%= data['EndTime'] %>
-<br><b>'TotalTime': </b><%= data['TotalTime'] %>
-<br><b>'PlayerVer': </b><%= data['PlayerVer'] %>
-<br><b>'Logs': </b><%= data['Logs'] %>
-
-<br><b>'Id': </b><%= data['Id'] %>
-<br><b>'ErrorDetails': </b><%= data['ErrorDetails'] %>
-<br><b>'ErrorScreenshot': </b><%= data['ErrorScreenshot'] %>
-<br><b>'ErrorText': </b><%= data['ErrorText'] %>
-<br><b>'feature_name': </b><%= data['feature_name'] %>
+<br><b>Run ID: </b><%= data['Portal']['HeaderSection']['ID'] %>
+<br><b>Differences: </b><%= data['Portal']['HeaderSection']['bDiffs'] %>
+<br><b>Status Details: </b><%= data['Portal']['HeaderSection']['StatusDetails'] %>
+<br><b>Scripts Total: </b><%= data['Portal']['HeaderSection']['ScriptsTotal'] %>
+<br><b>Scripts Passed: </b><%= data['Portal']['HeaderSection']['ScriptsPassed'] %>
+<br><b>Rerun Passed: </b><%= data['Portal']['HeaderSection']['RerunPassed'] %>
+<br><b>Start Time: </b><%= data['Portal']['HeaderSection']['StartTime'] %>
+<br><b>End Time: </b><%= data['Portal']['HeaderSection']['EndTime'] %>
+<br><b>Total Time: </b><%= data['Portal']['HeaderSection']['TotalTime'] %>
+<br><b>Player Ver: </b><%= data['Portal']['HeaderSection']['PlayerVer'] %>
 <br>
-<br><hr>Custom/Additional parameters (raw data):
+<br><b>Failed Script: </b><%= data['Portal']['ErrorSection']['Error']['cmn'] %>
+<br><b>Error Text: </b><br><%= data['Portal']['ErrorSection']['Error']['errorText'] %>
+<br><b>Error Details: </b><br><%= data['Portal']['ErrorSection']['Error']['errorDetails'] %>
+
+<br>
+<br><hr>(Raw Data):
 <br><%= data.to_s %>
+
+<!--
+<br><b>data_type:</b><%= data['data_type'] %>
+<br><b>feature_name: </b><%= data['feature_name'] %>
+
+<br><b>Host: </b><%= data['Portal']['HeaderSection']['Host'] %>
+<br><b>bStatus: </b><%= data['Portal']['HeaderSection']['bStatus'] %>
+<br><b>Logs: </b><%= data['Portal']['HeaderSection']['Logs'] %>
+<br><b>Error Screenshot: </b><%= data['Portal']['ErrorSection']['ErrorScreenshot'] %>
+-->

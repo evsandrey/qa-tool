@@ -65,7 +65,7 @@ class ReportsController < ApplicationController
   end
   
   def mass_investigation_form 
-    @report_ids = params.to_s
+    @report_ids = params[:id].to_s
     render :partial => '/reports/mass_investigation_form'
   end
   

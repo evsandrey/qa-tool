@@ -40,10 +40,11 @@ function LoadSliderWith(url,data){
       // }
       // $(".slider-loader").hide();
     })
-    .fail(function(e) {
+    .fail(function(xhr,err) {
       console.log( "Error in loading slider" );
-      console.log(e);
-      closeSlider();
+      console.log(err);
+      $(".slider-content").append(xhr.responseText);
+      //closeSlider();
     })
     .always(function() {
       //Close loader

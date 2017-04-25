@@ -1,31 +1,11 @@
-<br><b>Framework ver: </b><%= data['Portal']['HeaderSection']['FWver'] %>
-<br><b>Epicor ver: </b><%= data['Portal']['HeaderSection']['EpicorVer'] %>
 
-<br><b>Run ID: </b><%= data['Portal']['HeaderSection']['ID'] %>
-<br><b>Differences: </b><%= data['Portal']['HeaderSection']['bDiffs'] %>
-<br><b>Status Details: </b><%= data['Portal']['HeaderSection']['StatusDetails'] %>
-<br><b>Scripts Total: </b><%= data['Portal']['HeaderSection']['ScriptsTotal'] %>
-<br><b>Scripts Passed: </b><%= data['Portal']['HeaderSection']['ScriptsPassed'] %>
-<br><b>Rerun Passed: </b><%= data['Portal']['HeaderSection']['RerunPassed'] %>
-<br><b>Start Time: </b><%= data['Portal']['HeaderSection']['StartTime'] %>
-<br><b>End Time: </b><%= data['Portal']['HeaderSection']['EndTime'] %>
-<br><b>Total Time: </b><%= data['Portal']['HeaderSection']['TotalTime'] %>
-<br><b>Player Ver: </b><%= data['Portal']['HeaderSection']['PlayerVer'] %>
-<br>
-<br><b>Failed Script: </b><%= data['Portal']['ErrorSection']['Error']['cmn'] %>
-<br><b>Error Text: </b><br><%= data['Portal']['ErrorSection']['Error']['errorText'] %>
-<br><b>Error Details: </b><br><%= data['Portal']['ErrorSection']['Error']['errorDetails'] %>
+<% if !data['Portal'].nil? %>
+	<% if !data['Portal']['HeaderSection'].nil? %>
 
-<br>
-<br><hr>(Raw Data):
-<br><%= data.to_s %>
 
-<!--
-<br><b>data_type:</b><%= data['data_type'] %>
-<br><b>feature_name: </b><%= data['feature_name'] %>
 
-<br><b>Host: </b><%= data['Portal']['HeaderSection']['Host'] %>
-<br><b>bStatus: </b><%= data['Portal']['HeaderSection']['bStatus'] %>
-<br><b>Logs: </b><%= data['Portal']['HeaderSection']['Logs'] %>
-<br><b>Error Screenshot: </b><%= data['Portal']['ErrorSection']['ErrorScreenshot'] %>
--->
+		<br><b>Framework ver: </b><%= !data['Portal']['HeaderSection']['FWver'].nil? ? data['Portal']['HeaderSection']['FWver'] : 'N/A' %>
+		
+
+	<% end %>
+<% end %>

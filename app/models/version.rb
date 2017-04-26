@@ -20,7 +20,7 @@ class Version
   
   has_mongoid_attached_file :tab_icon
   validates_attachment_content_type :tab_icon, 
-                                    :content_type => /^image\/(ico|gif|jpeg)/,
+                                    :content_type => /^image\/(x-icon|gif|jpeg)/,
                                     :message => 'only (ico/gif/jpeg) images'
   
   

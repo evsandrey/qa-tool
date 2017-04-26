@@ -114,49 +114,89 @@ class ReportsController < ApplicationController
 
   def report_end
     @report =  Report.new()
-    product = Product.find_by(name: params["product"])
-    version = Version.find_by(name: params["version"])
+    if @product.nil?
+      product = Product.find_by(name: params["product"]) 
+    else
+      product = @product
+    end
+    
+    if @version.nil?
+      version = Version.find_by(name: params["version"])
+    else
+      version = @version
+    end
     
     @report.version = version
     
-    if Build.where(version: version, name: params["build"]).exists? 
-      @report.build = Build.where(version: version, name: params["build"]).first 
+    if !params["result"].nil?
+      @report.result  = (params["result"] == 'passed')
     else
-      build = Build.new(name: params["build"], version: version)
-      build.save
-      @report.build=build
+      #respond with error
     end
     
-    if TestCase.where(version: version, name: params["test_case"]).exists? 
-      @report.test_case = TestCase.where(version: version, name: params["test_case"]).first 
+    if !params["error"].nil?
+      @report.error = params["error"]
     else
-      test_case = TestCase.new(name: params["test_case"], version: version)
-      test_case.category = Category.where(version: version).first
-      test_case.save
-      @report.test_case=test_case
+      # respond with error or set blank if test passed
+    end
+    
+    if !params["screenshot"].blank?
+      screen_file = Paperclip.io_adapters.for(params["screenshot"])
+      screen_file.original_filename = @report.id.to_s+".jpg"
+      @report.screenshot = screen_file
+    end
+    
+    if !params["build"].nil?
+      if Build.where(version: version, name: params["build"]).exists? 
+        @report.build = Build.where(version: version, name: params["build"]).first 
+      else
+        build = Build.new(name: params["build"], version: version)
+        build.save
+        @report.build=build
+      end
+    else
+      # respond with error
+    end
+    
+    if !params["test_case"].nil?
+      if TestCase.where(version: version, name: params["test_case"]).exists? 
+        @report.test_case = TestCase.where(version: version, name: params["test_case"]).first 
+      else
+        test_case = TestCase.new(name: params["test_case"], version: version)
+        test_case.category = Category.where(version: version).first
+        test_case.save
+        @report.test_case=test_case
+      end
+    else
+      # respond with error
     end
     
     if !params["logs_location"].blank?
       @report.logs_location = params["logs_location"]
     end
     
-    if Host.where(version: version, name: params["host"]).exists? 
-      @report.host = Host.where(version: version, name: params["host"]).first 
-    else
-      host = Host.new(name: params["host"], version: version)
-      host.save
-      @report.host=host
+    if !params["broken"].blank?
+      @report.broken = params["broken"]
     end
     
-    @report.result  = (params["result"] == 'passed')
-    @report.error = params["error"]
-    if !params["screenshot"].blank?
-      screen_file = Paperclip.io_adapters.for(params["screenshot"])
-      screen_file.original_filename = @report.id.to_s+".jpg"
-      @report.screenshot = screen_file
+    if !params["host"].nil?
+      if Host.where(version: version, name: params["host"]).exists? 
+        @report.host = Host.where(version: version, name: params["host"]).first 
+      else
+        host = Host.new(name: params["host"], version: version)
+        host.save
+        @report.host=host
+      end
+    else
+      # set some virtual host
     end
-    @report.custom_params = params["custom_params"].to_json
-    @report.save
+    
+    if !params["custom_params"].nil?
+      # try to parse before
+      @report.custom_params = params["custom_params"].to_json
+    else
+      # do something
+    end
     if !params["attachments"].blank?
       params["attachments"].each do |k,file|
           file_object = Paperclip.io_adapters.for(file["src"])
@@ -169,8 +209,7 @@ class ReportsController < ApplicationController
           Attachment.create!(file: file_object, name: file['label'], report: @report, mime_type: file['mime_type'], link: file['link'])
       end
     end
-    
-    
+
     respond_to do |format|
       if @report.save 
         format.json { render :show, status: :created, location: @report }

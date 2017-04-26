@@ -40,7 +40,7 @@
               </div>
           </li>
           <li class="nav-item active">
-            <%= link_to "Grid" , product_version_path(@product,@version), :class => "nav-link" %>
+            <%= link_to @version.name , product_version_path(@product,@version), :class => "nav-link" %>
           </li>
           <li class="nav-item active">
             <%= link_to "Hosts", product_version_hosts_path(@product,@version), :class => "nav-link" %>

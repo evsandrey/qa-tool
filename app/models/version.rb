@@ -2,6 +2,7 @@ class Version
   include Mongoid::Document
   include Mongoid::Timestamps
   include Mongoid::Slug
+  include Mongoid::Paperclip
   
   field :name, type: String
   slug :name

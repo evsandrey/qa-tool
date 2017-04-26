@@ -17,6 +17,13 @@ class Version
   has_many :hosts, dependent: :destroy
   has_many :reports, dependent: :destroy
   
+  has_mongoid_attached_file :tab_icon
+  validates_attachment_content_type :tab_icon, 
+                                    :content_type => /^image\/(ico|gif|jpeg)/,
+                                    :message => 'only (ico/gif/jpeg) images'
+  
+  
+  
   
   after_create :create_defaults
   

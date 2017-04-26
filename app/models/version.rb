@@ -19,9 +19,7 @@ class Version
   has_many :reports, dependent: :destroy
   
   has_mongoid_attached_file :tab_icon
-  validates_attachment_content_type :tab_icon, 
-                                    :content_type => 'image/x-icon',
-                                    :message => 'only .ico images'
+  validates_attachment_content_type :tab_icon, content_type: /\Aimage/
   
   
   

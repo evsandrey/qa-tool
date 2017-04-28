@@ -131,13 +131,13 @@ class ReportsController < ApplicationController
     if !params["result"].nil?
       @report.result  = (params["result"] == 'passed')
     else
-      #respond with error
+      render text: "ERROR: Result field is blank"
     end
     
     if !params["error"].nil?
       @report.error = params["error"]
     else
-      # respond with error or set blank if test passed
+      render text: "ERROR: Error field is blank"
     end
     
     if !params["screenshot"].blank?
@@ -155,7 +155,7 @@ class ReportsController < ApplicationController
         @report.build=build
       end
     else
-      # respond with error
+      render text: "ERROR: Build field is blank"
     end
     
     if !params["test_case"].nil?
@@ -168,7 +168,7 @@ class ReportsController < ApplicationController
         @report.test_case=test_case
       end
     else
-      # respond with error
+      render text: "ERROR: test_case field is blank"
     end
     
     if !params["logs_location"].blank?
@@ -188,7 +188,7 @@ class ReportsController < ApplicationController
         @report.host=host
       end
     else
-      # set some virtual host
+      render text: "ERROR: Host field is blank"
     end
     
     if !params["custom_params"].nil?

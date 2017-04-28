@@ -44,6 +44,17 @@
       </div>
       <% end %>
       <div class="row">
+        <div class="col-sm-3 text-xs-right"><strong>Direct link:</strong></div>
+        <div class="col-sm-6"><%= link_to @hostname+show_direct_report_path(@report).to_s, show_direct_report_path(@report), :target => "_blank" %></div>
+        <div class="col-sm-3"></div>
+      </div>
+      <div class="row">
+        <% if !@report.result %>
+        <div class="col-sm-2 text-xs-right"><strong>Error:</strong></div>
+        <% end %>
+        <div class="col-sm-10 text-xs-left"><pre><%= @report.error %></pre></div>
+      </div>
+      <div class="row">
         <div class="col-sm-3 text-xs-right"><strong>Investigation:</strong></div>
         <div class="col-sm-9"><%= @report.investigation_result.name if !@report.investigation_result.blank? %></div>
       </div>
@@ -56,11 +67,7 @@
         <div class="col-sm-6"><%= @report.compare_with_prev_build %></div>
         <div class="col-sm-3"></div>
       </div>
-      <div class="row">
-        <div class="col-sm-3 text-xs-right"><strong>Direct link:</strong></div>
-        <div class="col-sm-6"><%= link_to @hostname+show_direct_report_path(@report).to_s, show_direct_report_path(@report), :target => "_blank" %></div>
-        <div class="col-sm-3"></div>
-      </div>
+      
     </div>
     <div class="col-sm-4">
       <div class="text-xs-center mx-auto">
@@ -68,31 +75,27 @@
       </div>
     </div>
   </div>
-<div class="m-t-1 m-b-1">
-  <div class="row">
-    <div class="col-sm-2 text-xs-right"><strong>Attachments:</strong></div>
-    <div class="col-sm-10 text-xs-left">
-      <% @report.attachments.each do |attach| %>
-        <% case attach.mime_type %>
-          <% when "image/jpg" %>
-            <span class="tag tag-pill tag-primary">
-              <img class="attach-prev m-r-1" onclick='enlargeImage(this.src,this.src)' height=20 width=20 src="<%= attach.file.url %>"/><%= attach.name %>
-            </span>
-          <% else %>
-            <span class="tag tag-pill tag-primary">
-              tf<%= attach.name %>
-            </span>
-          <% end %>
-      <% end %>      
+  <% if !report.attachments.nil? %>
+  <div class="m-t-1 m-b-1">
+    <div class="row">
+      <div class="col-sm-2 text-xs-right"><strong>Attachments:</strong></div>
+      <div class="col-sm-10 text-xs-left">
+        <% @report.attachments.each do |attach| %>
+          <% case attach.mime_type %>
+            <% when "image/jpg" %>
+              <span class="tag tag-pill tag-primary">
+                <img class="attach-prev m-r-1" onclick='enlargeImage(this.src,this.src)' height=20 width=20 src="<%= attach.file.url %>"/><%= attach.name %>
+              </span>
+            <% else %>
+              <span class="tag tag-pill tag-primary">
+                tf<%= attach.name %>
+              </span>
+            <% end %>
+        <% end %>      
+      </div>
     </div>
   </div>
-  <div class="row">
-    <% if !@report.result %>
-    <div class="col-sm-2 text-xs-right"><strong>Error:</strong></div>
-    <% end %>
-    <div class="col-sm-10 text-xs-left"><pre><%= @report.error %></pre></div>
-  </div>
-</div>
+  <% end %>
 <% if JSON.parse(@report.custom_params) %>
   <% cp = JSON.parse(@report.custom_params)%>
   <div class="<%= cp['data_type'] %>">

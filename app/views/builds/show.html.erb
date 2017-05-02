@@ -83,9 +83,23 @@
   </div>
   <div class="col-sm-1"></div>
 </div>
-<div class="row">
-  <div class=col-sm-2></div>
-  <div class=col-sm-10>
+
+<ul class="nav nav-tabs" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" href="#grouped" role="tab" data-toggle="tab">Grouped</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#failed" role="tab" data-toggle="tab">Failed</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#passed" role="tab" data-toggle="tab">Passed</a>
+  </li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="grouped">
+    <div class=col-sm-10>
       <% i=0 %>
       <div id="accordion" role="tablist" aria-multiselectable="true">
         <% error_hash.each do |err, rlinks| %>
@@ -119,7 +133,26 @@
           </div>  
         <% end %>
       </div>
+  </div>  
   </div>
+  <div role="tabpanel" class="tab-pane fade" id="failed">
+    failed
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="passed">
+    passed
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="row">
+  <div class=col-sm-2></div>
+  
   <div class=col-sm-2></div>
 </div>
 

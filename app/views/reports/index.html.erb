@@ -8,6 +8,14 @@
     <%= f.label "Error" %>
     <%= f.search_field :error_cont, :class => "form-control" %>
   </div>
+  <div class="form-group col-sm-3">
+    <%= f.label "Comment" %>
+    <%= f.search_field :comment_cont, :class => "form-control" %>
+  </div>
+  <div class="form-group col-sm-3">
+    <%= f.label "Custom" %>
+    <%= f.search_field :custom_params_cont, :class => "form-control" %>
+  </div>
   <div class="form-group col-sm-3 col-sm-bottom">
     <%= f.submit "Search", :class => "btn btn-primary" %>
   </div>

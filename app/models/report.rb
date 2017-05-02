@@ -54,6 +54,8 @@ class Report
     r_link.result = self.result
     r_link.error = self.error
     r_link.comment = self.comment
+    r_link.broken = self.broken if !self.broken.blank?
+    r_link.total_time = self.total_time if !self.total_time.blank?
     r_link.investigation_result_id = self.investigation_result_id if !self.investigation_result_id.blank?
     r_link.investigation_result = self.investigation_result.code if !self.investigation_result_id.blank?
     r_link.test_case = self.test_case_id

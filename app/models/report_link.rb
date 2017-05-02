@@ -10,6 +10,8 @@ class ReportLink
   field :test_case, type: String
   field :test_case_name, type: String
   field :reruns, type: Integer, default: 0
+  field :broken, type: String
+  field :total_time, type: String
   
   embedded_in :build
   

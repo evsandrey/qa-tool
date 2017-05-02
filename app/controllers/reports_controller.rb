@@ -131,13 +131,13 @@ class ReportsController < ApplicationController
     if !params["result"].nil?
       @report.result  = (params["result"] == 'passed')
     else
-      render text: "ERROR: Result field is blank"
+      render text: "ERROR: Result field is blank" and return
     end
     
     if !params["error"].nil?
       @report.error = params["error"]
     else
-      render text: "ERROR: Error field is blank"
+      render text: "ERROR: Error field is blank" and return
     end
     
     if !params["screenshot"].blank?
@@ -155,7 +155,7 @@ class ReportsController < ApplicationController
         @report.build=build
       end
     else
-      render text: "ERROR: Build field is blank"
+      render text: "ERROR: Build field is blank"  and return
     end
     
     if !params["test_case"].nil?
@@ -168,7 +168,7 @@ class ReportsController < ApplicationController
         @report.test_case=test_case
       end
     else
-      render text: "ERROR: test_case field is blank"
+      render text: "ERROR: test_case field is blank" and return
     end
     
     if !params["logs_location"].blank?
@@ -192,14 +192,14 @@ class ReportsController < ApplicationController
         @report.host=host
       end
     else
-      render text: "ERROR: Host field is blank"
+      render text: "ERROR: Host field is blank"  and return
     end
     
     if !params["custom_params"].nil?
       begin
         json = params["custom_params"].to_json
       rescue  
-        render text: "ERROR: custom_params is not JSON"  
+        render text: "ERROR: custom_params is not JSON" and return
       end 
       @report.custom_params = json
     else

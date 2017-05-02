@@ -224,7 +224,7 @@ class ReportsController < ApplicationController
 
     respond_to do |format|
       if @report.save 
-        format.json { render :show, status: :created, location: @report }
+        format.json { render :text @report.to_json }
         format.html { redirect_to @report, notice: 'Report was successfully created.' }
         format.js
       else

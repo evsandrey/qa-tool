@@ -146,7 +146,7 @@ class ReportsController < ApplicationController
       @report.screenshot = screen_file
     end
     
-    if !params["build"].nil?
+    if !params["build"].blank?
       if Build.where(version: version, name: params["build"]).exists? 
         @report.build = Build.where(version: version, name: params["build"]).first 
       else
@@ -158,7 +158,7 @@ class ReportsController < ApplicationController
       render text: "ERROR: Build field is blank"  and return
     end
     
-    if !params["test_case"].nil?
+    if !params["test_case"].blank?
       if TestCase.where(version: version, name: params["test_case"]).exists? 
         @report.test_case = TestCase.where(version: version, name: params["test_case"]).first 
         

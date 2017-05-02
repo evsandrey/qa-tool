@@ -95,64 +95,58 @@
     <a class="nav-link" href="#passed" role="tab" data-toggle="tab">Passed</a>
   </li>
 </ul>
-
-<!-- Tab panes -->
-<div class="tab-content">
-  <div role="tabpanel" class="tab-pane fade in active" id="grouped">
-    <div class=col-sm-10>
-      <% i=0 %>
-      <div id="accordion" role="tablist" aria-multiselectable="true">
-        <% error_hash.each do |err, rlinks| %>
-        <% i+=1 %>
-          <div class="card">
-            <div class="card-header text-cut" role="tab" id="headingOne">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapse-<%= i%>" aria-expanded="true" aria-controls="collapse-<%= i%>">
-                  <span class="tag tag-danger tag-pill pull-xs-left m-r-1"><%= rlinks.count %></span>
-                  <%= err %>
-                </a>
-            </div>
-            <div id="collapse-<%= i%>" class="collapse" role="tabpanel" aria-labelledby="heading-<%= i%>">
-              <div class="card-block">
-                <div class="row buttons">
-                  <% ids = [] %>
-                  <% rlinks.each do |key, rlink| %>
-                    <% ids.push(rlink.report_id) %>
-                  <% end %>
-                  <a class="btn btn-primary pull-xs-right m-x-auto"  onclick='LoadModalWith("/mass_investigation_form",{ id: <%= ids %> } )' >Set investigation result</a>
-                </div>
-                <% rlinks.each do |key, rlink| %>
-                <div class="row">
-                  <div class="col-sm-5"><%= rlink.test_case_name %></div>
-                  <div class="col-sm-1"><%= render :partial => 'reports/icon', :locals => {:report => rlink } %></div>
-                  <div class="col-sm-3"><%= rlink.comment %></div>
-                  <div class="col-sm-3"></div>
-                </div>
-                <% end %>      
-              </div>
-            </div>
-          </div>  
-        <% end %>
-      </div>
-  </div>  
-  </div>
-  <div role="tabpanel" class="tab-pane fade" id="failed">
-    failed
-  </div>
-  <div role="tabpanel" class="tab-pane fade" id="passed">
-    passed
-  </div>
-</div>
-
-
-
-
-
-
-
-
 <div class="row">
   <div class=col-sm-2></div>
-  
+    <div class=col-sm-8>
+    <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane fade in active" id="grouped">
+          <div class=row>
+            <div class=col-sm-10>
+              <% i=0 %>
+              <div id="accordion" role="tablist" aria-multiselectable="true">
+                <% error_hash.each do |err, rlinks| %>
+                <% i+=1 %>
+                  <div class="card">
+                    <div class="card-header text-cut" role="tab" id="headingOne">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse-<%= i%>" aria-expanded="true" aria-controls="collapse-<%= i%>">
+                          <span class="tag tag-danger tag-pill pull-xs-left m-r-1"><%= rlinks.count %></span>
+                          <%= err %>
+                        </a>
+                    </div>
+                    <div id="collapse-<%= i%>" class="collapse" role="tabpanel" aria-labelledby="heading-<%= i%>">
+                      <div class="card-block">
+                        <div class="row buttons">
+                          <% ids = [] %>
+                          <% rlinks.each do |key, rlink| %>
+                            <% ids.push(rlink.report_id) %>
+                          <% end %>
+                          <a class="btn btn-primary pull-xs-right m-x-auto"  onclick='LoadModalWith("/mass_investigation_form",{ id: <%= ids %> } )' >Set investigation result</a>
+                        </div>
+                        <% rlinks.each do |key, rlink| %>
+                        <div class="row">
+                          <div class="col-sm-5"><%= rlink.test_case_name %></div>
+                          <div class="col-sm-1"><%= render :partial => 'reports/icon', :locals => {:report => rlink } %></div>
+                          <div class="col-sm-3"><%= rlink.comment %></div>
+                          <div class="col-sm-3"></div>
+                        </div>
+                        <% end %>      
+                      </div>
+                    </div>
+                  </div>  
+                <% end %>
+            </div>
+          </div>
+        </div>  
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="failed">
+          failed
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="passed">
+          passed
+        </div>
+      </div>
+    </div>
   <div class=col-sm-2></div>
 </div>
 

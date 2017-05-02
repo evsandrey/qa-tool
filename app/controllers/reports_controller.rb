@@ -128,7 +128,7 @@ class ReportsController < ApplicationController
     
     @report.version = version
     
-    if !params["result"].nil?
+    if !params["result"].blank?
       @report.result  = (params["result"] == 'passed')
     else
       render text: "ERROR: Result field is blank" and return
@@ -187,7 +187,7 @@ class ReportsController < ApplicationController
       @report.total_time = params["broken"]
     end
     
-    if !params["host"].nil?
+    if !params["host"].blank?
       if Host.where(version: version, name: params["host"]).exists? 
         @report.host = Host.where(version: version, name: params["host"]).first 
       else

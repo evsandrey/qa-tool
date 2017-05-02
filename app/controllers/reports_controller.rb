@@ -161,12 +161,16 @@ class ReportsController < ApplicationController
     if !params["test_case"].nil?
       if TestCase.where(version: version, name: params["test_case"]).exists? 
         @report.test_case = TestCase.where(version: version, name: params["test_case"]).first 
+        @report.save
       else
         test_case = TestCase.new(name: params["test_case"], version: version)
         test_case.category = Category.where(version: version).first
         test_case.version = version
-        test_case.save
-        @report.test_case=test_case
+        if test_case.save
+          @report.test_case=test_case
+        else
+          render text: "ERROR: Unable to save test_case"  and return
+        end
       end
     else
       render text: "ERROR: test_case field is blank" and return

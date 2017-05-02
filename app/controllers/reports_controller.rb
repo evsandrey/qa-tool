@@ -22,7 +22,7 @@ class ReportsController < ApplicationController
   # GET /reports/1
   # GET /reports/1.json
   def show
-    @version = @report.test_case.version
+    @version = @report.version
     @product = @version.product
     @hostname = "http://"+request.host+":"+request.port.to_s || "www.mydomain.com"
   end
@@ -164,6 +164,7 @@ class ReportsController < ApplicationController
       else
         test_case = TestCase.new(name: params["test_case"], version: version)
         test_case.category = Category.where(version: version).first
+        test_case.version = version
         test_case.save
         @report.test_case=test_case
       end

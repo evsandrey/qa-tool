@@ -7,6 +7,7 @@ class Report
   field :status, type: String
   field :broken, type: String
   field :error, type: String
+  field :total_time, type: String
   field :logs_location, type: String
   field :comment, type: String
   field :custom_params, type: String
@@ -65,8 +66,16 @@ class Report
   
   def get_prev_build_last_report
     prev_build = Build.where(:_id.lt => self.build._id).order_by([[:_id, :desc]]).limit(1).first
-    prev_report = prev_build.report_links.where(test_case: self.test_case.id).limit(1).first
-    prev_report
+    if !prev_build.blank?
+      prev_report = prev_build.report_links.where(test_case: self.test_case.id).limit(1).first
+      if !prev_report.blank?
+        prev_report
+      else
+        nil
+      end
+    else 
+      nil
+    end
   end
   
   def investigated?
@@ -87,11 +96,11 @@ class Report
         "Comparsion applied"
       else
         self.apply_auto_investigation_rules
-        "Comparsion not applied"
+        ""
       end  
     else
       self.apply_auto_investigation_rules
-      "Comparsion not applied 2"
+      ""
     end
   end
   

@@ -49,11 +49,17 @@
         <div class="col-sm-3"></div>
       </div>
       <div class="row">
-        <% if !@report.result %>
-        <div class="col-sm-2 text-xs-right"><strong>Error:</strong></div>
-        <% end %>
-        <div class="col-sm-10 text-xs-left"><pre><%= @report.error %></pre></div>
+      <% if !@report.result %>
+        <div class="col-sm-3 text-xs-right"><strong>Error:</strong></div>
+        <div class="col-sm-9 text-xs-left"><pre><%= @report.error %></pre></div>
+      <% end %>
       </div>
+      <% if !@report.total_time.nil? %>
+      <div class="row">
+        <div class="col-sm-3 text-xs-right"><strong>Total time:</strong></div>
+        <div class="col-sm-9"><%= @report.total_time %></div>
+      </div>
+      <% end %>
       <div class="row">
         <div class="col-sm-3 text-xs-right"><strong>Investigation:</strong></div>
         <div class="col-sm-9"><%= @report.investigation_result.name if !@report.investigation_result.blank? %></div>

@@ -179,6 +179,10 @@ class ReportsController < ApplicationController
       @report.broken = params["broken"]
     end
     
+    if !params["total_time"].blank?
+      @report.total_time = params["broken"]
+    end
+    
     if !params["host"].nil?
       if Host.where(version: version, name: params["host"]).exists? 
         @report.host = Host.where(version: version, name: params["host"]).first 
@@ -192,8 +196,12 @@ class ReportsController < ApplicationController
     end
     
     if !params["custom_params"].nil?
-      # try to parse before
-      @report.custom_params = params["custom_params"].to_json
+      begin
+        json = params["custom_params"].to_json
+      rescue  
+        render text: "ERROR: custom_params is not JSON"  
+      end 
+      @report.custom_params = json
     else
       # do something
     end

@@ -184,7 +184,7 @@ class ReportsController < ApplicationController
     end
     
     if !params["total_time"].blank?
-      @report.total_time = params["broken"]
+      @report.total_time = params["total_time"]
     end
     
     if !params["host"].blank?
@@ -224,7 +224,7 @@ class ReportsController < ApplicationController
 
     respond_to do |format|
       if @report.save 
-        format.json { render :text @report.to_json }
+        format.json { render :text ,@report.to_json.to_s }
         format.html { redirect_to @report, notice: 'Report was successfully created.' }
         format.js
       else

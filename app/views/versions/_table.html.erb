@@ -1,7 +1,7 @@
 <% @builds = @version.builds.desc('_id').limit(@number_of_builds).reverse! %>
 <% graph_hash = Hash.new{ |h,k| h[k] = Hash.new(&h.default_proc) } %>
-<div class="table-responsive ">
-  <table id="big-mama" class="table table-bordered table-hover big-mama">
+<div class="">
+  <table id="big-mama" class="big-mama">
     <thead>
       <th class="first-col text-cut"></th>
       <% builds = @version.builds.desc('_id').limit(@number_of_builds).reverse! %>

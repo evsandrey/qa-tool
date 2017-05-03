@@ -176,10 +176,10 @@
                 <tbody>
                 <% failed_hash.each do |id, rlink| %>
                   <tr>
-                    <td class="text-cut"><%= rlink.test_case_name %></td>
+                    <td  class="first-col text-cut"><%= rlink.test_case_name %></td>
                     <td><%= render :partial => 'reports/icon', :locals => {:report => rlink } %></td>
-                    <td></td>
-                    <td><%= rlink.comment %></td>
+                    <td  class="first-col text-cut"></td>
+                    <td  class="first-col text-cut"><%= rlink.comment %></td>
                   </tr>
                 <% end %>
                 </tbody>
@@ -204,10 +204,10 @@
                 <tbody>
                 <% broken_hash.each do |id, rlink| %>
                   <tr>
-                    <td class="text-cut"><%= rlink.test_case_name %></td>
+                    <td  class="first-col text-cut"><%= rlink.test_case_name %></td>
                     <td><%= render :partial => 'reports/icon', :locals => {:report => rlink } %></td>
-                    <td></td>
-                    <td><%= rlink.comment %></td>
+                    <td  class="first-col text-cut"></td>
+                    <td  class="first-col text-cut"><%= rlink.comment %></td>
                   </tr>
                 <% end %>
                 </tbody>
@@ -232,10 +232,10 @@
                 <tbody>
                 <% passed_hash.each do |id, rlink| %>
                   <tr>
-                    <td class="text-cut"><%= rlink.test_case_name %></td>
+                    <td class="first-col text-cut"><%= rlink.test_case_name %></td>
                     <td><%= render :partial => 'reports/icon', :locals => {:report => rlink } %></td>
-                    <td></td>
-                    <td><%= rlink.comment %></td>
+                    <td class="first-col text-cut"></td>
+                    <td class="first-col text-cut"><%= rlink.comment %></td>
                   </tr>
                 <% end %>
                 </tbody>

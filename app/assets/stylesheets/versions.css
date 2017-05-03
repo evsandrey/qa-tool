@@ -36,8 +36,8 @@ table.big-mama {
 .investigated-code {
     z-index: 300 !important;
     position: absolute;
-    top: 10px;
-    left: 8px;
+    top: 5px;
+    left: 4px;
     height: 25px !important;
     width: 25px !important;
     margin: 0px;
@@ -64,6 +64,6 @@ table.big-mama {
 }
 
 .first-col {
-    max-width: 250px !important;
+    max-width: 350px !important;
     min-width: 150px !important;
 }

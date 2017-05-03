@@ -15,9 +15,14 @@
 <% @build.report_links.each do |rlink| %>
   <% if rlink.result %>
     <% graph_hash['passed'] += 1 %>
-    <% passed_hash[rlink.report_id] = rlink %>
+    <% if rlink.broken == "true" %>
+      <% broken_hash[rlink.report_id] = rlink %>
+    <% else %>
+      <% passed_hash[rlink.report_id] = rlink %>
+    <% end %>
   <% else %>
     <% graph_hash['failed'] += 1 %>
+    <% failed_hash[rlink.report_id] = rlink %>
     <% error_hash[rlink.error].store(rlink.report_id,rlink)  %>
     <% if !rlink.investigation_result.blank? %>
       <% graph_hash['investigated'] += 1 %>

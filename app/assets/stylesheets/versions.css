@@ -67,4 +67,6 @@ table.big-mama {
 .first-col {
     max-width: 350px !important;
     min-width: 150px !important;
+    line-height: 26px !important;
+    max-height: 25px !important;
 }

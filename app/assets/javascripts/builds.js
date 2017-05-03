@@ -12,9 +12,11 @@ function showPieGraph(json) {
     // Mapping of step names to colors.
     var colors = {
       "Passed": "#6ab975",
+      "Broken": "#FF0",
+      "Pending": "#d3d3d3",
       "Failed": "#ff4c4c",
       "Investigated": "#ffae19",
-      "Not investigated": "#000",
+      "Not investigated": "#ff4c4c",
     };
     
     // Total size of all segments; we set this later, after loading the data.

@@ -161,10 +161,13 @@ class ReportsController < ApplicationController
     if !params["test_case"].blank?
       if TestCase.where(version: version, name: params["test_case"]).exists? 
         @report.test_case = TestCase.where(version: version, name: params["test_case"]).first 
-        
       else
         test_case = TestCase.new(name: params["test_case"], version: version)
-        test_case.category = Category.where(version: version).first
+        if ! Category.where(version: version).first.blank?
+          test_case.category = Category.where(version: version).first
+        else
+          render text: "ERROR: Create any category for version before reporting"  and return
+        end
         if test_case.save
           @report.test_case=test_case
         else

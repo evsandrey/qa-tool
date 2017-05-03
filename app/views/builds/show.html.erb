@@ -104,6 +104,9 @@
         <a class="nav-link" href="#failed" role="tab" data-toggle="tab">Failed</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="#broken" role="tab" data-toggle="tab">Broken</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="#passed" role="tab" data-toggle="tab">Passed</a>
       </li>
     </ul>
@@ -159,6 +162,19 @@
               <div class="col-sm-3"></div>
             </div>
           <% end %>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane fade" id="broken">
+        <div class=row>
+          <% broken_hash.each do |id, rlink| %>
+            <div class="row">
+              <div class="col-sm-5"><%= rlink.test_case_name %></div>
+              <div class="col-sm-1"><%= render :partial => 'reports/icon', :locals => {:report => rlink } %></div>
+              <div class="col-sm-3"><%= rlink.comment %></div>
+              <div class="col-sm-3"></div>
+            </div>
+          <% end %>
+        </div>
       </div>
       <div role="tabpanel" class="tab-pane fade" id="passed">
         <div class=row>

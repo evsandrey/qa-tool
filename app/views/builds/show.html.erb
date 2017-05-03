@@ -179,7 +179,7 @@
                   <tr>
                     <td  class="first-col text-cut"><%= rlink.test_case_name %></td>
                     <td><%= render :partial => 'reports/icon', :locals => {:report => rlink } %></td>
-                    <td  class="first-col text-cut"><%= rlink.host.name %></td>
+                    <td  class="first-col text-cut"><%= rlink.host.name if !rlink.host.blank? %></td>
                     <td  class="first-col text-cut"><%= rlink.comment %></td>
                   </tr>
                 <% end %>

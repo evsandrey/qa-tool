@@ -13,6 +13,9 @@ class ReportLink
   field :broken, type: String
   field :total_time, type: String
   
+  belongs_to :host, optional: true
+  
+  
   embedded_in :build
   
   def investigated?

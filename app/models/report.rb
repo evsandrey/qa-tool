@@ -61,6 +61,8 @@ class Report
     r_link.test_case = self.test_case_id
     r_link.test_case_name = self.test_case.name
     
+    r_link.host = self.host if !self.host.blank?
+    
     new ? self.build.report_links << r_link : r_link.save
     self.build.save
 

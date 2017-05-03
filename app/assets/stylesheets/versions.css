@@ -11,6 +11,7 @@ table.big-mama {
 
 .big-mama tr {
     text-align: left !important;
+    line-height: 25px;
     border-bottom: 1px !important;
     border-bottom-color: rgb(221,221,221) !important;
 }

@@ -3,6 +3,7 @@
 <% overall = @build.version.test_cases.count %>
 <% graph_hash = Hash.new{ |h,k| h[k] = Hash.new(&h.default_proc) } %>
 <% error_hash = Hash.new{ |h,k| h[k] = Hash.new(&h.default_proc) } %>
+<% passed_hash = Hash.new{ |h,k| h[k] = Hash.new(&h.default_proc) } %>
 <% graph_hash['passed'] = 0 %>
 <% graph_hash['failed'] = 0 %>
 <% graph_hash['investigated'] = 0 %>
@@ -11,6 +12,7 @@
 <% @build.report_links.each do |rlink| %>
   <% if rlink.result %>
     <% graph_hash['passed'] += 1 %>
+    <% passed_hash[rlink.report_id] = rlink %>
   <% else %>
     <% graph_hash['failed'] += 1 %>
     <% error_hash[rlink.error].store(rlink.report_id,rlink)  %>
@@ -143,7 +145,16 @@
         failed
       </div>
       <div role="tabpanel" class="tab-pane fade" id="passed">
-        passed
+        <div class=row>
+          <% error_hash.each do |id, rlink| %>
+            <div class="row">
+              <div class="col-sm-5"><%= rlink.test_case_name %></div>
+              <div class="col-sm-1"><%= render :partial => 'reports/icon', :locals => {:report => rlink } %></div>
+              <div class="col-sm-3"><%= rlink.comment %></div>
+              <div class="col-sm-3"></div>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

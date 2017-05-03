@@ -9,16 +9,18 @@
 
 <% graph_hash['passed'] = 0 %>
 <% graph_hash['failed'] = 0 %>
+<% graph_hash['broken'] = 0 %>
 <% graph_hash['investigated'] = 0 %>
 <% graph_hash['pending'] = 0 %>
 
 <% @build.report_links.each do |rlink| %>
   <% if rlink.result %>
-    <% graph_hash['passed'] += 1 %>
     <% if rlink.broken == "true" %>
       <% broken_hash[rlink.report_id] = rlink %>
+      <% graph_hash['broken'] += 1 %>
     <% else %>
       <% passed_hash[rlink.report_id] = rlink %>
+      <% graph_hash['passed'] += 1 %>
     <% end %>
   <% else %>
     <% graph_hash['failed'] += 1 %>
@@ -41,6 +43,10 @@
               {
                 "name":"Passed",
                 "size":"'+graph_hash['passed'].to_s+'"
+              },
+              {
+                "name":"Broken",
+                "size":"'+graph_hash['broken'].to_s+'"
               },
               {"name":"Failed",
                 "size":"'+graph_hash['failed'].to_s+'"'+(graph_hash['investigated'] > 0 ? ',

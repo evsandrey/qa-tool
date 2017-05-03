@@ -28,6 +28,10 @@ table.big-mama {
     width:40px !important;
 }
 
+.big-mama tr:hover {
+  background-color: lightyellow !important;
+}
+
 .report-icon {
     height: 35px !important;
     width: 35px !important;

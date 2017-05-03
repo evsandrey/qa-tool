@@ -8,7 +8,7 @@ class HostsController < ApplicationController
   # GET /hosts.json
   def index
     @hosts = Host.where(version_id: @version)
-
+  end
   # GET /hosts/1
   # GET /hosts/1.json
   def show

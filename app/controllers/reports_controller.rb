@@ -13,7 +13,7 @@ class ReportsController < ApplicationController
   # GET /reports
   # GET /reports.json
   def index
-    @q = Report.ransack(params[:q])
+    @q = Report.where(version_id: @version).ransack(params[:q])
     @q.sorts = 'created_at desc' if @q.sorts.empty?
     @reports = @q.result.page params[:page]
     @slider = true

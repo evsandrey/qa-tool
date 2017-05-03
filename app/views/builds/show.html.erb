@@ -104,16 +104,16 @@
   <div class=col-sm-8>
     <ul class="nav nav-tabs" role="tablist">
       <li class="nav-item">
-        <a class="nav-link active" href="#grouped" role="tab" data-toggle="tab">Grouped(<%= error_hash.count.to_s %>)</a>
+        <a class="nav-link active" href="#grouped" role="tab" data-toggle="tab">Errors(<%= error_hash.count.to_s %>)</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#failed" role="tab" data-toggle="tab">Failed()</a>
+        <a class="nav-link" href="#failed" role="tab" data-toggle="tab">Failed(<%= failed_hash.count.to_s %>)</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#broken" role="tab" data-toggle="tab">Broken()</a>
+        <a class="nav-link" href="#broken" role="tab" data-toggle="tab">Broken(<%= broken_hash.count.to_s %>)</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#passed" role="tab" data-toggle="tab">Passed()</a>
+        <a class="nav-link" href="#passed" role="tab" data-toggle="tab">Passed(<%= passed_hash.count.to_s %>)</a>
       </li>
     </ul>
     

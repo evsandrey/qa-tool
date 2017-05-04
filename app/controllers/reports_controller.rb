@@ -227,8 +227,8 @@ class ReportsController < ApplicationController
 
     respond_to do |format|
       if @report.save 
-        format.json { render json: @report }
-        format.html { render json: @report }
+        format.json { render text: "Success: run saved" }
+        format.html { render text: "Success: run saved" }
         format.js
       else
         format.json { render json: @report.errors, status: :unprocessable_entity }

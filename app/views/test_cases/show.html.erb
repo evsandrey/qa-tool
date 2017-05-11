@@ -25,6 +25,7 @@
         <th>Result</th>
         <th>Host</th>
         <th>Time</th>
+        <th>Comment</th>
       </tr>
     </thead>
 
@@ -34,6 +35,8 @@
         <td><%= report.build.nil? ? 'N/A' : (link_to report.build.name, product_version_build_path(@product, @version,report.build)) %></td>
         <td><%= render :partial => 'reports/icon', :locals => {:report => report } %></td>
         <td><%= link_to report.host.name, product_version_host_path(@product, @version,report.host)  if !report.host.nil? %></td>
+        <td><%= report.total_time if !report.total_time.blank?%></td>
+        <td><%= report.comment if !report.comment.blank? %></td>
       </tr>
       <% end %>
       

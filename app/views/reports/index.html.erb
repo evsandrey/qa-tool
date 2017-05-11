@@ -30,7 +30,7 @@
     <div class="col-md-6"><b>Error</b></div> 
   </div>
   
-      <%= @reports.each do |report| %>
+      <% @reports.each do |report| %>
         <div class="row">
           <div class="col-md-1"><%= render :partial => 'reports/icon', :locals => {:report => report } %></div>
           <div class="col-md-3"><%= link_to report.test_case.name, product_version_test_case_path(@product,@version,report.test_case) if !report.test_case.blank?  %></div> 

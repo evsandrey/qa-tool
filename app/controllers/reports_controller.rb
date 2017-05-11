@@ -46,6 +46,9 @@ class ReportsController < ApplicationController
     @report=Report.find(params['report']['report_id'])
     @investigation_status = InvestigationResult.find(params['report']['investigation_result_id'])
     @report.comment = params['report']['comment']
+    if !current_user.nil!
+      @report.user = current_user
+    end
     @report.investigation_result = @investigation_status
     @report.save
   end

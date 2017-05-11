@@ -7,6 +7,7 @@
 <% failed_hash = Hash.new %>
 <% broken_hash = Hash.new %>
 
+
 <% graph_hash['passed'] = 0 %>
 <% graph_hash['failed'] = 0 %>
 <% graph_hash['broken'] = 0 %>
@@ -32,7 +33,9 @@
   <% end %>
 <% end %>
 
-<% graph_hash['pending'] = overall - graph_hash['passed'] - graph_hash['failed'] %>
+<% graph_hash['pending'] = overall - graph_hash['passed'] - graph_hash['failed'] - graph_hash['broken'] %>
+
+<% overall = graph_hash['passed'] + graph_hash['failed'] + graph_hash['broken'] + graph_hash['pending'] %>
 
 <% json = '{"name":"root",
             "children":[
@@ -207,8 +210,8 @@
                   <tr>
                     <td  class="first-col text-cut"><%= rlink.test_case_name %></td>
                     <td><%= render :partial => 'reports/icon', :locals => {:report => rlink } %></td>
-                    <td  class="first-col text-cut"></td>
-                    <td  class="first-col text-cut"><%= rlink.comment %></td>
+                    <td  class="first-col text-cut"><%= rlink.host.name if !rlink.host.blank? %></td>
+                    <td  class="first-col text-cut"><%= rlink.comment if  !rlink.comment.blank?  %></td>
                   </tr>
                 <% end %>
                 </tbody>
@@ -235,8 +238,8 @@
                   <tr>
                     <td class="first-col text-cut"><%= rlink.test_case_name %></td>
                     <td><%= render :partial => 'reports/icon', :locals => {:report => rlink } %></td>
-                    <td class="first-col text-cut"></td>
-                    <td class="first-col text-cut"><%= rlink.comment %></td>
+                    <td  class="first-col text-cut"><%= rlink.host.name if !rlink.host.blank? %></td>
+                    <td  class="first-col text-cut"><%= rlink.comment if  !rlink.comment.blank?  %></td>
                   </tr>
                 <% end %>
                 </tbody>

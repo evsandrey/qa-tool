@@ -37,6 +37,10 @@
         <div class="col-sm-9"><%= @report.broken  %></div>
       </div>
       <% end %>
+      div class="row">
+        <div class="col-sm-3 text-xs-right"><strong>Reported at:</strong></div>
+        <div class="col-sm-9"><%= @report.created_at.strftime("%H:%M  %d.%m") %></div>
+      </div>
       <% if !@report.host.nil? %>
       <div class="row">
         <div class="col-sm-3 text-xs-right"><strong>Host:</strong></div>

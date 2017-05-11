@@ -18,6 +18,7 @@ class Report
                                      :message => 'only (png/gif/jpeg) images'
   
   belongs_to :investigation_result, optional: true
+  belongs_to :user, optional: true
   belongs_to :version
   belongs_to :test_case
   belongs_to :build
@@ -28,10 +29,17 @@ class Report
   paginates_per 100
   
   after_save :link_to_build
+  after_save :set_editor
   after_create :compare_with_prev_build
   after_save :broadcast
   
   accepts_nested_attributes_for :attachments
+  
+  def set_editor
+    if !current_user.nil!
+      self.user = current_user
+    end
+  end
   
   def broadcast
     ActionCable.server.broadcast 'reports_channel', 

@@ -2,7 +2,7 @@
 
 <div class="col-md-1 col-sm-1">
 </div>
-<div class="col-md-10 col-sm-11">
+<div class="col-md-11 col-sm-11">
 <div class="container m-t-1 m-b-1">
   <button id="<%= @report._id %>" class="btn btn-warning pull-md-right m-l-1" onclick='LoadModalWith("/investigation_form",{ id: this.id } )'>Set investigation status</button>
   <%= link_to edit_report_path(@report), class: 'btn btn-info pull-md-right' do %>
@@ -10,7 +10,7 @@
   <% end %>
 </div>
   <div class="row">
-    <div class="col-sm-8">
+    <div class="col-sm-6">
       <div class="row">
         <div class="col-sm-3 text-xs-right"><strong>Product:</strong></div>
         <div class="col-sm-9"><%= link_to @report.build.version.product.name, @report.build.version.product %></div>
@@ -81,7 +81,7 @@
       </div>
       
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-6">
       <div class="text-xs-center mx-auto">
         <img class="mx-auto img-err-screen" src="<%= @report.result ? "/gif/passed.gif" : @report.screenshot %>" onclick='enlargeImage(this.src,this.src)' />
       </div>

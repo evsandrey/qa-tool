@@ -7,7 +7,7 @@ class TestCasesController < ApplicationController
   # GET /test_cases
   # GET /test_cases.json
   def index
-    @test_cases = TestCase.where(version_id: @version._id).reorder(:name)
+    @test_cases = TestCase.where(version_id: @version._id).order(name: :asc)
   end
 
   # GET /test_cases/1

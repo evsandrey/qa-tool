@@ -46,7 +46,7 @@
       <% if !@report.logs_location.nil? %>
       <div class="row">
         <div class="col-sm-3 text-xs-right"><strong>Logs:</strong></div>
-        <div class="col-sm-9"><%= @report.logs_location %></div>
+        <div class="col-sm-9"><a href="file://<%= @report.logs_location %>"><%= @report.logs_location %></a></div>
       </div>
       <% end %>
       <div class="row">

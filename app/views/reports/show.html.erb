@@ -93,7 +93,11 @@
     </div>
     <div class="col-sm-6">
       <div class="text-xs-center mx-auto">
-        <img class="mx-auto img-err-screen" src="<%= @report.result ? "/gif/passed.gif" : @report.screenshot %>" onclick='enlargeImage(this.src,this.src)' />
+        <% if @report.result & @report.broken != "true" %>
+          <img class="mx-auto img-err-screen" src="/gif/passed.gif" onclick='enlargeImage(this.src,this.src)' />
+        <% else %>
+          <img class="mx-auto img-err-screen" src="<%= @report.screenshot %>" onclick='enlargeImage(this.src,this.src)' />
+        <% end %>
       </div>
     </div>
   </div>

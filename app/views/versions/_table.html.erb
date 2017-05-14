@@ -14,7 +14,7 @@
       
     </thead>
     <tbody>
-      <% @categories.each do |category| %>
+      <% @categories.order(name: :asc).each do |category| %>
         <tr id="cat_-<%= category.id %>"> 
           <td colspan = 11 ><b><%=link_to category.name,product_version_category_path(@product,@version,category)  %> </b> </td>
         <tr>

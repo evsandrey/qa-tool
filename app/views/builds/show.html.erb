@@ -163,89 +163,14 @@
       </div>
       </div>
       <div role="tabpanel" class="tab-pane fade" id="failed">
-        <div class=row>
-              <table id="big-mama" class="big-mama">
-                <thead>
-                  <th class="first-col text-cut" >
-                    Test case
-                  </th>
-                  <th></th>
-                  <th class="first-col text-cut">
-                    Host
-                  </th>
-                  <th class="first-col text-cut">
-                    Comment
-                  </th>
-                </thead>
-                <tbody>
-                <% failed_hash.each do |id, rlink| %>
-                  <tr>
-                    <td  class="first-col text-cut"><%= rlink.test_case_name %></td>
-                    <td><%= render :partial => 'reports/icon', :locals => {:report => rlink } %></td>
-                    <td  class="first-col text-cut"><%= rlink.host.name if !rlink.host.blank? %></td>
-                    <td  class="first-col text-cut"><%= rlink.comment %></td>
-                  </tr>
-                <% end %>
-                </tbody>
-              </table>
-        </div>
+        <%= render :partial => 'short_table', :locals => {:hash => failed_hash } %>
       </div>
       <div role="tabpanel" class="tab-pane fade" id="broken">
-        <div class=row>
-              <table id="big-mama" class="big-mama">
-                <thead>
-                  <th class="first-col text-cut">
-                    Test case
-                  </th>
-                  <th></th>
-                  <th class="first-col text-cut">
-                    Host
-                  </th>
-                  <th class="first-col text-cut">
-                    Comment
-                  </th>
-                </thead>
-                <tbody>
-                <% broken_hash.each do |id, rlink| %>
-                  <tr>
-                    <td  class="first-col text-cut"><%= rlink.test_case_name %></td>
-                    <td><%= render :partial => 'reports/icon', :locals => {:report => rlink } %></td>
-                    <td  class="first-col text-cut"><%= rlink.host.name if !rlink.host.blank? %></td>
-                    <td  class="first-col text-cut"><%= rlink.comment if  !rlink.comment.blank?  %></td>
-                  </tr>
-                <% end %>
-                </tbody>
-              </table>
-        </div>
+        <%= render :partial => 'short_table', :locals => {:hash => broken_hash } %>
       </div>
       <div role="tabpanel" class="tab-pane fade" id="passed">
-        <div class=row>
-              <table id="big-mama" class="big-mama">
-                <thead>
-                  <th class="first-col text-cut">
-                    Test case
-                  </th>
-                  <th></th>
-                  <th class="first-col text-cut">
-                    Host
-                  </th>
-                  <th class="first-col text-cut">
-                    Comment
-                  </th>
-                </thead>
-                <tbody>
-                <% passed_hash.each do |id, rlink| %>
-                  <tr>
-                    <td class="first-col text-cut"><%= rlink.test_case_name %></td>
-                    <td><%= render :partial => 'reports/icon', :locals => {:report => rlink } %></td>
-                    <td  class="first-col text-cut"><%= rlink.host.name if !rlink.host.blank? %></td>
-                    <td  class="first-col text-cut"><%= rlink.comment if  !rlink.comment.blank?  %></td>
-                  </tr>
-                <% end %>
-                </tbody>
-              </table>
-        </div>
-      </div>
+        <%= render :partial => 'short_table', :locals => {:hash => passed_hash } %>
+      </div>  
     </div>
   </div>
   <div class=col-sm-2></div>

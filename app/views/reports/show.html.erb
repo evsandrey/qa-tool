@@ -39,7 +39,7 @@
       <% end %>
       <div class="row">
         <div class="col-sm-3 text-xs-right"><strong>Reported at:</strong></div>
-        <div class="col-sm-9"><%= @report.created_at.strftime("%H:%M  %d.%m") %></div>
+        <div class="col-sm-9"><%= @report.created_at.strftime("%d %B %H:%M") %></div>
       </div>
       <% if !@report.host.nil? %>
       <div class="row">

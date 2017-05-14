@@ -1,0 +1,32 @@
+
+        <div class=row>
+              <table id="big-mama" class="big-mama">
+                <thead>
+                  <th></th>
+                  <th class="first-col text-cut" >
+                    Test
+                  </th>
+                  <th class="first-col text-cut">
+                    Host
+                  </th>
+                  <th class="first-col text-cut">
+                    Reported
+                  </th>
+                  <th class="first-col text-cut">
+                    Comment
+                  </th>
+                </thead>
+                <tbody>
+                <% hash.each do |id, rlink| %>
+                  <tr>
+                    <td><%= render :partial => 'reports/icon', :locals => {:report => rlink } %></td>
+                    <td  class="first-col text-cut"><%= rlink.test_case_name %></td>
+                    <td  class="first-col text-cut"><%= rlink.host.name if !rlink.host.blank? %></td>
+                    <td  class="first-col text-cut"><%= rlink.created_at.strftime("%d %B %H:%M") %></td>
+                    <td  class="first-col text-cut"><%= rlink.comment %></td>
+                  </tr>
+                <% end %>
+                </tbody>
+              </table>
+        </div>
+      

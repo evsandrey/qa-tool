@@ -89,15 +89,10 @@
         <div class="col-sm-6"><%= @report.compare_with_prev_build %></div>
         <div class="col-sm-3"></div>
       </div>
-      
     </div>
     <div class="col-sm-6">
       <div class="text-xs-center mx-auto">
-        <% if @report.result & @report.broken != "true" %>
-          <img class="mx-auto img-err-screen" src="/gif/passed.gif" onclick='enlargeImage(this.src,this.src)' />
-        <% else %>
-          <img class="mx-auto img-err-screen" src="<%= @report.screenshot %>" onclick='enlargeImage(this.src,this.src)' />
-        <% end %>
+        <img class="mx-auto img-err-screen" src="<%= (@report.result or @report.broken == "true") ? "/gif/no_image.gif" : @report.screenshot %>" onclick='enlargeImage(this.src,this.src)' />
       </div>
     </div>
   </div>

@@ -1,5 +1,6 @@
 class ReportLink
   include Mongoid::Document
+  include Mongoid::Timestamps
   
   field :report_id, type: String
   field :result, type: Mongoid::Boolean

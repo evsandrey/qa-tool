@@ -1,10 +1,2 @@
-<% if !data['Portal'].nil? %>
-	<% if !data['Portal']['HeaderSection'].nil? %>
-
-
-
-		<br><b>Framework ver: </b><%= !data['Portal']['HeaderSection']['FWver'].nil? ? data['Portal']['HeaderSection']['FWver'] : 'N/A' %>
-		
-
-	<% end %>
-<% end %>
+		<br><b>Start time: </b><%= !data['test_StartTime'].nil? ? data['test_StartTime'] : 'N/A' %>
+		<br><b>End time: </b><%= !data['test_EndTime'].nil? ? data['test_EndTime'] : 'N/A' %>

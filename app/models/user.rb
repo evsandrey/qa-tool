@@ -8,7 +8,7 @@ class User
   has_many :global_messages
   
   field :time_zone,         type: String, default: "UTC"
-  
+  field :open_in_new_tab, type: Boolean, default: false
   
   
   validates_attachment_content_type :avatar, 
@@ -26,6 +26,7 @@ class User
   field :role,               type: String, default: "Regular"
   field :encrypted_password, type: String, default: ""
 
+  
   ## Recoverable
   field :reset_password_token,   type: String
   field :reset_password_sent_at, type: Time

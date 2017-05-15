@@ -9,7 +9,7 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
-    @categories = Category.all
+    @categories = Category.where(version_id: @version)
   end
 
   # GET /categories/1

@@ -30,8 +30,8 @@
       <% Report.where(host_id: @host.id).desc('_id').limit(30).each do |report| %>
       <tr>
         <td><%= render :partial => 'reports/icon', :locals => {:report => report } %></td>
-        <td><%= link_to report.build.name, product_version_build_path(@product, @version,report.build) %></td>
-        <td><%= link_to report.test_case.name, product_version_test_case_path(@product, @version,report.test_case)  if !report.host.nil? %></td>
+        <td class="first-col text-cut" ><%= link_to report.build.name, product_version_build_path(@product, @version,report.build) %></td>
+        <td class="first-col text-cut" ><%= link_to report.test_case.name, product_version_test_case_path(@product, @version,report.test_case)  if !report.host.nil? %></td>
         <td><%= report.created_at.strftime("%d %B %H:%M") if !report.created_at.blank? %></td>
         <td class="first-col text-cut"><%= report.error %></td>
       </tr>

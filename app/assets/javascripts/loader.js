@@ -22,7 +22,6 @@ function LoadSliderWith(url,data){
       method: "GET",
       url: url,
       headers: {
-        'X-Transaction': 'POST Example',
         'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
       },
       data: data,

@@ -16,7 +16,7 @@ class User
                                     :message => 'only (png/gif/jpeg) images'
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable,:token_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
 
   ## Database authenticatable

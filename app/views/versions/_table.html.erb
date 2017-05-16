@@ -29,7 +29,13 @@
                 <% else %>
                   <% graph_hash[build.name]['failed'].instance_of?(Hash) ? graph_hash[build.name]['failed'] = 1 : graph_hash[build.name]['failed'] += 1 %>
                 <% end %>
-                <td id="cell-<%= rlink.report_id %>"> <%= render :partial => 'reports/icon', :locals => {:report => rlink } %>  </td>
+                <td id="cell-<%= rlink.report_id %>"> 
+                  <% if current_user.open_in_new_tab%>  
+                    <%= render :partial => 'reports/icon', :locals => {:report => rlink } %>  
+                  <% else %>
+                    <%= render :partial => 'reports/icon_ajax', :locals => {:report => rlink } %>  
+                  <% end %>
+                </td>
               <% else %>
                 <td> </td>
               <% end %>

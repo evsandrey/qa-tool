@@ -6,6 +6,7 @@ class Report
   field :result, type: Mongoid::Boolean
   field :status, type: String
   field :broken, type: String
+  field :url, type: String
   field :error, type: String
   field :total_time, type: String
   field :logs_location, type: String

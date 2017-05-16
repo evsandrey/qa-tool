@@ -44,7 +44,7 @@ gem "mongoid-paperclip"
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'kaminari'
 
-
+gem 'scout_apm'
 
 
 # gem 'rack-mini-profiler',require: false

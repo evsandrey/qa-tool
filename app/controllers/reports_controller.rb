@@ -4,6 +4,8 @@ class ReportsController < ApplicationController
   before_action :set_product, only: [:index]
   before_action :set_version, only: [:index]
   
+  before_filter :authenticate_user!
+  
   respond_to :html, :js, :json
   
   layout false, :except => [:edit, :show_direct, :index ]

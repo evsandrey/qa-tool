@@ -21,9 +21,6 @@ function LoadSliderWith(url,data){
    $.ajax({
       method: "GET",
       url: url,
-      headers: {
-        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
-      },
       data: data,
       beforeSend: function( xhr ) {
         SliderLinkLoaded=url;

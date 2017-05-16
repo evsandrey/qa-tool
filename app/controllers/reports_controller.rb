@@ -10,7 +10,7 @@ class ReportsController < ApplicationController
   
   layout false, :except => [:edit, :show_direct, :index ]
   
-  skip_before_filter :verify_authenticity_token
+  skip_before_filter :verify_authenticity_token, only: [:report_end]
   
   # GET /reports
   # GET /reports.json

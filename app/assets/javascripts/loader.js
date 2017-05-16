@@ -23,6 +23,9 @@ function LoadSliderWith(url,data){
       url: url,
       data: data,
       beforeSend: function( xhr ) {
+        
+        jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+        
         SliderLinkLoaded=url;
         SliderDataLoaded=data;
         //Start loader

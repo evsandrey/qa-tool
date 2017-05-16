@@ -4,6 +4,7 @@ class ReportLink
   
   field :report_id, type: String
   field :result, type: Mongoid::Boolean
+  field :url, type: String
   field :error, type: String
   field :comment, type: String
   field :investigation_result_id , type: String

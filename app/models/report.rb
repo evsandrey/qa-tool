@@ -34,6 +34,7 @@ class Report
   
   accepts_nested_attributes_for :attachments
   
+  skip_before_filter :verify_authenticity_token
   
   def broadcast
     ActionCable.server.broadcast 'reports_channel', 

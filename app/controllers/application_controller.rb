@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :null_session
+  protect_from_forgery with: :exception
   before_filter :chat_init, :set_timezone
-  # prepend_before_filter :get_auth_token
   
   # before_action :authenticate_user!
   
@@ -58,15 +57,6 @@ class ApplicationController < ActionController::Base
     log.message = message
     log.save
   end
-  
-  private
-    # def get_auth_token
-    # if auth_token = params[:auth_token].blank? && request.headers["X-AUTH-TOKEN"]
-    #   params[:auth_token] = auth_token
-    # end
-  
-  
-end
   
   
 end

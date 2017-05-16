@@ -47,7 +47,7 @@ gem 'kaminari'
 
 
 
-gem 'rack-mini-profiler'
+gem 'rack-mini-profiler',require: false
 
 # For memory profiling (requires Ruby MRI 2.1+)
 gem 'memory_profiler'

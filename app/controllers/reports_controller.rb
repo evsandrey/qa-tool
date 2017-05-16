@@ -32,7 +32,8 @@ class ReportsController < ApplicationController
   def show_direct
     @version = @report.test_case.version
     @product = @version.product
-    @hostname = "http://"+request.host+":"+request.port.to_s || "www.mydomain.com"
+    @hostname = "http://"
+    # @hostname = "http://"+request.host+":"+request.port.to_s || "www.mydomain.com"
   end
   
   # GET /reports/new

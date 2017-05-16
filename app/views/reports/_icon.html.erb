@@ -1,9 +1,6 @@
-<% if current_user.open_in_new_tab %>
-    <div class="report-icon" id="<%= report.class == Report ? report._id : report.report_id %>" <%= raw("data-toggle=\"tooltip\" data-placement=\"right\" title=\"#{report.comment}\"") if !report.comment.blank? %> >
-       <a href="">     
-<% else %>
+
     <div class="report-icon report-loader" id="<%= report.class == Report ? report._id : report.report_id %>" <%= raw("data-toggle=\"tooltip\" data-placement=\"right\" title=\"#{report.comment}\"") if !report.comment.blank? %> >
-<% end %>
+
     <% if report.result %>
         <% if report.broken == "true" %>
             <img class="investigated-bg" src="/icons/Warning.png" />
@@ -18,6 +15,6 @@
             <img class="investigated-bg" src="/icons/Warning.png" />
         <% end %>
     <% end %>
-<%= raw('</a>') if current_user.open_in_new_tab %>
+
 </div>
 

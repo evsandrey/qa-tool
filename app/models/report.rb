@@ -53,7 +53,7 @@ class Report
     end
     r_link.report_id = self._id
     r_link.result = self.result
-    r_link.url = show_direct_report_path(self)
+    r_link.url = report_path(self)
     r_link.error = self.error
     r_link.comment = self.comment
     r_link.broken = self.broken if !self.broken.blank?

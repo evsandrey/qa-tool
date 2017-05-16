@@ -54,6 +54,7 @@ class Report
     r_link.report_id = self._id
     r_link.result = self.result
     r_link.url = Rails.application.routes.url_helpers.show_direct_report_path(self)
+    self.url = r_link.url
     r_link.error = self.error
     r_link.comment = self.comment
     r_link.broken = self.broken if !self.broken.blank?

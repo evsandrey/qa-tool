@@ -13,6 +13,9 @@
                     Reported
                   </th>
                   <th class="first-col text-cut">
+                    Total Time
+                  </th>
+                  <th class="first-col text-cut">
                     Comment
                   </th>
                 </thead>
@@ -23,6 +26,7 @@
                     <td  class="first-col text-cut"><%= rlink.test_case_name %></td>
                     <td  class="first-col text-cut"><%= rlink.host.name if !rlink.host.blank? %></td>
                     <td  class="first-col text-cut"><%= rlink.created_at.strftime("%d %B %H:%M") if !rlink.created_at.blank? %></td>
+                    <td  class="first-col text-cut"><%= rlink.total_time %></td>
                     <td  class="first-col text-cut"><%= rlink.comment %></td>
                   </tr>
                 <% end %>

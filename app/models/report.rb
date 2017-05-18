@@ -58,6 +58,7 @@ class Report
     self.url = r_link.url
     r_link.error = self.error
     r_link.comment = self.comment
+    r_link.created_at = self.created_at
     r_link.broken = self.broken if !self.broken.blank?
     r_link.total_time = self.total_time if !self.total_time.blank?
     r_link.investigation_result_id = self.investigation_result_id if !self.investigation_result_id.blank?

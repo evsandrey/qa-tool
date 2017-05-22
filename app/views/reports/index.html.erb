@@ -23,20 +23,17 @@
 </div>
 
 <div class="table-responsive">
-  <div class="row">
-    <div class="col-md-1"></div>
-    <div class="col-md-3"><b>Test</b></div> 
-    <div class="col-md-2"><b>Host</b></div> 
-    <div class="col-md-6"><b>Error</b></div> 
-  </div>
-  
+    <table>
       <% @reports.each do |report| %>
-        <div class="row">
-          <div class="col-md-1"><%= render :partial => 'reports/icon', :locals => {:report => report } %></div>
-          <div class="col-md-3"><%= link_to report.test_case.name, product_version_test_case_path(@product,@version,report.test_case) if !report.test_case.blank?  %></div> 
-          <div class="col-md-2"><%= link_to report.host.name, product_version_host_path(@product,@version,report.host)  if !report.host.blank?%></div> 
-          <div class="col-md-6 first-col text-cut"><%= report.error %></div> 
-        </div>
+      <tr>
+        <td><%= render :partial => 'reports/icon', :locals => {:report => report } %></td>
+        <td><%= link_to report.test_case.name, product_version_test_case_path(@product,@version,report.test_case) if !report.test_case.blank?  %></td>
+        <td><%= link_to report.host.name, product_version_host_path(@product,@version,report.host)  if !report.host.blank?%></td>
+        <td><% report.created_at %></td>
+        <td><% report.comment %></td>
+        <td class="first-col text-cut"><%= report.error %></td>
+      </tr>
       <% end %>
+    </table>
 </div>
 <%= paginate @reports %>

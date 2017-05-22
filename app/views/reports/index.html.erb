@@ -24,13 +24,21 @@
 
 <div class="table-responsive">
     <table>
+      <tr>
+        <th></th>
+        <th>Test</th>
+        <th>Host</th>
+        <th>Reported</th>
+        <th>Comment</th>
+        <th>Error</th>
+      </tr>
       <% @reports.each do |report| %>
       <tr>
         <td><%= render :partial => 'reports/icon', :locals => {:report => report } %></td>
         <td><%= link_to report.test_case.name, product_version_test_case_path(@product,@version,report.test_case) if !report.test_case.blank?  %></td>
         <td><%= link_to report.host.name, product_version_host_path(@product,@version,report.host)  if !report.host.blank?%></td>
-        <td><% report.created_at %></td>
-        <td><% report.comment %></td>
+        <td><%= report.created_at.strftime("%d %B %H:%M") %></td>
+        <td><%= report.comment %></td>
         <td class="first-col text-cut"><%= report.error %></td>
       </tr>
       <% end %>

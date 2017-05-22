@@ -7,8 +7,9 @@ class User
   has_mongoid_attached_file :avatar
   has_many :global_messages
   
-  field :time_zone,         type: String, default: "UTC"
-  field :open_in_new_tab, type: Boolean, default: false
+  field :time_zone,                        type: String, default: "UTC"
+  field :number_of_builds_to_show,         type: Integer, default: 10
+  field :open_in_new_tab,                  type: Boolean, default: false
   
   
   validates_attachment_content_type :avatar, 

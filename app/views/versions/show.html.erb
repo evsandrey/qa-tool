@@ -15,7 +15,15 @@
 <h1>Version <%= @version.name %> </h1>
 </div>
 
-<% @number_of_builds = 10 %>
+
+<% if current_user.number_of_builds_to_show %>  
+  <% @number_of_builds = current_user.number_of_builds_to_show %>
+<% else %>
+  <% @number_of_builds = 10 %>  
+<% end %>
+
+
+
 <% @categories = @version.categories.asc('name') %>
 
 <%= render partial: "table", locals: {version: @version, product: @product, number_of_builds: @number_of_builds, categories: @categories } %>

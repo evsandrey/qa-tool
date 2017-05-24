@@ -11,6 +11,7 @@
 </div>
   <div class="row">
     <div class="col-sm-6">
+      <br> <!-- TOP SECTION : MAIN DATA (PRODUCT+VERSION+BUILD+HOST) -->
       <div class="row">
         <div class="col-sm-3 text-xs-right"><strong>Product:</strong></div>
         <div class="col-sm-9"><%= link_to @report.build.version.product.name, @report.build.version.product %></div>
@@ -28,7 +29,7 @@
         <div class="col-sm-3 text-xs-right"><strong>Host:</strong></div>
         <div class="col-sm-9"><%= link_to @report.host.name, product_version_host_path(@report.test_case.version.product,@report.test_case.version,@report.host) %></div>
       </div>
-      <br>
+      <br> <!-- MIDDLE SECTION : TEST DETAILS (TEST_CASE+STATUS+DATES) -->
       <% end %>
       <div class="row">
         <div class="col-sm-3 text-xs-right"><strong>Test case:</strong></div>
@@ -47,17 +48,6 @@
       <div class="row">
         <div class="col-sm-3 text-xs-right"><strong>Reported at:</strong></div>
         <div class="col-sm-9"><%= @report.created_at.strftime("%d %B %H:%M") %></div>
-      </div>
-      <% if !@report.logs_location.nil? %>
-      <div class="row">
-        <div class="col-sm-3 text-xs-right"><strong>Logs:</strong></div>
-        <div class="col-sm-9"><a href="file://<%= @report.logs_location %>"><%= @report.logs_location %></a></div>
-      </div>
-      <% end %>
-      <div class="row">
-        <div class="col-sm-3 text-xs-right"><strong>Direct link:</strong></div>
-        <div class="col-sm-6"><%= link_to @hostname+show_direct_report_path(@report).to_s, show_direct_report_path(@report), :target => "_blank" %></div>
-        <div class="col-sm-3"></div>
       </div>
       <div class="row">
       <% if !@report.result %>
@@ -88,6 +78,18 @@
       <div class="row">
         <div class="col-sm-3 text-xs-right"><strong>Notes:</strong></div>
         <div class="col-sm-6"><%= @report.compare_with_prev_build %></div>
+        <div class="col-sm-3"></div>
+      </div>
+      <br> <!-- FINAL SECTION : LINKS (LOGS+DIFFS+DIRECT_LINK as SIGNATURE)-->
+      <% if !@report.logs_location.nil? %>
+      <div class="row">
+        <div class="col-sm-3 text-xs-right"><strong>Logs:</strong></div>
+        <div class="col-sm-9"><a href="file://<%= @report.logs_location %>"><%= @report.logs_location %></a></div>
+      </div>
+      <% end %>
+      <div class="row">
+        <div class="col-sm-3 text-xs-right"><strong>Direct link:</strong></div>
+        <div class="col-sm-6"><%= link_to @hostname+show_direct_report_path(@report).to_s, show_direct_report_path(@report), :target => "_blank" %></div>
         <div class="col-sm-3"></div>
       </div>
     </div>

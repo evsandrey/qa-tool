@@ -8,8 +8,8 @@
     <% end %>
 
     <% if @report.broken == "true" %>
-    <!--<b>Diff: </b>True<br>
-    <b>Diff file link like on old iScala portal:</b>-->
+    <!--<b>Diff: </b>True<br>-->
+    <b>Diff file::</b>
     <% diff_file = @report.logs_location + @report.test_case.name.gsub(".spt","") +prefix+ ".diff" %>
 	<a href="<%= diff_file = @report.logs_location + @report.test_case.name.gsub(".spt","") +prefix+ ".diff" %>">show me</a><br>
 	<!--<b>Diff file link as is:</b> <a href="<%= diff_file %>"><%= diff_file %></a><br>-->

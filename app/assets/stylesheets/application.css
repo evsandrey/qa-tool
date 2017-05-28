@@ -9,6 +9,7 @@
 *= require products
 *= require builds
 *= require reports
+*= require sortable
 *= require main
 */
 

@@ -14,7 +14,8 @@
 
 
 $(document).on('turbolinks:load', function() {
-    console.log("App.js exec")
+    console.log("App.js exec");
+    Sortable.init();
 });
 
 function SwitchCookie(name) {

@@ -6,6 +6,7 @@
 //= require loader
 //= mCustomScrollbar
 //= require cookie
+//= require sortable
 //= require versions
 //= require colorpicker
 //= require d3

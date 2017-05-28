@@ -17,13 +17,14 @@
     <%= render :partial => 'shared/custom_params', :locals => {:custom_params => @test_case.custom_params} %>
 </dl>
 
-<div class="table-responsive">
+<div class="table-responsive" data-sortable >
   <table class="table">
     <thead>
       <tr>
         <th>Build</th>
         <th>Result</th>
         <th>Host</th>
+        <th>Reported at</th>
         <th>Time</th>
         <th>Comment</th>
       </tr>
@@ -35,6 +36,7 @@
         <td><%= report.build.nil? ? 'N/A' : (link_to report.build.name, product_version_build_path(@product, @version,report.build)) %></td>
         <td><%= render :partial => 'reports/icon', :locals => {:report => report } %></td>
         <td><%= link_to report.host.name, product_version_host_path(@product, @version,report.host)  if !report.host.nil? %></td>
+        <td><%= report.created_at.strftime("%d %B %H:%M") if !report.created_at.blank?%></td>
         <td><%= report.total_time if !report.total_time.blank?%></td>
         <td><%= report.comment if !report.comment.blank? %></td>
       </tr>

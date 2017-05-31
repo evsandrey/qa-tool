@@ -9,7 +9,8 @@
 }
 
 .img-err-screen {
- max-height: 200px;
+ min-height: 300px;
+ max-height: 400px;
  max-width: 100%;
  cursor: -webkit-zoom-in; 
 }

@@ -2,7 +2,7 @@
     <% if report.class == Report %>
         <a href='<%= show_direct_report_path(report).to_s %>' target='_blank' data-no-turbolinks='true'>
     <% else %>
-        <a href='<%= report.url if !report.url.blank %>' target='_blank' data-no-turbolinks='true'>
+        <a href='<%= report.url if !report.url.blank? %>' target='_blank' data-no-turbolinks='true'>
     <% end %>
     <% if report.result %>
         <% if report.broken == "true" %>

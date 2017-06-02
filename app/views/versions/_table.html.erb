@@ -2,8 +2,8 @@
 <% graph_hash = Hash.new{ |h,k| h[k] = Hash.new(&h.default_proc) } %>
 <div class="row">
   <div class=col-sm-2></div>
-  <div class=col-sm-8>
-    <table id="big-mama" class="big-mama">
+  <div class=col-sm-8 table >
+    <table id="big-mama" class="big-mama table-striped">
     <thead>
       <th class="first-col text-cut"></th>
       <% builds = @version.builds.desc('_id').limit(@number_of_builds).reverse! %>

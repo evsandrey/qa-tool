@@ -1,10 +1,9 @@
 <div class="report-icon" id="<%= report.class == Report ? report._id : report.report_id %>" <%= raw("data-toggle=\"tooltip\" data-placement=\"right\" title=\"#{report.comment}\"") if !report.comment.blank? %> >
-    <%= if report.class == Report %>
+    <% if report.class == Report %>
         <a href='<%= show_direct_report_path(report).to_s %>' target='_blank' data-no-turbolinks='true'>
     <% else %>
         <a href='<%= report.url if !report.url.blank %>' target='_blank' data-no-turbolinks='true'>
     <% end %>
-    
     <% if report.result %>
         <% if report.broken == "true" %>
             <img class="investigated-bg" src="/icons/Warning.png" />

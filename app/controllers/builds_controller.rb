@@ -9,21 +9,25 @@ class BuildsController < ApplicationController
   # GET /builds.json
   def index
     @builds = Build.where(version: @version)
+    @title=@version.name+' builds'
   end
 
   # GET /builds/1
   # GET /builds/1.json
   def show
+    @title=@build.name+' - '+@version.name
     @slider = true
   end
 
   # GET /builds/new
   def new
     @build = Build.new
+    @title='Adding new build'
   end
 
   # GET /builds/1/edit
   def edit
+    @title='Editing: '+@build.name
   end
 
   # POST /builds

@@ -10,15 +10,18 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+      @title=@product.name
   end
 
   # GET /products/new
   def new
     @product = Product.new
+    @title='Adding new product'
   end
 
   # GET /products/1/edit
   def edit
+      @title='Editing: '+@product.name
   end
 
   # POST /products

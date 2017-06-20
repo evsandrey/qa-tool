@@ -19,6 +19,7 @@ class ReportsController < ApplicationController
     @q.sorts = 'created_at desc' if @q.sorts.empty?
     @reports = @q.result.page params[:page]
     @slider = true
+    @title=@version.name+' reports'
   end
 
   # GET /reports/1
@@ -27,6 +28,7 @@ class ReportsController < ApplicationController
     @version = @report.version
     @product = @version.product
     @hostname = "http://"+request.host+":"+request.port.to_s || "www.mydomain.com"
+    @title = @report.test_case.name+' - '+@report.build.name
   end
 
   def show_direct
@@ -34,6 +36,7 @@ class ReportsController < ApplicationController
     @product = @version.product
     @hostname = "http://"
     # @hostname = "http://"+request.host+":"+request.port.to_s || "www.mydomain.com"
+    @title = @report.test_case.name+' - '+@report.build.name+' - '+@version.name
   end
   
   # GET /reports/new
@@ -43,6 +46,7 @@ class ReportsController < ApplicationController
 
   # GET /reports/1/edit
   def edit
+    @title='Editing report'
   end
   
   def investigation_update 

@@ -8,20 +8,24 @@ class TestCasesController < ApplicationController
   # GET /test_cases.json
   def index
     @test_cases = TestCase.where(version_id: @version._id).order(name: :asc)
+    @title=@version.name+' test cases'
   end
 
   # GET /test_cases/1
   # GET /test_cases/1.json
   def show
+    @title = @test_case.name
   end
 
   # GET /test_cases/new
   def new
     @test_case = TestCase.new
+    @title='Adding new test case'
   end
 
   # GET /test_cases/1/edit
   def edit
+    @title='Editing: '+@test_case.name
   end
 
   # POST /test_cases

@@ -37,7 +37,17 @@
       </div>
   </div>
   <div class="form-group row">
-      <%= f.label :tab_icon, class: "col-sm-2 control-label" %>
+      <%= f.label 'Current version icon', class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+      <% if !@version.tab_icon.nil? %>
+        <img src="<%= @version.tab_icon.url %>" alt="">
+      <%else%>
+        Not uploaded yet
+      <% end %>
+      </div>
+  </div>
+  <div class="form-group row">
+      <%= f.label 'Upload version icon', class: "col-sm-2 control-label" %> <!--f.label :tab_icon-->
       <div class="col-sm-10">
         <label class="fsLabel btn btn-outline-warning m-x-auto d-block m-t-1">
           <span>Upload</span>

@@ -5,7 +5,7 @@
 <div class="col-md-11 col-sm-11">
 <div class="container m-t-1 m-b-1">
   <button id="<%= @report._id %>" class="btn btn-warning pull-md-right m-l-1" onclick='LoadModalWith("/investigation_form",{ id: this.id } )'>Set investigation status</button>
-  <%= link_to edit_report_path(@report), class: 'btn btn-info pull-md-right' do %>
+  <%= link_to edit_report_path(@report), class: 'btn btn-primary pull-md-right' do %>
     Edit
   <% end %>
 </div>
@@ -52,7 +52,7 @@
       <div class="row">
       <% if !@report.result %>
         <div class="col-sm-3 text-xs-right"><strong>Error:</strong></div>
-        <div class="col-sm-9 text-xs-left"><pre><%= @report.error %></pre></div>
+        <div class="col-sm-9 text-xs-left"><%= @report.error %></div><!--<pre></pre>-->
       <% end %>
       </div>
       <% if !@report.total_time.nil? %>

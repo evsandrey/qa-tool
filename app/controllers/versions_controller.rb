@@ -6,21 +6,25 @@ class VersionsController < ApplicationController
   # GET /versions.json
   def index
     @versions = Version.where(product: @product)
+    @title=@product.name+' versions'
   end
 
   # GET /versions/1
   # GET /versions/1.json
   def show
+    @title=@version.name
     @slider = true
   end
 
   # GET /versions/new
   def new
     @version = Version.new
+    @title='Adding new version'
   end
 
   # GET /versions/1/edit
   def edit
+    @title='Editing: '+@version.name
   end
 
   # POST /versions

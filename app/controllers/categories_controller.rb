@@ -10,11 +10,13 @@ class CategoriesController < ApplicationController
   # GET /categories.json
   def index
     @categories = Category.where(version_id: @version)
+    @title=@version.name+' categories'
   end
 
   # GET /categories/1
   # GET /categories/1.json
   def show
+    @title=@category.name
     @slider = true
     @product = @category.version.product
   end
@@ -24,10 +26,12 @@ class CategoriesController < ApplicationController
     @category = Category.new
     @category.version = @version
     @product = @category.version.product
+    @title='Adding new category'
   end
 
   # GET /categories/1/edit
   def edit
+    @title='Editing: '+@category.name
   end
 
   # POST /categories

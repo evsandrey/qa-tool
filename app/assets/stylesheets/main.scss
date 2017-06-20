@@ -1,1 +1,24 @@
 @import "bootstrap"
+
+/* START OVERWRITE BOOTSTRAP SETTINGS HERE */
+body {
+  font-family: sans-serif; /*-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,*/
+}
+
+.btn-outline-primary:hover, .btn-primary, .btn-primary:hover, .btn-primary:active:hover, .btn-primary:active:focus, .btn-primary:active.focus, .btn-primary.active:hover, .btn-primary.active:focus, .btn-primary.active.focus, .open > .btn-primary.dropdown-toggle:hover, .open > .btn-primary.dropdown-toggle:focus, .open > .btn-primary.dropdown-toggle.focus {
+  color: #fff;
+  background-color: #428bca; // default for b4 #0275d8
+  border-color: #428bca;  // default for b4 #0275d8
+}
+
+.btn-outline-primary {
+  color: #428bca;
+  background-image: none;
+  background-color: transparent;
+  border-color: #428bca;
+}
+
+  .container {
+    //max-width: 1590px; //1140->1590
+    //width: 1590px;
+  }

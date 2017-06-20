@@ -6,14 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="turbolinks-root" content="/" >
-    <% if @version.nil? %> 
-      <title>Mega Portal</title>
-    <% else %>
+
+    <% if !@version.nil? %> 
       <% if !@version.tab_icon.nil? %>
         <%= favicon_link_tag @version.tab_icon.url , rel: 'shortcut icon', type: 'image/ico' %>
       <% end %>
-      <title><%= @version.name %></title>
+      <% else %>
+        <%= favicon_link_tag 'favicon.ico' %>
     <% end %>
+
+
+    <title><%=!@title.nil? ? @title : 'Mega Portal'%></title>
+
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -23,7 +27,7 @@
 
   <body>
     <nav class="navbar navbar-dark bg-inverse navbar-fixed-top header">
-    <a class="navbar-brand" href="/">Test server</a>
+    <a class="navbar-brand" href="/">Mega Portal</a>
     <ul class="nav navbar-nav">
       <% if !@product.nil? || (controller.controller_name != "products" && controller.action_name != "new") %>
         <li class="nav-item active">

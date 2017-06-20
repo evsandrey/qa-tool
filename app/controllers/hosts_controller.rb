@@ -8,19 +8,23 @@ class HostsController < ApplicationController
   # GET /hosts.json
   def index
     @hosts = Host.where(version_id: @version)
+    @title='Hosts - '+@version.name
   end
   # GET /hosts/1
   # GET /hosts/1.json
   def show
+    @title=@host.name
   end
 
   # GET /hosts/new
   def new
     @host = Host.new
+    @title='Adding new host'
   end
 
   # GET /hosts/1/edit
   def edit
+    @title='Editing: '+@host.name
   end
 
   # POST /hosts

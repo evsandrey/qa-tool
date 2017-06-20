@@ -98,6 +98,36 @@
           <%= link_to "Users", static_profiles_path, :class => "dropdown-item" %>
         </div>
       </li>
+
+      <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+      <font color='#c2c635'>Portals</font>
+      </a>
+      <div class="dropdown-menu" aria-labelledby="Portals">
+                  <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><font color='#c2c635'>Portals</font><span class="caret"></span></a>
+                  <ul class="dropdown-menu">-->
+                    <%= link_to '10.2.000 CC - A', 'http://mos-aut-ate:3000/categories', {:class => "dropdown-item", :target => "_blank"} %>
+                    <%= link_to '10.1.600 CC - G', 'http://mos-aut-atg:3000/categories', {:class => "dropdown-item", :target => "_blank"} %>
+                    <%= link_to '10.1.600 EX - H', 'http://mos-aut-ath:3000/categories', {:class => "dropdown-item", :target => "_blank"} %>
+                    <%= link_to '10.1.500 CC - D', 'http://mos-aut-atd:3000/categories', {:class => "dropdown-item", :target => "_blank"} %>                 
+                    <%= link_to '10.1.500 EX - F', 'http://mos-aut-atf:3000/categories', {:class => "dropdown-item", :target => "_blank"} %>
+                    <%= link_to '10.1.400 CC - C', 'http://mos-aut-atc:3000/categories', {:class => "dropdown-item", :target => "_blank"} %>
+                    <%= link_to '10.1.400 EX - C2', 'http://mos-aut-atc2:3000/categories', {:class => "dropdown-item", :target => "_blank"} %>
+                    <%= link_to '10.1.600 CC - EWA', 'http://mos-aut-ewa:3000/categories', {:class => "dropdown-item", :target => "_blank"} %>
+                    <%= link_to '10.1.600 CC - MTY', 'http://mos-aut-mty:3000/categories', {:class => "dropdown-item", :target => "_blank"} %>
+                    <%= link_to '10.1.600 CC - MPLS New', 'http://qa-atemplsprtl1:3000/categories', {:class => "dropdown-item", :target => "_blank"} %>
+                    <%= link_to '10.1.600 CC - MPLS Old', 'http://mos-aut-evsdev:3000/categories', {:class => "dropdown-item", :target => "_blank"} %>
+                    <%= link_to "10.1.600 CC - ATE test", 'http://mos-aut-atb:3000/categories', {:class => "dropdown-item", :target => "_blank"} %>
+                    <%= link_to '10.1.600 CC - Dev', 'http://mos-aut-evsdev:3000/categories', {:class => "dropdown-item", :target => "_blank"} %>
+                    <%= link_to 'Multi-ver - iScala', 'http://mos-aut-sca:3000/categories', {:class => "dropdown-item", :target => "_blank"} %>
+                    <%= link_to 'Mega-Portal Main ( .43)',  'http://10.7.92.43:3000', {:class => "dropdown-item", :target => "_blank"} %>
+                    <%= link_to 'Mega-Portal Aux. (.192)',  'http://10.7.92.192:3000', {:class => "dropdown-item", :target => "_blank"} %>
+                    <%= link_to 'Mega-Portal Dev. (.178)',  'http://10.7.92.178:3000', {:class => "dropdown-item", :target => "_blank"} %>
+                    <%= link_to 'All portals list', 'http://mos-aut-ate:3000/manager/list', {:class => "dropdown-item", :style => 'color: #000000', :target => "_blank"} %>
+            </li>
+
+
+
     </ul>
     <% if current_user %>
       <a class="chat-btn btn-danger" onclick="toggleChat()" title="Global chat" ><i class="fa fa-comments"></i></a>

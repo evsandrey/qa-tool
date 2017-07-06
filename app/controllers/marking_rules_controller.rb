@@ -19,6 +19,7 @@ class MarkingRulesController < ApplicationController
   # GET /marking_rules/new
   def new
     @marking_rule = MarkingRule.new
+    @marking_rule.version = @version
   end
 
   # GET /marking_rules/1/edit

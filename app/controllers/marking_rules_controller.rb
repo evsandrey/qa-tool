@@ -87,6 +87,6 @@ class MarkingRulesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def marking_rule_params
-      params.require(:marking_rule).permit(:name, :pattern)
+      params.require(:marking_rule).permit(:name, :pattern, :investigation_result_id, :version_id )
     end
 end

@@ -33,7 +33,7 @@ class MarkingRulesController < ApplicationController
 
     respond_to do |format|
       if @marking_rule.save
-        format.html { redirect_to @marking_rule, notice: 'Marking rule was successfully created.' }
+        format.html { redirect_to product_version_marking_rule_path(@product,@version,@marking_rule), notice: 'Marking rule was successfully created.' }
         format.json { render :show, status: :created, location: @marking_rule }
       else
         format.html { render :new }
@@ -47,7 +47,7 @@ class MarkingRulesController < ApplicationController
   def update
     respond_to do |format|
       if @marking_rule.update(marking_rule_params)
-        format.html { redirect_to @marking_rule, notice: 'Marking rule was successfully updated.' }
+        format.html { redirect_to product_version_marking_rule_path(@product,@version,@marking_rule), notice: 'Marking rule was successfully updated.' }
         format.json { render :show, status: :ok, location: @marking_rule }
       else
         format.html { render :edit }

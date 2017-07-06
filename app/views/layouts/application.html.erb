@@ -62,6 +62,9 @@
           <li class="nav-item active">
             <%= link_to "Builds", product_version_builds_path(@product,@version), :class => "nav-link" %>
           </li>
+          <li class="nav-item active">
+            <%= link_to "Rules", product_version_marking_rules_path(@product,@version), :class => "nav-link" %>
+          </li>
         <% else %>
           <% if !@product.nil? %>
           <li class="nav-item dropdown">

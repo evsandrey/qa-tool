@@ -1,0 +1,15 @@
+<div class="container m-t-1 m-b-1">
+  <%= link_to edit_product_version_marking_rule_path(@product,@version,@marking_rule), class: 'btn btn-primary pull-md-right' do %>
+    Edit
+  <% end %>
+  <h1>Show marking_rule</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Name:</dt>
+  <dd><%= @marking_rule.name %></dd>
+
+  <dt>Pattern:</dt>
+  <dd><%= @marking_rule.pattern %></dd>
+
+</dl>

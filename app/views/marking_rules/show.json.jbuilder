@@ -1,0 +1,1 @@
+json.partial! "marking_rules/marking_rule", marking_rule: @marking_rule

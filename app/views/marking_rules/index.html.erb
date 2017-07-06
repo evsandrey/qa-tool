@@ -1,0 +1,32 @@
+<div class="container m-t-1 m-b-1">
+  <%= link_to new_product_version_marking_rule_path(@product,@version), class: 'btn btn-primary pull-xs-right m-x-auto' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Marking rule
+  <% end %>
+  <h2>marking_rules</h2>
+</div>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+            <th>Name</th>
+            <th>Pattern</th>
+            <th></th>
+        
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @marking_rules) do |marking_rule| %>
+            <td><%= marking_rule.name %></td>
+            <td><%= marking_rule.pattern %></td>
+            <td>
+            <%= link_to 'Show', marking_rule, class: "btn btn-outline-primary btn-sm" %>
+            <%= link_to 'Edit', edit_marking_rule_path(marking_rule), class: "btn btn-primary btn-sm" %>
+            <%= link_to 'Destroy', marking_rule, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+        </td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

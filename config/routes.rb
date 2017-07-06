@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :marking_rules
   resources :categories
   resources :hosts
   resources :reports do
@@ -25,6 +26,7 @@ Rails.application.routes.draw do
       member do
         post '/report', to: "reports#report_end"
       end
+      resources :marking_rules
       resources :builds
       resources :hosts
       resources :categories

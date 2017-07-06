@@ -36,7 +36,7 @@
   <div class="form-group row">
       <%= f.label :'Category', class: "col-sm-2 control-label" %>
       <div class="col-sm-10">
-        <%= f.collection_select :category_id, MarkingRule.all ,:id,:name, include_blank: false %>
+        <%= f.collection_select :marking_rule_id, MarkingRule.all ,:id,:name, include_blank: false %>
       </div>
   </div>
   

@@ -30,6 +30,7 @@ class Report
   paginates_per 100
   
   after_save :link_to_build
+  after_create :apply_rules
   after_create :compare_with_prev_build
   after_save :broadcast
   
@@ -92,6 +93,18 @@ class Report
   def apply_auto_investigation_rules
     true
   end
+  
+  def apply_rules
+    rules = self.version.rules  
+    rules.each do |rule|
+      if self.error.include?(rule.pattern)
+        self.investigation_result = rule.investigation_result
+        self.comment = "Marked by rule:"+rule.name
+      end
+    end
+      
+  end
+  
   
   def compare_with_prev_build
     prev_report = get_prev_build_last_report

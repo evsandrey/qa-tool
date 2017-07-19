@@ -95,7 +95,7 @@ class Report
   end
   
   def apply_rules
-    rules = self.version.rules  
+    rules = self.version.marking_rules  
     rules.each do |rule|
       if self.error.include?(rule.pattern)
         self.investigation_result = rule.investigation_result

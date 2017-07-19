@@ -19,7 +19,7 @@
 
     <tbody>
       <%= content_tag_for(:tr, @marking_rules) do |marking_rule| %>
-            <td><%= link_to marking_rule.name, product_version_category_path(@product,@version,category) %></td>
+            <td><%= link_to marking_rule.name, product_version_marking_rule_path(@product,@version,marking_rule) %></td>
             <td><%= marking_rule.pattern %></td>
             <td>
             <%= link_to 'Show', product_version_marking_rule_path(@product,@version,marking_rule), class: "btn btn-outline-primary btn-sm" %>

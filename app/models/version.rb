@@ -17,6 +17,7 @@ class Version
   has_many :categories, dependent: :destroy
   has_many :hosts, dependent: :destroy
   has_many :reports, dependent: :destroy
+  has_many :marking_rules, dependent: :destroy
   
   has_mongoid_attached_file :tab_icon
   validates_attachment_content_type :tab_icon, content_type: /\Aimage/

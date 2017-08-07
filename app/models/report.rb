@@ -30,8 +30,7 @@ class Report
   paginates_per 100
   
   after_save :link_to_build
-  after_create :apply_rules
-  after_create :compare_with_prev_build
+  after_create :compare_with_prev_build_and_apply_rules
   after_save :broadcast
   
   accepts_nested_attributes_for :attachments
@@ -95,18 +94,20 @@ class Report
   end
   
   def apply_rules
+    
+      
+  end
+  
+  
+  def compare_with_prev_build_and_apply_rules
     rules = self.version.marking_rules  
     rules.each do |rule|
       if self.error.include?(rule.pattern)
         self.investigation_result = rule.investigation_result
         self.comment = "Marked by rule:"+rule.name
+        return ""
       end
     end
-      
-  end
-  
-  
-  def compare_with_prev_build
     prev_report = get_prev_build_last_report
     if !prev_report.nil?
       if prev_report.error == self.error && prev_report.investigated?

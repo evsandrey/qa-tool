@@ -105,6 +105,7 @@ class Report
       if self.error.include?(rule.pattern)
         self.investigation_result = rule.investigation_result
         self.comment = "Marked by rule:"+rule.name
+        self.save
         return ""
       end
     end

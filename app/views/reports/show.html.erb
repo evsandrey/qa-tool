@@ -1,105 +1,57 @@
-<div class="row">
+<style type="text/css">
+td {border:0px; padding-left: 5px !important;height:22px;}
+table {border:0px;} //width:1590px !important; 
+</style>
 
-<div class="col-md-1 col-sm-1">
-</div>
-<div class="col-md-11 col-sm-11">
-<div class="container m-t-1 m-b-1">
-  <button id="<%= @report._id %>" class="btn btn-warning pull-md-right m-l-1" onclick='LoadModalWith("/investigation_form",{ id: this.id } )'>Set investigation status</button>
-  <%= link_to edit_report_path(@report), class: 'btn btn-primary pull-md-right' do %>
-    Edit
-  <% end %>
-</div>
-  <div class="row">
-    <div class="col-sm-6">
-      <br> <!-- TOP SECTION : MAIN DATA (PRODUCT+VERSION+BUILD+HOST) -->
-      <div class="row">
-        <div class="col-sm-3 text-xs-right"><strong>Product:</strong></div>
-        <div class="col-sm-9"><%= link_to @report.build.version.product.name, @report.build.version.product %></div>
-      </div>      
-      <div class="row">
-        <div class="col-sm-3 text-xs-right"><strong>Version:</strong></div>
-        <div class="col-sm-9"><%= link_to @report.build.version.name, product_version_path(@report.build.version.product,@report.build.version) %></div>
-      </div>      
-      <div class="row">
-        <div class="col-sm-3 text-xs-right"><strong>Build:</strong></div>
-        <div class="col-sm-9"><%= link_to @report.build.name, product_version_build_path(@report.build.version.product,@report.build.version,@report.build) %></div>
-      </div>      
-      <% if !@report.host.nil? %>
-      <div class="row">
-        <div class="col-sm-3 text-xs-right"><strong>Host:</strong></div>
-        <div class="col-sm-9"><%= link_to @report.host.name, product_version_host_path(@report.test_case.version.product,@report.test_case.version,@report.host) %></div>
-      </div>
-      <br> <!-- MIDDLE SECTION : TEST DETAILS (TEST_CASE+STATUS+DATES) -->
-      <% end %>
-      <div class="row">
-        <div class="col-sm-3 text-xs-right"><strong>Test case:</strong></div>
-        <div class="col-sm-9"><%= link_to @report.test_case.name, product_version_test_case_path(@report.build.version.product,@report.build.version,@report.test_case) %></div>
-      </div>
-      <div class="row">
-        <div class="col-sm-3  text-xs-right"><strong>Result:</strong></div>
-        <div class="col-sm-9"><%= @report.result ? "Passed" : "Failed"  %></div>
-      </div>
-      <% if !@report.broken.nil? %>
-      <div class="row">
-        <div class="col-sm-3  text-xs-right"><strong>Broken:</strong></div>
-        <div class="col-sm-9"><%= @report.broken  %></div>
-      </div>
-      <% end %>
-      <div class="row">
-        <div class="col-sm-3 text-xs-right"><strong>Reported at:</strong></div>
-        <div class="col-sm-9"><%= @report.created_at.strftime("%d %B %H:%M") %></div>
-      </div>
-      <div class="row">
-      <% if !@report.result %>
-        <div class="col-sm-3 text-xs-right"><strong>Error:</strong></div>
-        <div class="col-sm-9 text-xs-left"><%= @report.error %></div><!--<pre></pre>-->
-      <% end %>
-      </div>
-      <% if !@report.total_time.nil? %>
-      <div class="row">
-        <div class="col-sm-3 text-xs-right"><strong>Total time:</strong></div>
-        <div class="col-sm-9"><%= @report.total_time %></div>
-      </div>
-      <% end %>
-      <div class="row">
-        <div class="col-sm-3 text-xs-right"><strong>Investigation:</strong></div>
-        <div class="col-sm-9"><%= @report.investigation_result.name if !@report.investigation_result.blank? %></div>
-      </div>
-      <div class="row">
-        <div class="col-sm-3 text-xs-right"><strong>Comment:</strong></div>
-        <div class="col-sm-9"><%= @report.comment %></div>
-      </div>
-      <% if !@report.user.nil? %>
-      <div class="row">
-        <div class="col-sm-3 text-xs-right"><strong>Last editor:</strong></div>
-        <div class="col-sm-9"><%= @report.user.email %></div>
-      </div>
-      <% end %>
-      
-      <br> <!-- FINAL SECTION : LINKS (LOGS+DIFFS+DIRECT_LINK as SIGNATURE)-->
-      <% if !@report.logs_location.nil? %>
-      <div class="row">
-        <div class="col-sm-3 text-xs-right"><strong>Logs:</strong></div>
-        <div class="col-sm-9"><a href="file://<%= @report.logs_location %>"><%= @report.logs_location %></a></div>
-      </div>
-      <% end %>
-      <div class="row">
-        <div class="col-sm-3 text-xs-right"><strong>Direct link:</strong></div>
-        <div class="col-sm-6"><%= link_to @hostname+show_direct_report_path(@report).to_s, show_direct_report_path(@report), :target => "_blank" %></div>
-        <div class="col-sm-3"></div>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="text-xs-center mx-auto">
-        <img class="mx-auto img-err-screen" src="<%= (@report.result or @report.broken == "true") ? "/gif/no_image.gif" : @report.screenshot %>" onclick='enlargeImage(this.src,this.src)' />
-      </div>
-    </div>
-  </div>
+<button id="<%= @report._id %>" class="btn btn-warning pull-md-right m-l-1" onclick='LoadModalWith("/investigation_form",{ id: this.id } )'>Set investigation status</button>
+  <%= link_to edit_report_path(@report), class: 'btn btn-primary pull-md-right  m-l-1' do %>Edit<% end %>
+<br><br>
+<table>
+
+<tr><td width="195px"><div class="text-xs-right"><strong>Product:</strong></div></td>
+<td width="450px"><div class="text-xs-left"><%= link_to @report.build.version.product.name, @report.build.version.product %></div></td>
+
+<td rowspan="19" width="945px"><div class="text-xs-right"> <!--805-->
+<img class="mx-auto img-err-screen" src="<%= (@report.result or @report.broken == "true") ? "/gif/no_image.gif" : @report.screenshot %>" onclick='enlargeImage(this.src,this.src)' />
+</div></td>
+
+<tr><td><div class="text-xs-right"><strong>Version:</strong></div></td>
+<td><div class="text-xs-left"><%= link_to @report.build.version.name, product_version_path(@report.build.version.product,@report.build.version) %></div></td></tr>
+
+<tr><td><div class="text-xs-right"><strong>Build:</strong></div></td>
+<td><div class="text-xs-left"><%= link_to @report.build.name, product_version_build_path(@report.build.version.product,@report.build.version,@report.build) %></div></td></tr>
+
+<tr><td><div class="text-xs-right"><strong>Host:</strong></div></td>
+<td><div class="text-xs-left"><%= @report.host ? (link_to @report.host.name, product_version_host_path(@report.test_case.version.product,@report.test_case.version,@report.host)) : 'N/A'%></div></td></tr>
+
+<tr><td><div class="text-xs-right"><strong>Test case:</strong></div></td>
+<td><div class="text-xs-left"><%= link_to @report.test_case.name, product_version_test_case_path(@report.build.version.product,@report.build.version,@report.test_case) %></div></td></tr>
+
+<tr><td><div class="text-xs-right"><strong>Result:</strong></td>
+<td><div class="text-xs-left"><%= @report.result ? "Passed" : "Failed"  %></div></td></tr>
+
+<tr><td><div class="text-xs-right"><strong>Broken:</strong></div></td>
+<td><div class="text-xs-left"><%= @report.broken ? @report.broken : 'N/A' %></div></td></tr>
+
+<tr><td><div class="text-xs-right"><strong>Reported at:</strong></div></td>
+<td><div class="text-xs-left"><%= @report.created_at.strftime("%d %B %H:%M") %></div></td></tr>
+
+<tr><td><div class="text-xs-right"><strong>Total time:</strong></div></td>
+<td><div class="text-xs-left"><%= @report.total_time ? @report.total_time : 'N/A'%></div></td></tr>
+
+<tr><td><div class="text-xs-right"><strong>Investigation:</strong></div></td>
+<td><div class="text-xs-left"><%= !@report.investigation_result.blank? ? @report.investigation_result.name : 'N/A'%></div></td></tr>
+
+<tr><td><div class="text-xs-right"><strong>Comment:</strong></div></td>
+<td><div class="text-xs-left"><%= @report.comment ? @report.comment : 'N/A' %></div></td></tr>
+
+<tr><td><div class="text-xs-right"><strong>Last editor:</strong></div></td>
+<td><div class="text-xs-left"><%= @report.user ? @report.user.email : 'N/A'%></div></td></tr>
+
+<tr><td valign="top"><div class="text-xs-right"><strong>Attachments:</strong></div></td>
+<td><div class="text-xs-left">
   <% if !@report.attachments.nil? %>
-  <div class="m-t-1 m-b-1">
-    <div class="row">
-      <div class="col-sm-2 text-xs-right"><strong>Attachments:</strong></div>
-      <div class="col-sm-10 text-xs-left">
+      <div class="text-xs-left">
         <% @report.attachments.each do |attach| %>
           <% case attach.mime_type %>
             <% when "image/jpg" %>
@@ -112,10 +64,38 @@
               </span>
             <% end %>
         <% end %>      
-      </div>
-    </div>
-  </div>
+              </div>
+       <% else %>
   <% end %>
+  <%='N/A' if @report.attachments.blank? %>
+</div></td></tr>
+
+<tr><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td></tr>
+
+</table>
+
+<table>
+
+<tr><td><div class="text-xs-right"><strong>Direct link:</strong></div></td>
+<td><div class="text-xs-left"><%= link_to @hostname+show_direct_report_path(@report).to_s, show_direct_report_path(@report), :target => "_blank" %></div></td></tr>
+
+<tr><td width="195px"><div class="text-xs-right"><strong>Logs:</strong></div></td>
+<td width="1400px"><div class="text-xs-left"><% if !@report.logs_location.nil? %><a href="file://<%= @report.logs_location %>"><%= @report.logs_location %></a><% end %></div></td></tr>
+
+<tr><td valign="top"><div class="text-xs-right"><strong>Error:</strong></div></td>
+<td><div class="text-xs-left"><%= !@report.error.blank? ? @report.error : 'N/A' %></div></td></tr>
+
+
+</table>
+<br>&nbsp;<br>
+<table>
+<tr><td>&nbsp;</td></tr>
+<tr><td width="195px"><div class="text-xs-right"><strong>Сustom_params:</strong></div></td>
+<td><div class="text-xs-left"></div></td></tr>
+
 <% if JSON.parse(@report.custom_params) %>
   <% cp = JSON.parse(@report.custom_params)%>
   <div class="<%= cp['data_type'] %>">
@@ -125,9 +105,9 @@
     Custom params are not json
     <%= @report.custom_params%>
 <% end %>
-</div>
-</div>
-</div>
+
 <div id="largeImgPanel" onclick="this.style.display='none'">
   <img id="largeImg" />
 </div>
+
+</table>

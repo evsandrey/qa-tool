@@ -1,16 +1,28 @@
-<div class="container m-t-1 m-b-1">
-  <%= link_to new_product_version_build_path(@product,@version), class: 'btn btn-primary pull-xs-right m-x-auto' do %>
+<!--test-->
+<style type="text/css">
+td {padding:3px !important}
+</style>
+
+<table class="align width">
+  <tr><td class="b0 left">
+  <h2>Builds</h2>
+  </td><td class="b0 right">
+  <%= link_to new_product_version_build_path(@product,@version), class: 'btn btn-primary pull-xs-right m-x-auto m-l-1' do %>
     <span class="glyphicon glyphicon-plus"></span>
     New Build
   <% end %>
-  <h2>Builds</h2>
-</div>
+  </td>
+  <tr>
+</table>
 
-<div class="table-responsive">
+<br><br><br><br>
+
+<div class="table-responsive dl-horizontal" style="font-family:Arial;font-size:14px">
   <table class="table">
     <thead>
       <tr>
             <th>Name</th>
+            <th>Created</th>
             <th>Description</th>
             <th></th>
         
@@ -19,8 +31,9 @@
 
     <tbody>
       <%= content_tag_for(:tr, @builds) do |build| %>
-            <td><%= link_to build.name, product_version_build_path(@product,@version,build) %></td>
-            <td><%= build.description %></td>
+            <td style="text-align:left !important;">&nbsp;<%= link_to build.name, product_version_build_path(@product,@version,build) %></td>
+            <td style="text-align:left !important;">&nbsp;<%= build.created_at.strftime("%d %B %H:%M") %></td>
+            <td style="text-align:left !important;">&nbsp;<%= build.description %></td>
             <td>
             <%= link_to 'Show', product_version_build_path(@product,@version,build), class: "btn btn-outline-primary btn-sm" %>
             <%= link_to 'Edit', edit_product_version_build_path(@product,@version,build), class: "btn btn-primary btn-sm" %>

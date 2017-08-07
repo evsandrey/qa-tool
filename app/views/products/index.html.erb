@@ -1,14 +1,25 @@
-<!--<div class="row">-->
-<div class="container m-t-1 m-b-1">
-  <%= link_to new_product_path, class: 'btn btn-primary pull-xs-right m-x-auto' do %>
-    <span class="glyphicon glyphicon-plus"></span><i class="fa fa-plus" aria-hidden="true"></i>
-    New Product
-  <% end %>
-  <h2>Products</h2>
-</div>
-<!--</div>-->
+<style type="text/css">
+.container{max-width:1140px;width:1140px;margin-left:50px;}
+</style>
+
 
 <div class="row">
+
+
+<table style="margin-left:65px;margin-top:7px;margin-bottom:3px;width:1055px !important;">
+  <tr><td class="b0 left">
+  <h2>Products</h2>
+  </td><td class="b0 right">
+  <%= link_to new_product_path, class: 'btn btn-primary pull-right m-l-1' do %><!-- pull-xs-right m-x-auto -->
+    <span class="glyphicon glyphicon-plus"></span><i class="fa fa-plus" aria-hidden="true"></i>
+    New Product
+    <% end %>
+  </td>
+  <tr>
+</table>
+
+<br><br><br><br>
+
   <% @products.each_slice(4) do |group| %>
   <div class="container">
     <div class="row">

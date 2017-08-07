@@ -1,12 +1,18 @@
-<div class="container m-t-1 m-b-1">
-  <%= link_to new_investigation_result_path, class: 'btn btn-primary pull-xs-right m-x-auto' do %>
+<table class="align width">
+  <tr><td class="b0 left">
+  <h2>Investigation results</h2>
+  </td><td class="b0 right">
+  <%= link_to new_investigation_result_path, class: 'btn btn-primary pull-xs-right m-x-auto m-l-1' do %>
     <span class="glyphicon glyphicon-plus"></span>
     New Investigation result
   <% end %>
-  <h2>Investigation_results</h2>
-</div>
+  </td>
+  <tr>
+</table>
 
-<div class="table-responsive">
+<br><br><br><br>
+
+<div class="table-responsive dl-horizontal">
   <table class="table">
     <thead>
       <tr>
@@ -20,9 +26,9 @@
 
     <tbody>
       <%= content_tag_for(:tr, @investigation_results) do |investigation_result| %>
-            <td><%= investigation_result.name %></td>
+            <td style="text-align:left !important;"><%= investigation_result.name %></td>
             <td><%= investigation_result.code %></td>
-            <td><%= investigation_result.description %></td>
+            <td style="text-align:left !important;"><%= investigation_result.description %></td>
             <td>
             <%= link_to 'Show', investigation_result, class: "btn btn-outline-primary btn-sm" %>
             <%= link_to 'Edit', edit_investigation_result_path(investigation_result), class: "btn btn-primary btn-sm" %>

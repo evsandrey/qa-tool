@@ -1,29 +1,33 @@
-<div class="container m-t-1 m-b-1">
+<table class="align width">
+  <tr><td class="b0 left">
   <h2>Reports for <%= @product.name %> <%= @version.name %></h2>
-</div>
+  </td><tr>
+</table>
 
-<div class="container row">
+<br><br><br><br>
+
+<div class="container row" style="padding-left:80px">
 <%= search_form_for @q , url: product_version_reports_path(@product,@version) ,:html => { :class => "form-inline" } do |f| %>
-  <div class="form-group col-sm-3">
+  <div class="form-group">
     <%= f.label "Error" %>
     <%= f.search_field :error_cont, :class => "form-control" %>
   </div>
-  <div class="form-group col-sm-3">
+  <div class="form-group" style="padding-left:25px">
     <%= f.label "Comment" %>
     <%= f.search_field :comment_cont, :class => "form-control" %>
   </div>
-  <div class="form-group col-sm-3">
+  <div class="form-group" style="padding-left:25px">
     <%= f.label "Custom" %>
     <%= f.search_field :custom_params_cont, :class => "form-control" %>
   </div>
-  <div class="form-group col-sm-3 col-sm-bottom">
+  <div class="form-group col-sm-bottom" style="padding-left:30px">
     <%= f.submit "Search", :class => "btn btn-primary" %>
   </div>
 <% end %>
 </div>
-
-<div class="table-responsive">
-    <table class="table table-striped" >
+<br>
+<div class="table-responsive" style="padding-left:65px">
+    <table class="table table-striped">
       <tr>
         <th></th>
         <th>Test</th>
@@ -35,9 +39,9 @@
       <% @reports.each do |report| %>
       <tr>
         <td><%= render :partial => 'reports/icon', :locals => {:report => report } %></td>
-        <td><%= link_to report.test_case.name, product_version_test_case_path(@product,@version,report.test_case) if !report.test_case.blank?  %></td>
-        <td><%= link_to report.host.name, product_version_host_path(@product,@version,report.host)  if !report.host.blank?%></td>
-        <td><%= report.created_at.strftime("%d %B %H:%M") %></td>
+        <td style="text-align:left !important;">&nbsp;<%= link_to report.test_case.name, product_version_test_case_path(@product,@version,report.test_case) if !report.test_case.blank?  %></td>
+        <td style="text-align:left !important;"><%= link_to report.host.name, product_version_host_path(@product,@version,report.host)  if !report.host.blank?%></td>
+        <td style="text-align:left !important;"><%= report.created_at.strftime("%d %B %H:%M") %></td>
         <td><%= report.comment %></td>
         <td class="first-col text-cut"><%= report.error %></td>
       </tr>

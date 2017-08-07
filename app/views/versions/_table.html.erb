@@ -1,26 +1,35 @@
+<style type="text/css">
+table {align-self:left !important;padding-left:45px !important;}
+td {height:23px;}
+body {font-size:16px;} 
+.btn {line-height: 0.8;}
+</style>
+
 <% @builds = @version.builds.desc('_id').limit(@number_of_builds).reverse! %>
 <% graph_hash = Hash.new{ |h,k| h[k] = Hash.new(&h.default_proc) } %>
 <div class="row">
-  <div class=col-sm-2></div>
-  <div class=col-sm-8 table >
-    <table id="big-mama" class="big-mama table-striped">
-    <thead>
-      <th class="first-col text-cut"></th>
+  <!--<div class=col-sm-2></div>-->
+  <div style="align-self:left !important;padding-left:80px !important; float:left !important"><!--class=col-sm-8 -->
+    <table id="big-mama" class="big-mama table-striped" style="margin: 0 auto; float: none !important;">
+    <tbody>
+      <% @categories.order(name: :asc).each do |category| %>
+        <tr style="font-size:14px;" class="first-col text-cut" id="cat_-<%= category.id %>"><!--width="550px"-->
+        <td><!--nr.--></td>
+        <td style="text-align:left !important;"><b>&nbsp;<%=link_to category.name,product_version_category_path(@product,@version,category)  %> </b> </td><!--td colspan = 11 -->
       <% builds = @version.builds.desc('_id').limit(@number_of_builds).reverse! %>
       <% builds.each do |build| %>
       <% @version.build_name_mutator.blank? ? link_name=build.name : link_name=eval(@version.build_name_mutator) %>
-      <th id="build-<%= build.id %>" class="build-head"><%= link_to link_name, product_version_build_path(@product,@version,build), target: "_blank" %></th>
+      <td id="build-<%= build.id %>" class="build-head" width="40px"
+      <%= raw("data-toggle=\"tooltip\" data-placement=\"top\" title=\"#{build.description}\"") if !build.description.blank? %>
+      ><b><%= link_to link_name, product_version_build_path(@product,@version,build), target: "_blank" %></b></td>
       <% end %>
-      
-    </thead>
-    <tbody>
-      <% @categories.order(name: :asc).each do |category| %>
-        <tr id="cat_-<%= category.id %>"> 
-          <td colspan = 11 ><b><%=link_to category.name,product_version_category_path(@product,@version,category)  %> </b> </td>
+          </tr>
         <tr>
+        <% nr = 1 %>
         <% @version.test_cases.where(category_id: category.id).asc('name').each do |test_case| %>
           <tr id="test_case-<%= test_case.id %>"> 
-            <td class="first-col text-cut" >&nbsp;&nbsp;<%= link_to test_case.name , product_version_test_case_path(@product,@version,test_case)%></td>
+            <td style="width:30px;font-size:12px;"><%= if nr<10 then nr.to_s.rjust(2,'0') else nr end %></td>
+            <td class="first-col text-cut" >&nbsp;<%= link_to test_case.name , product_version_test_case_path(@product,@version,test_case)%></td>
             <% builds.each do |build| %>
               <% if !build.report_links.where(test_case: test_case._id).last.nil? %>
                 <% rlink = build.report_links.where(test_case: test_case._id).last %>
@@ -41,6 +50,7 @@
               <% end %>
             <% end %>
           </tr>
+          <% nr += 1 %>
         <% end %>
       <% end %>
     </tbody>

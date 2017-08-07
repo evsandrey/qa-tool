@@ -42,12 +42,12 @@ table.big-mama {
     z-index: 300 !important;
     position: absolute;
     top: 0px;
-    left: 2px;
-    height: 25px !important;
-    width: 25px !important;
+    left: 0px;
+    height: 23px !important;
+    width: 23px !important;
     margin: 0px;
     padding: 0px;
-    padding-top: 3px !important;
+    padding-top: 0px !important;
     font-size: 10px;
     cursor: pointer;
 }
@@ -71,6 +71,6 @@ table.big-mama {
 .first-col {
     max-width: 350px !important;
     min-width: 150px !important;
-    line-height: 26px !important;
-    max-height: 25px !important;
+    line-height: 23px !important;
+    max-height: 23px !important;
 }

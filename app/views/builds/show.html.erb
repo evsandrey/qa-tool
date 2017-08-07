@@ -69,7 +69,7 @@
   <%= link_to product_version_builds_path(@product,@version), class: 'btn btn-outline-primary pull-md-right m-l-1' do %>
     Back
   <% end %>
-  <%= link_to edit_product_version_build_path(@product,@version,@build), class: 'btn btn-primary pull-md-right' do %>
+  <%= link_to edit_product_version_build_path(@product,@version,@build), class: 'btn btn-primary pull-md-right  m-l-1' do %>
     Edit
   <% end %>
   
@@ -124,16 +124,18 @@
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane fade in active" id="grouped">
         <div class=row>
-        <div class=col-sm-10>
+        <div class=col-sm-11>
           <% i=0 %>
           <div id="accordion" role="tablist" aria-multiselectable="true">
-            <% error_hash.each do |err, rlinks| %>
+            <% ord = error_hash.sort_by { |k, v| v.length }.reverse %>
+            <% ord.each do |err, rlinks| %>
             <% i+=1 %>
               <div class="card">
-                <div class="card-header text-cut" role="tab" id="headingOne">
+                <div class="card-header" role="tab" id="headingOne"><!--class: text-cut-->
                     <a data-toggle="collapse" data-parent="#accordion" href="#collapse-<%= i%>" aria-expanded="true" aria-controls="collapse-<%= i%>">
                       <span class="tag tag-danger tag-pill pull-xs-left m-r-1"><%= rlinks.count %></span>
-                      <%= err %>
+                      <table style="table-layout: fixed !important;;max-width:1390px !important;border-width: 0px;"><td style="word-wrap:break-word !important;text-align:left !important;font-size:13px;line-height:13px !important;max-width:1380px !important;border-width: 0px;"><%= err.to_s.first(842) %></td></table> <!--.first(600)-->
+                        <!--padding-left:2px !important;padding-right:3px !important-->
                     </a>
                 </div>
                 <div id="collapse-<%= i%>" class="collapse" role="tabpanel" aria-labelledby="heading-<%= i%>">
@@ -143,16 +145,33 @@
                       <% rlinks.each do |key, rlink| %>
                         <% ids.push(rlink.report_id) %>
                       <% end %>
-                      <a class="btn btn-primary pull-xs-right m-x-auto"  onclick='LoadModalWith("/mass_investigation_form",{ id: <%= ids %> } )' >Set investigation result</a>
+                      <a style="margin-right: 16px !important;"class="btn btn-primary pull-xs-right m-x-auto" onclick='LoadModalWith("/mass_investigation_form",{ id: <%= ids %> } )' >Set investigation result</a>
                     </div>
+                    <table style="width:100% !important;" data-sortable id="big-mama" class="big-mama">
+                    <thead>
+                      <th>Test</th>
+                      <th></th>
+                      <th>Host</th>
+                      <th>Comment</th>
+                    </thead>
+                    <tbody>
                     <% rlinks.each do |key, rlink| %>
-                    <div class="row">
-                      <div class="col-sm-5"><%= rlink.test_case_name %></div>
-                      <div class="col-sm-1"><%= render :partial => 'reports/icon', :locals => {:report => rlink } %></div>
-                      <div class="col-sm-3"><%= rlink.host.name %></div>
-                      <div class="col-sm-3"><%= rlink.comment %></div>
-                    </div>
-                    <% end %>      
+                    <!--<div>class="row"-->
+                      <tr>
+                      <td width="350px" style="text-align: left !important;padding:0px !important;"><%= rlink.test_case_name %></td><!--col-sm-5-->
+                      <td width="30px" style="text-align: center !important;vertical-align: middle !important;color:black !important;padding:0px !important;" id="cell-<%= rlink.report_id %>"><%= render :partial => 'reports/icon', :locals => {:report => rlink } %></td><!--col-sm-1-->
+                      <td width="150px" style="text-align: left !important;padding:0px !important;"><%= rlink.host.name %></td><!--col-sm-3-->
+                      <td width="770px" style="text-align: left !important;padding:0px !important;">
+                      <% our_report = Report.where(_id: rlink.report_id) %>
+                      <% our_report.each do |report| %>
+                      <% cp = JSON.parse(report.custom_params)%>
+                      <%= !rlink.comment.blank? ? rlink.comment : (cp['Main'].to_s+' '+cp['Error1'].to_s) %></td><!--col-sm-3-->
+                      <% end %>
+                      </tr>
+                    <!--</div>-->
+                    <% end %>   
+                    </tbody>
+                    </table>   
                   </div>
                 </div>
               </div>  

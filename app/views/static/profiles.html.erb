@@ -1,5 +1,5 @@
-
-<div class="table-responsive">
+<br>
+<div class="table-responsive dl-horizontal">
   <table class="table">
     <thead>
       <tr>
@@ -16,9 +16,9 @@
     <tbody>
       <%= content_tag_for(:tr, @users) do |user| %>
             <td><img src="<%= user.avatar.url %>" width=30 height=30  class="img-circle" ></td>
-            <td><%= link_to user.email , profile_path(user) %></td>
-            <td><%= user.first_name %></td>
-            <td><%= user.last_name %></td>
+            <td style="text-align:left !important;"><%= link_to user.email , profile_path(user) %></td>
+            <td style="text-align:left !important;"><%= user.first_name %></td>
+            <td style="text-align:left !important;"><%= user.last_name %></td>
             <td><%= user.role %></td>
             <td>
                 <%= link_to 'Show', profile_path(user) , class: "btn btn-outline-primary btn-sm" %>

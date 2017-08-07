@@ -1,12 +1,18 @@
-<div class="container m-t-1 m-b-1">
+<table class="align width">
+  <tr><td class="b0 left">
+  <h1><%= @test_case.name %></h1>
+  </td><td class="b0 right">
   <%= link_to product_version_test_cases_path(@product,@version), class: 'btn btn-outline-primary pull-md-right m-l-1' do %>
     Back
   <% end %>
-  <%= link_to edit_product_version_test_case_path(@product,@version,@test_case), class: 'btn btn-primary pull-md-right' do %>
+  <%= link_to edit_product_version_test_case_path(@product,@version,@test_case), class: 'btn btn-primary pull-md-right  m-l-1' do %>
     Edit
   <% end %>
-  <h1><%= @test_case.name %></h1>
-</div>
+  </td>
+  <tr>
+</table>
+
+<br><br><br><br>
 
 <dl class="dl-horizontal">
   <dt>Name:</dt>
@@ -17,14 +23,13 @@
     <%= render :partial => 'shared/custom_params', :locals => {:custom_params => @test_case.custom_params} %>
 </dl>
 
-<div class="row table">
-  <table class="table-striped big-mama" data-sortable>
+  <table class="table-striped align" data-sortable><!--big-mama -->
     <thead>
       <tr>
         <th>Build</th>
         <th>Result</th>
         <th>Host</th>
-        <th>Reported at</th>
+        <th style="text-align:center !important;">Reported at</th>
         <th>Time</th>
         <th>Comment</th>
       </tr>
@@ -33,9 +38,9 @@
     <tbody>
       <% Report.where(test_case_id: @test_case.id).desc('_id').limit(30).each do |report| %>
       <tr>
-        <td><%= report.build.nil? ? 'N/A' : (link_to report.build.name, product_version_build_path(@product, @version,report.build)) %></td>
+        <td class="left">&nbsp;<%= report.build.nil? ? 'N/A' : (link_to report.build.name, product_version_build_path(@product, @version,report.build)) %></td>
         <td><%= render :partial => 'reports/icon', :locals => {:report => report } %></td>
-        <td><%= link_to report.host.name, product_version_host_path(@product, @version,report.host)  if !report.host.nil? %></td>
+        <td class="left">&nbsp;<%= link_to report.host.name, product_version_host_path(@product, @version,report.host)  if !report.host.nil? %></td>
         <td><%= report.created_at.strftime("%d %B %H:%M") if !report.created_at.blank?%></td>
         <td><%= report.total_time if !report.total_time.blank?%></td>
         <td><%= report.comment if !report.comment.blank? %></td>
@@ -44,4 +49,3 @@
       
     </tbody>
   </table>
-</div>

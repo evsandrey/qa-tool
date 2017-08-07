@@ -1,12 +1,18 @@
-<div class="container m-t-1 m-b-1">
-  <%= link_to new_product_version_test_case_path(@product,@version), class: 'btn btn-primary pull-xs-right m-x-auto' do %>
+<table class="align" style="width:1000px !important">
+  <tr><td class="b0 left">
+  <h2>Test cases for version: <%= @version.name %></h2>
+  </td><td class="b0 right">
+  <%= link_to new_product_version_test_case_path(@product,@version), class: 'btn btn-primary pull-xs-right m-x-auto m-l-1' do %>
     <span class="glyphicon glyphicon-plus"></span>
     New Suite
   <% end %>
-  <h2>Test cases for version <%= @version.name %></h2>
-</div>
+  </td>
+  <tr>
+</table>
 
-<div class="table-responsive">
+<br><br><br><br>
+
+<div class="table-responsive dl-horizontal">
   <table class="table">
     <thead>
       <tr>
@@ -20,9 +26,9 @@
 
     <tbody>
       <%= content_tag_for(:tr, @test_cases) do |test_case| %>
-            <td><%= link_to test_case.name, product_version_test_case_path(@product,@version,test_case) %></td>
-            <td><%= test_case.description %></td>
-            <td><%= test_case.category.name %></td>
+            <td style="text-align:left !important;">&nbsp;<%= link_to test_case.name, product_version_test_case_path(@product,@version,test_case) %></td>
+            <td><%= test_case.description.to_s.first(50) %></td>
+            <td style="text-align:left !important;">&nbsp;<%= test_case.category.name %></td>
             <td>
             <%= link_to 'Edit', edit_product_version_test_case_path(@product,@version,test_case), class: "btn btn-primary btn-sm" %>
             <%= link_to 'Destroy', product_version_test_case_path(@product,@version,test_case), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>

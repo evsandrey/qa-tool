@@ -1,2 +1,8 @@
-		<br><b>Start time: </b><%= !data['test_StartTime'].nil? ? data['test_StartTime'] : 'N/A' %>
-		<br><b>End time: </b><%= !data['test_EndTime'].nil? ? data['test_EndTime'] : 'N/A' %>
+
+
+<%= form_for(@report, html: { class: "form-horizontal", role: "form" }) do |f| %>
+<% if !f.object.custom_params.nil? %>
+  <% JSON.parse(f.object.custom_params).each do |key| %>
+    <tr><td width="195px"><div class="text-xs-right"><strong><%= key[0] %>:</strong></div></td>
+	<td><div class="text-xs-left"><%= key[1] %></div></td></tr>
+<% end %><% end %><% end %>

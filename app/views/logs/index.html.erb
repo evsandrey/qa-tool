@@ -3,14 +3,21 @@
 <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/solarized-dark.min.css" />-->
 <!--<script>hljs.initHighlightingOnLoad();</script>-->
 
-<div class="container m-t-1 m-b-1">
-  <!--<%= link_to new_log_path, class: 'btn btn-primary pull-xs-right m-x-auto' do %>
+<table class="align width">
+  <tr><td class="b0 left">
+  <h2>Logs</h2>
+  </td><td class="b0 right">
+  <!--<%= link_to new_log_path, class: 'btn btn-primary pull-xs-right m-x-auto m-l-1' do %>
          <span class="glyphicon glyphicon-plus"></span>
          New Log
       <% end %>-->
-  <h2>Logs</h2>
-</div>
-<div class="container row">
+  </td>
+  <tr>
+</table>
+
+<br><br><br><br>
+
+<div class="container row align">
 <%= search_form_for @q ,:html => { :class => "form-inline" } do |f| %>
   <div class="form-group col-sm-3">
     <%= f.label "Module" %>
@@ -29,7 +36,8 @@
   </div>
 <% end %>
 </div>
-<div class="container row m-t-1">
+
+<div class="container row m-t-1 align">
   <table class="table table-sm">
   <thead>
     <tr class="bg-info">

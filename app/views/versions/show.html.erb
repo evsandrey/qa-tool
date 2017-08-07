@@ -1,5 +1,7 @@
-
-<div class="container m-t-1 m-b-1">
+<table style="width:1600px !important;margin-left:65px;margin-top:0px;">
+  <tr><td class="b0 left">
+  <h1>Version: <%= @version.name %></h1>
+  </td><td class="b0 right">
   <%= link_to new_product_version_test_case_path(@product,@version), class: 'btn btn-outline-primary pull-md-right m-l-1' do %>
     New test
   <% end %>
@@ -9,12 +11,13 @@
   <%= link_to new_product_version_category_path(@product,@version), class: 'btn btn-outline-primary pull-md-right m-l-1' do %>
     New category
   <% end %>
-  <%= link_to edit_product_version_path(@product,@version), class: 'btn btn-primary pull-md-right' do %>
+  <%= link_to edit_product_version_path(@product,@version), class: 'btn btn-primary pull-md-right  m-l-1' do %>
     Edit
   <% end %>
-<h1>Version <%= @version.name %> </h1>
-</div>
-
+  </td>
+  <td class="b0" width="500px"></td>
+  <tr>
+</table>
 
 <% if current_user.number_of_builds_to_show %>  
   <% @number_of_builds = current_user.number_of_builds_to_show %>

@@ -1,9 +1,20 @@
-<div class="report-icon" id="<%= report.class == Report ? report._id : report.report_id %>" <%= raw("data-toggle=\"tooltip\" data-placement=\"right\" title=\"#{report.comment}\"") if !report.comment.blank? %> >
+<style type="text/css">
+//a {color:black !important;vertical-align: baseline !important; height:23px !important;}
+b {color:black !important;vertical-align: baseline !important;line-height:23px !important;}  
+.investigated-code{vertical-align: baseline !important; height:23px !important;}
+</style>
+
+<div style="height:23px !important;vertical-align: baseline !important" class="report-icon" id="<%= report.class == Report ? report._id : report.report_id %>" 
+    <%= raw("data-toggle=\"tooltip\" data-placement=\"right\" title=\"#{report.comment}\"") if !report.comment.blank? %> >
+
     <% if report.class == Report %>
-        <a href='<%= "/reports/#{report._id}/show_direct" %>' target='_blank' data-no-turbolinks='true'>
+        <a href='<%= "/reports/#{report._id}/show_direct" %>' target='_blank' data-no-turbolinks='true' style="height:23px !important;vertical-align: baseline !important">
     <% else %>
-        <a href='<%= report.url if !report.url.blank? %>' target='_blank' data-no-turbolinks='true'>
+        <a href='<%= report.url if !report.url.blank? %>' target='_blank' data-no-turbolinks='true' style="height:23px !important;vertical-align: baseline !important">
     <% end %>
+
+
+
     <% if report.result %>
         <% if report.broken == "true" %>
             <img class="investigated-bg" src="/icons/Diff.png" />
@@ -20,3 +31,5 @@
     <% end %>
     </a>
 </div>
+
+

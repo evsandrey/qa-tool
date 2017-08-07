@@ -1,11 +1,13 @@
+<%= form_for(@report, html: { class: "form-horizontal", role: "form" }) do |f| %>
+<% if !f.object.custom_params.nil? %>
+  <% JSON.parse(f.object.custom_params).each do |key| %>
+    <tr><td width="195px"><div class="text-xs-right"><strong><%= key[0] %>:</strong></div></td>
+	<td><div class="text-xs-left"><%= key[1] %></div></td></tr>
+<% end %><% end %><% end %>
 
 <% if !data['Portal'].nil? %>
 	<% if !data['Portal']['HeaderSection'].nil? %>
-
-
-
 		<br><b>Framework ver: </b><%= !data['Portal']['HeaderSection']['FWver'].nil? ? data['Portal']['HeaderSection']['FWver'] : 'N/A' %>
-		
-
 	<% end %>
 <% end %>
+

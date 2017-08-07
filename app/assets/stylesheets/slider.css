@@ -1,5 +1,5 @@
 .slider{
-    height: calc(100% - 54px);
+    height: calc(100% - 32px);
     width: 0;
     position: fixed;
     z-index: 1;

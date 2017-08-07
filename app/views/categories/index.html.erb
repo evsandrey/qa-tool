@@ -1,12 +1,18 @@
-<div class="container m-t-1 m-b-1">
-  <%= link_to new_product_version_category_path(@product,@version), class: 'btn btn-primary pull-xs-right m-x-auto' do %>
+<table class="align width">
+  <tr><td class="b0 left">
+  <h2>Categories</h2>
+  </td><td class="b0 right">
+  <%= link_to new_product_version_category_path(@product,@version), class: 'btn btn-primary pull-xs-right m-x-auto m-l-1' do %>
     <span class="glyphicon glyphicon-plus"></span>
     New Category
   <% end %>
-  <h2>Categories</h2>
-</div>
+  </td>
+  <tr>
+</table>
 
-<div class="table-responsive">
+<br><br><br><br>
+
+<div class="table-responsive dl-horizontal">
   <table class="table">
     <thead>
       <tr>
@@ -19,7 +25,7 @@
 
     <tbody>
       <%= content_tag_for(:tr, @categories) do |category| %>
-            <td><%= link_to category.name, product_version_category_path(@product,@version,category)  %></td>
+            <td style="text-align:left !important;"><%= link_to category.name, product_version_category_path(@product,@version,category)  %></td>
             <td><%= category.description %></td>
             <td>
             <%= link_to 'Show', product_version_category_path(@product,@version,category), class: "btn btn-outline-primary btn-sm" %>

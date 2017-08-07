@@ -75,11 +75,7 @@
         <div class="col-sm-9"><%= @report.user.email %></div>
       </div>
       <% end %>
-      <div class="row">
-        <div class="col-sm-3 text-xs-right"><strong>Notes:</strong></div>
-        <div class="col-sm-6"><%= @report.compare_with_prev_build %></div>
-        <div class="col-sm-3"></div>
-      </div>
+      
       <br> <!-- FINAL SECTION : LINKS (LOGS+DIFFS+DIRECT_LINK as SIGNATURE)-->
       <% if !@report.logs_location.nil? %>
       <div class="row">
